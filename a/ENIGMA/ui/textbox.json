@@ -1,0 +1,178 @@
+/*
+ * @Designed: By UIPack Team
+ * @Date: 2018-12-08 23:35:00
+ */
+{
+    "namespace": "textbox",
+    "base@common.text_edit_box": {
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "size": [
+            "100%-34px",
+            27
+        ],
+        "max_length": 512,
+        "$text_box_name": "#message_text_box",
+        "$text_edit_box_content_binding_name": "#message_text_box_content",
+        "$text_background_default": "chat.编辑框",
+        "$text_background_hover": "chat.编辑框",
+        "default_focus_precedence": 1,
+        "$focus_id": "text_edit_box_focus_id",
+        "$focus_override_right": "keyboard_button_focus_id",
+        "$focus_override_left": "host_main_button_focus_id",
+        "bindings": [
+            {
+                "binding_type": "$text_edit_box_enabled_binding_type",
+                "binding_collection_name": "$text_edit_box_grid_collection_name",
+                "binding_name": "$text_box_enabled_binding_name",
+                "binding_name_override": "#enabled"
+            },
+            {
+                "binding_name": "#text_edit_box_focus_override_up",
+                "binding_name_override": "#focus_change_up"
+            },
+            {
+                "binding_name": "#text_edit_box_focus_override_down",
+                "binding_name_override": "#focus_change_down"
+            }
+        ],
+        "button_mappings": [
+            {
+                "from_button_id": "button.menu_select",
+                "to_button_id": "$text_edit_box_selected_to_button_id",
+                "handle_select": true,
+                "handle_deselect": true,
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_select",
+                "to_button_id": "$text_edit_box_selected_to_button_id",
+                "handle_select": false,
+                "handle_deselect": true,
+                "mapping_type": "global",
+                "consume_event": false
+            },
+            {
+                "from_button_id": "button.menu_ok",
+                "to_button_id": "$text_edit_box_selected_to_button_id",
+                "handle_select": true,
+                "handle_deselect": false,
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_ok",
+                "to_button_id": "$text_edit_box_selected_to_button_id",
+                "handle_select": false,
+                "handle_deselect": true,
+                "mapping_type": "global"
+            },
+            {
+                "to_button_id": "$text_edit_box_hovered_button_id",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "$text_edit_box_clear_from_button_id",
+                "to_button_id": "$text_edit_box_clear_to_button_id",
+                "handle_select": false,
+                "handle_deselect": false,
+                "mapping_type": "focused"
+            },
+            {
+                "from_button_id": "button.menu_autocomplete",
+                "to_button_id": "button.chat_autocomplete",
+                "handle_select": true,
+                "handle_deselect": false,
+                "mapping_type": "global"
+            },
+            {
+                "from_button_id": "button.menu_autocomplete_back",
+                "to_button_id": "button.chat_autocomplete_back",
+                "handle_select": true,
+                "handle_deselect": false,
+                "mapping_type": "global"
+            },
+            {
+                "from_button_id": "button.menu_textedit_up",
+                "to_button_id": "button.chat_previous_message",
+                "handle_select": false,
+                "handle_deselect": false,
+                "mapping_type": "focused"
+            },
+            {
+                "from_button_id": "button.menu_textedit_down",
+                "to_button_id": "button.chat_next_message",
+                "handle_select": false,
+                "handle_deselect": false,
+                "mapping_type": "focused"
+            },
+            {
+                "from_button_id": "button.controller_secondary_select",
+                "to_button_id": "button.open_chat_settings",
+                "handle_select": false,
+                "handle_deselect": false,
+                "mapping_type": "global",
+                "ignored": "$is_publish"
+            },
+            {
+                "from_button_id": "button.controller_secondary_select",
+                "to_button_id": "button.mute_chat",
+                "handle_select": false,
+                "handle_deselect": false,
+                "mapping_type": "global",
+                "ignored": "(not $is_publish)"
+            },
+            {
+                "from_button_id": "button.controller_select",
+                "to_button_id": "button.send",
+                "mapping_type": "global",
+                "handle_select": false,
+                "handle_deselect": false
+            },
+            {
+                "from_button_id": "button.controller_start",
+                "to_button_id": "button.send",
+                "mapping_type": "global",
+                "handle_select": false,
+                "handle_deselect": false
+            },
+            {
+                "from_button_id": "button.controller_autocomplete",
+                "to_button_id": "button.chat_autocomplete",
+                "handle_select": false,
+                "handle_deselect": false,
+                "mapping_type": "global"
+            },
+            {
+                "from_button_id": "button.controller_autocomplete_back",
+                "to_button_id": "button.chat_autocomplete_back",
+                "handle_select": false,
+                "handle_deselect": false,
+                "mapping_type": "global"
+            },
+            {
+                "from_button_id": "button.controller_textedit_up",
+                "to_button_id": "button.chat_previous_message",
+                "handle_select": false,
+                "handle_deselect": false,
+                "mapping_type": "focused"
+            },
+            {
+                "from_button_id": "button.controller_textedit_down",
+                "to_button_id": "button.chat_next_message",
+                "handle_select": false,
+                "handle_deselect": false,
+                "mapping_type": "focused"
+            }
+        ]
+    }
+/**
+ * @Date: 
+ * @Made: WeiTzeng制作
+ * @LastEditTime: 
+ */
+/**
+ * @Date: 
+ * @Made: WeiTzeng制作
+ * @LastEditTime: 
+ */
+}

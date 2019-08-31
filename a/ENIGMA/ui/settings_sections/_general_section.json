@@ -1,0 +1,650 @@
+/********************************************************
++*   (c) Mojang. All rights reserved                       *
++*   (c) Microsoft. All rights reserved.                   *
++*********************************************************/
+
+{
+  "namespace": "general_section",
+  
+  "video_section": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%c" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "$education_ios": "($education_edition and $ios)",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "video_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "video_button_inside_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "account_button@settings_common.section_toggle_base": {
+	"$button_type_panel": "settings_common.account_toggle_button_control",
+	"$toggle_view_binding_name": "account_button_toggle",
+    "$toggle_property_bag": {
+      "#panel_title": "store.myAccount"
+    }
+  },
+
+  "account_section": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%c" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "account_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ],
+	"controls": [
+      {
+        "gamertag_controls@settings_common.option_custom_control": {
+          "$show_option_label": false,
+          "$control_name": "general_section.gamertag_controls",
+		  "bindings": [
+            {
+              "binding_name": "#logged_in",
+              "binding_name_override": "#visible"
+            }
+		  ]
+		}
+	  }
+	]
+  },
+  
+  "gamertag_controls": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "size": [ "100%", "100%c" ],
+    "offset": [ 0, 0 ],
+    "controls": [
+	  {
+        "padding_0": {
+          "type": "panel",
+          "size": [ "100%", 10 ]
+        }
+      },
+	  {
+        "icon_panel": {
+          "type": "panel",
+          "size": [ "100%", "100%c" ],
+          "controls": [
+            {
+              "icon_background@manifest_validation.black_background_fill": {
+                "layer": 1,
+                "size": [ 46, 46 ],
+                "controls": [
+                  {
+                    "gamerpic": {
+                      "type": "image",
+                      "size": [ 44, 44 ],
+                      "layer": 2,
+                      "bindings": [
+                        {
+                          "binding_name": "#gamerpic_texture_path",
+                          "binding_name_override": "#texture"
+                        },
+                        {
+                          "binding_name": "#gamerpic_texture_location_type",
+                          "binding_name_override": "#texture_file_system"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+			}
+		  ]
+		}
+	  },
+	  {
+        "padding_1": {
+          "type": "panel",
+          "size": [ "100%", 5 ]
+        }
+      },
+	  {
+        "gamertag_label_panel": {
+          "type": "panel",
+          "size": [ "100%", "100%c" ],
+          "controls": [
+            {
+			  "gamertag_label": {
+                "type": "label",
+                "color": "$main_header_text_color",
+                "size": [ "default", "default" ],
+				"max_size": [ "100% - 2px", "30px" ],
+                "layer": 1,
+                "text": "#gamertag_label",
+                "bindings": [
+                  {
+                    "binding_name": "#gamertag_label"
+                  }
+                ]
+              }
+			}
+		  ]
+		}
+	  },
+	  {
+        "padding_3": {
+          "type": "panel",
+          "size": [ "100%", 10 ]
+        }
+      },
+      {
+        "xboxlive_deep_link_buttons": {
+          "ignored": "($device_must_be_removed_for_xbl_signin or $fire_tv or not $is_pregame or $apple_tv or $disable_gamertag_controls)",
+          "type": "stack_panel",
+          "size": [ "100%", "100%c" ],
+          "controls": [
+            {
+              "action_button_0@settings_common.action_button": {
+                "ignored": "($is_windows_10_mobile)",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$pressed_button_name": "change_gamertag_button",
+                "$button_text": "options.changeGamertag"
+              }
+            },
+			{
+              "spacer_0": {
+                "type": "panel",
+				"ignored": "($is_windows_10_mobile)",
+                "size": [ 0, -1 ]
+              }
+            },
+            {
+              "action_button_1@settings_common.action_button": {
+                "anchor_from": "top_right",
+                "anchor_to": "top_right",
+                "$pressed_button_name": "manage_account_button",
+                "$button_text": "options.manageAccount"
+              }
+            },
+            {
+              "spacer_1": {
+                "type": "panel",
+                "size": [ 0, -0.5 ]
+              }
+            },
+            {
+              "manage_invites_popup_button@settings_common.action_button": {
+                "ignored": "(not $is_holographic and not $fire_tv and not $apple_tv and not $nx_os)",
+                "$pressed_button_name": "button.manage_invites_popup",
+                "$button_text": "options.xboxLive.privacyControl"
+              }
+            },
+            {
+              "link_button@settings_common.link_button": {
+                "ignored": "($is_holographic or $fire_tv or $apple_tv or $education_edition or $nx_os)",
+                "anchor_from": "bottom_right",
+                "anchor_to": "bottom_right",
+                "$button_text": "options.xboxLive.privacyControl",
+                "$focus_id": "manage_invites",
+                "$focus_override_right": "manage_invites",
+                "property_bag": {
+                  "#hyperlink": "https://account.xbox.com/Settings"
+                }
+              }
+            }
+          ]
+        }
+      },
+	  {
+        "spacer_1": {
+          "type": "panel",
+		  "ignored": "($build_platform_UWP or not $is_pregame or $requires_xbl_signin_to_play)",
+          "size": [ 0, 10 ]
+        }
+      },
+      {
+        "sign_out": {
+          "ignored": "($build_platform_UWP or not $is_pregame or $requires_xbl_signin_to_play)",
+          "type": "panel",
+          "size": [ "100%", 30 ],
+          "controls": [
+            {
+              "action_button@settings_common.action_button": {
+                "$pressed_button_name": "sign_out_button",
+                "$button_text": "xbox.signOutLong",
+				"$hover_button_texture": "textures/ui/button_red",
+                "$pressed_button_texture": "textures/ui/button_red_pressed",
+                "anchor_from": "top_right",
+                "anchor_to": "top_right",
+                "offset": [ 0, 0 ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+	
+  // PROFILE button & section
+
+  "profile_button@settings_common.section_toggle_base": {
+    "$toggle_view_binding_name": "profile_button_toggle",
+    "$glyph_texture": "textures/ui/profile_glyph",
+    "$glyph_color_texture": "textures/ui/profile_glyph_color",
+    "$glyph_size": [ 11, 12 ],
+    "$button_text": "stat.generalButton",
+    "$toggle_property_bag": {
+      "#panel_title": "stat.generalButton"
+    }
+  },
+
+    "dev_debug_hud_dropdown_content@settings_common.option_radio_dropdown_group": {
+    "$radio_buttons": [
+      {
+        "@settings_common.radio_with_label": {
+          "$toggle_state_binding_name": "#debug_hud_radio_off",
+          "$radio_label_text": "options.dev_enableDebugHudOverlay.basic"
+        }
+      },
+	  {
+        "@settings_common.radio_with_label": {
+          "$toggle_state_binding_name": "#debug_hud_radio_basic",
+          "$radio_label_text": "options.dev_enableDebugHudOverlay.off"
+        }
+      }
+    ]
+  },
+  
+  "profile_section": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%c" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "$hide_login_button": "($win10_edition or not $is_xboxlive_enabled)",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "profile_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [ 
+      {
+        "option_dropdown_0@settings_common.option_dropdown": {
+          "$option_label": "options.dev_enableDebugHudOverlay",
+          "$dropdown_content": "general_section.dev_debug_hud_dropdown_content",
+          "$dropdown_area": "content_area",
+          "$dropdown_name": "dev_debug_hud_dropdown",
+          "$options_dropdown_toggle_label_binding": "#dev_debug_hud_dropdown_toggle_label",
+          "$option_enabled_binding_name": "#dev_debug_hud_dropdown_enabled",
+          "$dropdown_scroll_content_size": [ "100%", "200%" ]
+        }
+      },
+	  {
+        "option_content_file_log@settings_common.option_toggle": {
+          "$option_label": "options.content_log_file",
+          "$option_binding_name": "#content_log_file",
+          "$option_enabled_binding_name": "#content_log_file_enabled",
+          "$toggle_name": "content_log_file"
+        }
+      },
+      {
+        "option_content_gui_log@settings_common.option_toggle": {
+          "$option_label": "options.content_log_gui",
+          "$option_binding_name": "#content_log_gui",
+          "$option_enabled_binding_name": "#content_log_gui_enabled",
+          "$toggle_name": "content_log_gui"
+        }
+      },
+      {
+        "open_content_log_history@settings_common.action_button": {
+          "$pressed_button_name": "button.open_content_log_history",
+          "$button_text": "contentlog.history.title",
+          "bindings": [
+            {
+              "binding_name": "#content_log_gui_option_enabled",
+              "binding_name_override": "#enabled"
+            }
+          ]
+        }
+      },
+	  {
+        "content_log_section_label_spacer": {
+          "type": "panel",
+          "size": [ "100%", 2 ]
+        }
+      },
+      {
+        "name_controls@settings_common.option_custom_control": {
+          "$option_label": "options.name",
+          "$control_name": "general_section.name_controls",
+          "bindings": [
+            {
+              "binding_name": "#can_change_name",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "auto_update_mode_dropdown@settings_common.option_dropdown": {
+          "ignored": "($is_console or $is_settopbox or $win10_edition or $osx_edition or $education_edition)",
+          "$option_label": "options.autoUpdateMode",
+          "$dropdown_content": "general_section.auto_update_mode_dropdown_content",
+          "$dropdown_area": "content_area",
+          "$dropdown_name": "auto_update_mode_dropdown",
+          "$options_dropdown_toggle_label_binding": "#auto_update_mode_dropdown_toggle_label",
+          "$dropdown_scroll_content_size": [ "100%", "200%" ]
+        }
+      },
+      {
+        "auto_update_enabled_toggle@settings_common.option_toggle": {
+          "ignored": "((not $is_console and not $is_settopbox and not $win10_edition and not $osx_edition) or $nx_os)",
+          "$option_label": "options.autoUpdateEnabled",
+          "$option_binding_name": "#auto_update_enabled",
+          "$toggle_name": "auto_update_enabled"
+        }
+      },
+      {
+        "option_toggle_0@settings_common.option_toggle": {
+          "ignored": "($is_console or $is_settopbox or $win10_edition or $osx_edition)",
+          "$option_label": "options.allowCellularData",
+          "$option_binding_name": "#allow_cellular_data",
+          "$option_enabled_binding_name": "#allow_cellular_data_enabled",
+          "$toggle_name": "allow_cellular_data"
+        }
+      },
+      {
+        "option_toggle_1@settings_common.option_toggle": {
+          "$option_label": "options.websocketEncryption",
+          "$option_binding_name": "#websocket_encryption",
+          "$option_enabled_binding_name": "#websocket_encryption_enabled",
+          "$toggle_name": "websocket_encryption",
+          "ignored": "$console_edition"
+        }
+      },
+      {
+        "link_button@settings_common.link_button": {
+          "ignored": "(not $education_edition or $is_holographic or $fire_tv or $apple_tv)",
+          "$button_text": "options.goToFeedbackWebsite",
+          "property_bag": {
+            "#hyperlink": "https://aka.ms/minecraftedusupport"
+          }
+        }
+      },
+      {
+        "spacer_0": {
+          "type": "panel",
+          "size": [ 0, 2 ]
+        }
+      },
+      {
+        "file_storage_dropdown@settings_common.option_dropdown": {
+          "$option_label": "options.filelocation.title",
+          "ignored": "($is_holographic and $is_reality_mode)",
+          "visible": "($storage_location_switch_enabled and not $gear_vr)",
+          "$dropdown_content": "general_section.file_storage_location_content",
+          "$dropdown_area": "content_area",
+          "$dropdown_name": "file_storage_location",
+          "$option_enabled_binding_name": "#file_storage_location_enabled",
+          "$options_dropdown_toggle_label_binding": "#file_storage_location_toggle_label",
+          "$dropdown_scroll_content_size": [ "100%", "200%" ]
+        }
+      },
+      {
+        "file_storage_spacer": {
+          "ignored": "($is_holographic and $is_reality_mode)",
+          "type": "panel",
+          "visible": "($storage_location_switch_enabled and not $gear_vr)",
+          "size": [ 0, 2 ]
+        }
+      },
+      {
+        "terms_and_conditions_link_button@settings_common.link_button": {
+          "ignored": "($is_holographic or $fire_tv or $apple_tv or not $nx_os)",
+          "$button_text": "options.termsAndConditions",
+          "variables": [
+            {
+              "requires": "(not $nx_os)",
+              "$terms_and_conditions_button_url": "https://aka.ms/minecrafttoc"
+            },
+            {
+              "requires": "($nx_os)",
+              "$terms_and_conditions_button_url": "https://aka.ms/minecrafttoc"
+            }
+          ],
+          "property_bag": {
+            "#hyperlink": "$terms_and_conditions_button_url"
+          }
+        }
+      },
+      {
+        "terms_and_conditions_content_popup_button@settings_common.action_button": {
+          "ignored": "((not $is_holographic and not $fire_tv and not $apple_tv) or not $nx_os)",
+          "$pressed_button_name": "button.terms_and_conditions_popup",
+          "$button_text": "options.termsAndConditions"
+        }
+      },
+      {
+        "attribution_link_button@settings_common.link_button": {
+          "ignored": "($is_holographic or $fire_tv or $apple_tv)",
+          "$button_text": "options.attribution",
+          "variables": [
+            {
+              "requires": "(not $nx_os)",
+              "$attribution_button_url": "https://minecraft.net/attribution"
+            },
+            {
+              "requires": "($nx_os)",
+              "$attribution_button_url": "https://aka.ms/switchattribution"
+            }
+          ],
+          "property_bag": {
+            "#hyperlink": "$attribution_button_url"
+          }
+        }
+      },
+      {
+        "attribution_popup_button@settings_common.action_button": {
+          "ignored": "(not $is_holographic and not $fire_tv and not $apple_tv)",
+          "$pressed_button_name": "button.attribution_popup",
+          "$button_text": "options.attribution"
+        }
+      },
+      {
+        "licensed_content_link_button@settings_common.link_button": {
+          "ignored": "($is_holographic or $fire_tv or $apple_tv or $education_edition)",
+          "$button_text": "options.licensed_content",
+          "$focus_override_down": "FOCUS_OVERRIDE_STOP",
+          "variables": [
+            {
+              "requires": "(not $nx_os)",
+              "$licensed_content_button_url": "https://minecraft.net/licensed-content"
+            },
+            {
+              "requires": "($nx_os)",
+              "$licensed_content_button_url": "https://aka.ms/switchcontent"
+            }
+          ],
+          "property_bag": {
+            "#hyperlink": "$licensed_content_button_url"
+          }
+        }
+      },
+      {
+        "licensed_content_popup_button@settings_common.action_button": {
+          "ignored": "(not $is_holographic and not $fire_tv and not $apple_tv)",
+          "$pressed_button_name": "button.licensed_content_popup",
+          "$button_text": "options.licensed_content",
+          "$focus_override_down": "FOCUS_OVERRIDE_STOP"
+        }
+      },
+      {
+        "third_party_copyright_info_label_panel": {
+          "ignored": "(not $nx_os)",
+          "type": "stack_panel",
+          "orientation": "vertical",
+          "size": [ "100%", "100%c" ],
+          "controls": [
+            {
+              "spacer_0": {
+                "type": "panel",
+                "size": [ "100%", 4 ]
+              }
+            },
+            {
+              "copyright_label": {
+                "type": "label",
+                "color": "$body_text_color",
+                "text": "thirdPartyConsole.copyright"
+              }
+            },
+            {
+              "spacer_1": {
+                "type": "panel",
+                "size": [ "100%", 4 ]
+              }
+            },
+            {
+              "copyright_icon": {
+                "type": "image",
+                "size": [ 117, 41 ],
+                "texture": "textures/ui/third_party_copyright"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "spacer_1": {
+          "type": "panel",
+          "size": [ 0, 4 ]
+        }
+      },
+      {
+        "build_info_label_panel": {
+          "type": "stack_panel",
+          "size": [ "100%", "100%c" ],
+          "controls": [
+            {
+              "build_id_label": {
+                "type": "label",
+                "color": "$body_text_color",
+                "offset": [ 2, 0 ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "text": "#build_id",
+                "bindings": [
+                  {
+                    "binding_name": "#build_id"
+                  }
+                ]
+              }
+            },
+            {
+              "protocol_version_label": {
+                "type": "label",
+                "color": "$body_text_color",
+                "offset": [ 2, 0 ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "text": "#protocol_version",
+                "bindings": [
+                  {
+                    "binding_name": "#protocol_version"
+                  }
+                ]
+              }
+            },
+            {
+              "device_id_label": {
+                "type": "label",
+                "size": [ "100%", "default" ],
+                "color": "$body_text_color",
+                "offset": [ 2, 0 ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "text": "#device_id",
+                "bindings": [
+                  {
+                    "binding_name": "#device_id"
+                  }
+                ]
+              }
+            },
+            {
+              "commerce_id_label": {
+                "type": "label",
+                "color": "$body_text_color",
+                "offset": [ 2, 0 ],
+                "size": [ "100%", "default" ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "text": "#commerce_id",
+                "bindings": [
+                  {
+                    "binding_name": "#commerce_id"
+                  }
+                ]
+              }
+            },
+            {
+              "build_date_label": {
+                "type": "label",
+                "color": "$body_text_color",
+                "offset": [ 2, 0 ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "text": "#build_date",
+                "bindings": [
+                  {
+                    "binding_name": "#build_date"
+                  }
+                ]
+              }
+            },
+            {
+              "world_converter_label": {
+                "type": "label",
+                "color": "$body_text_color",
+                "offset": [ 2, 0 ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "text": "#world_conversion_version",
+                "bindings": [
+                  {
+                    "binding_name": "#world_conversion_version"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  
+  "name_controls": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "size": [ "100%", "100%c" ],
+    "$option_place_holder_text": "options.defaultName",
+    "$max_text_edit_length": 16,
+    "$option_binding_name": "#player_name",
+    "$text_box_name": "player_name_text_box",
+    "$option_enabled_binding_name": "#player_name_enabled",
+    "controls": [
+      { "option_text_edit_control@settings_common.option_text_edit_control": {} }
+    ]
+  }
+}

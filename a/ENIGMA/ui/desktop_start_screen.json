@@ -1,0 +1,61 @@
+/*
+ * @Designed: By UIPack Team
+ * @Date: 2018-12-08 23:26:33
+ */
+{
+  "namespace": "desktop_start",
+  "widgets_panel": {
+    "type": "panel",
+    "controls": [
+      {
+        "dock_bar@ui.dock_bar_panel": {
+          "size": [
+            "100%",
+            "38px"
+          ]
+        }
+      },
+      {
+        "text_panel@start.text_panel": {
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "ignored": "(not $hide_widgets)"
+        }
+      }
+    ]
+  },
+  "home_panel": {
+    "type": "panel",
+    "layer": 1,
+    "controls": [
+      {
+        "dock_bar@ui.dock_bar_panel": {
+          "size": [
+            "100%",
+            "38px"
+          ]
+        }
+      },
+      {
+        "text_panel@start.text_panel": {
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "ignored": "(not $hide_widgets)"
+        }
+      }
+    ]
+  },
+  "start_screen_content": {
+    "type": "panel",
+    "$achievements_ignored|default": false,
+    "$feedback_ignored|default": false,
+    "$store_ignored|default": false,
+    "controls": [
+      {
+        "control_center_panel@desktop_start.home_panel": {
+          "layer": 2
+        }
+      }
+    ]
+  }
+}

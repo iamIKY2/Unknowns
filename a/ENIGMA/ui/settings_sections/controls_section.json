@@ -1,0 +1,114 @@
+/********************************************************
++*   (c) Mojang. All rights reserved                       *
++*   (c) Microsoft. All rights reserved.                   *
++*********************************************************/
+
+{
+  "namespace": "controls_section",
+
+  // Keyboard and Mouse button & section
+
+  "keyboard_and_mouse_button@settings_common.section_toggle_base": {
+    "$toggle_view_binding_name": "keyboard_and_mouse_button_toggle",
+    "$glyph_texture": "textures/ui/keyboard_and_mouse_glyph",
+    "$glyph_color_texture": "textures/ui/keyboard_and_mouse_glyph_color",
+    "$glyph_size": [ 19, 9 ],
+    "$button_text": "options.keyboardAndMouse",
+    "$toggle_property_bag": {
+      "#panel_title": "options.keyboardAndMouse"
+    }
+  },
+  
+  "keyboard_and_mouse_section": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%c" ],
+    "$keymapping_grid_dimension": "#keyboard_standard_grid_dimension",
+    "$keymapping_collection": "keyboard_standard_collection",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "keyboard_and_mouse_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "keyboard_and_mouse_button_inside_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  // Controller button & section
+
+  "controller_button@settings_common.section_toggle_base": {
+    "$toggle_view_binding_name": "controller_button_toggle",
+    "$glyph_texture": "textures/ui/controller_glyph",
+    "$glyph_color_texture": "textures/ui/controller_glyph_color",
+    "$glyph_size": [ 21, 14 ],
+    "$button_text": "options.controller",
+    "$toggle_property_bag": {
+      "#panel_title": "options.controller"
+    }
+  },
+  
+  "controller_section": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%c" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "$keymapping_grid_dimension": "#gamepad_grid_dimension",
+    "$keymapping_collection": "gamepad_collection",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "controller_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "controller_button_inside_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  // Touch button & section
+
+  "touch_button@settings_common.section_toggle_base": {
+    "$toggle_view_binding_name": "touch_button_toggle",
+    "$glyph_texture": "textures/ui/touch_glyph",
+    "$glyph_color_texture": "textures/ui/touch_glyph_color",
+    "$glyph_size": [ 20, 14 ],
+    "$button_text": "options.touch",
+    "$toggle_property_bag": {
+      "#panel_title": "options.touch"
+    }
+  },
+  
+  "touch_section": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%c" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "touch_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "touch_button_inside_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  }
+}

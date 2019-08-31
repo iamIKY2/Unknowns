@@ -1,0 +1,41 @@
+/*
+ * @Designed: By UIPack Team
+ * @Date: 2018-12-08 23:27:59
+ */
+{
+  "namespace": "patch_notes",
+  "patch_notes_screen@common.base_screen": {
+    "$screen_animations": [
+      "@common.screen_exit_animation_push_fade",
+      "@common.screen_exit_animation_pop_fade",
+      "@common.screen_entrance_animation_push_fade",
+      "@common.screen_entrance_animation_pop_fade"
+    ],
+    "$screen_content": "patch_notes.patch_notes_dialog"
+  },
+  "patch_notes_dialog": {
+    "type": "panel",
+    "size": [
+      "100%",
+      "100%"
+    ],
+    "controls": [
+      {
+        "common_panel@ui.flat_screen": {
+          "$content_panel": "patch_notes.patch_notes_content",
+          "$screen_title_offset": [
+            0,
+            -3
+          ],
+          "$title_text": "patch_notes.title",
+          "$screen_subtitle_offset": [
+            0,
+            11
+          ],
+          "$subtitle_text": "#dialog_title",
+          "$binding_screen_subtitle": "#dialog_title"
+        }
+      }
+    ]
+  }
+}

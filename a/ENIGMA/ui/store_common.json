@@ -1,0 +1,49 @@
+/*
+ * @Designed: By UIPack Team
+ * @Date: 2018-12-08 22:46:16
+ */
+
+{
+  "namespace": "common_store",
+  
+  //--------------------------------------------------------------------------------
+  // Back Button
+  //--------------------------------------------------------------------------------
+
+  "back_content_panel": {
+    "type": "panel",
+	"$back_button_text|default": "gui.back",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size":  "$bs",
+    "variables": [
+      {
+        "requires": "($pocket_screen or $is_holographic)",
+        "$bs":  [ "100%c+2px", "100%c-3px" ]
+      },
+      {
+        "requires": "$desktop_screen",
+        "$bs":  [ "100%c", "100%c" ]
+      }
+    ],
+    "controls": [
+      {
+        "back_button@common.back_button": {
+      "$button_text": "$back_button_text",
+      "offset":"$bo",
+      "variables": [
+        {
+          "requires": "($pocket_screen or $is_holographic)",
+          "$bo":  [ -2, -1 ]
+        },
+        {
+          "requires": "$desktop_screen",
+          "$bo":  [ 0, 0 ]
+        }
+      ],
+      "layer": 200 //This should always be on top, let's ensure that
+        }
+      }
+    ]
+  }
+}

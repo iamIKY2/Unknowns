@@ -1,0 +1,121 @@
+/*
+ * @Designed: By UIPack Team
+ * @Date: 2018-12-08 22:46:07
+ */
+
+{
+  "namespace": "bed",
+
+  // Screen //
+  
+  "title_label": {
+    "type": "label",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "text": "Zzz...",
+	"font_size": "extra_large" //extra_large
+  },
+  
+  "wake_up_button_panel": {
+    "type": "stack_panel",
+	"alpha": "@common_store.screen_fade_in_alpha_anim",
+	"propagate_alpha": true,
+    "disable_anim_fast_forward": true,
+    "orientation": "horizontal",
+    "size": [ "232px", "30px" ],
+    "controls": [
+      {
+        "wake_up_button@common_buttons.light_text_button": {
+          "layer": 1,
+          "size": [ "50% - 1px", "100%" ],
+          "$button_text": "multiplayer.stopSleeping",
+		  "$pressed_button_name": "button.wake_up_button",
+          "button_mappings": [
+            {
+              "from_button_id": "button.menu_select",
+              "to_button_id": "button.wake_up_button",
+              "mapping_type": "pressed"
+            },
+            {
+              "from_button_id": "button.menu_ok",
+              "to_button_id": "button.wake_up_button",
+              "mapping_type": "pressed"
+            }
+          ]
+        }
+      },
+      {
+        "spacer": {
+          "type": "panel",
+          "size": [ 2, 0 ]
+        }
+      },
+      {
+        "chat_button@common_buttons.light_text_button": {
+          "layer": 1,
+		  "size": [ "50% - 1px", "100%" ],
+          "$button_text": "multiplayer.inBedOpenChat",
+		  "$pressed_button_name": "button.chat",
+          "button_mappings": [
+            {
+              "from_button_id": "button.menu_select",
+              "to_button_id": "button.chat",
+              "mapping_type": "pressed"
+            },
+            {
+              "from_button_id": "button.menu_ok",
+              "to_button_id": "button.chat",
+              "mapping_type": "pressed"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  
+  "a_button_panel": {
+    "type": "panel",
+    "size": [ "100%c", 26 ],
+    "controls": [
+      {
+        "gamepad_helper_a@common.gamepad_helper_a": {
+          "$icon_text_color": "$gamepad_button_generic_text_color",
+          "$icon_description_bind": "controller.buttonTip.select",
+          "$icon_description_bind_type": "none"
+        }
+      }
+    ]
+  },
+
+  "in_bed_screen_content": {
+    "type": "panel",
+    "controls": [
+	  { "title_label@bed.title_label": { } },
+	  {
+        "wake_up_button_panel": {
+          "type": "stack_panel",
+          "orientation": "vertical",
+          "size": [ "232px" , "50% - 15px" ],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+		  "controls": [
+		    {
+              "spacer0": {
+                "type": "panel",
+                "size": [ 0, "50% - 15px" ]
+              }
+            },
+		    { "wake_up_button_panel@bed.wake_up_button_panel": { } },
+			{
+              "spacer1": {
+                "type": "panel",
+                "size": [ 0, "5px" ]
+              }
+            },
+			{ "select_button@bed.a_button_panel": { } }
+		  ]
+		}
+	  }
+    ]
+  }
+}

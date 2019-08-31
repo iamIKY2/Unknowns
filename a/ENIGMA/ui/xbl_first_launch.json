@@ -1,0 +1,197 @@
+/*
+ * @Designed: By UIPack Team
+ * @Date: 2018-12-08 22:58:43
+ */
+{
+    "namespace": "xbl_first_launch",
+    "xbl_first_launch_screen@common.base_screen": {
+        "button_mappings": [
+            {
+                "from_button_id": "button.menu_cancel",
+                "to_button_id": "button.menu_exit",
+                "mapping_type": "global"
+            }
+        ],
+        "$is_full_screen_layout": true,
+        "$screen_content": "xbl_first_launch.xbl_first_launch_screen_content"
+    },
+    "button_label": {
+        "type": "label",
+        "anchor_from": "central",
+        "anchor_to": "central",
+        "size": [
+            "default",
+            "default"
+        ],
+        "text": "xbox.signinFree",
+        "color": "$text_color"
+    },
+    "xbl_signin_label": {
+        "type": "panel",
+        "layer": 2,
+        "controls": [
+            {
+                "button_label@xbl_first_launch.button_label": {
+                    "ignored": "($hide_xbox_live_icon)"
+                }
+            },
+            {
+                "nx_button_label@xbl_first_launch.button_label": {
+                    "ignored": "(not $hide_xbox_live_icon)"
+                }
+            }
+        ]
+    },
+    "main_panel": {
+        "type": "panel",
+        "offset": [
+            0,
+            0
+        ],
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "controls": [
+            {
+                "main_control": {
+                    "type": "stack_panel",
+                    "size": [
+                        "100%",
+                        "100%c"
+                    ],
+                    "controls": [
+                        {
+                            "screen_title": {
+                                "type": "panel",
+                                "size": [
+                                    "100%",
+                                    "100%c"
+                                ],
+                                "controls": [
+                                    {
+                                        "title": {
+                                            "type": "label",
+                                            "layer": 2,
+                                            "font_scale_factor": 2,
+                                            "text": "xblLogin.LoginMessageTitle",
+                                            "size": [
+                                                "default",
+                                                "default"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "screen_message": {
+                                "type": "panel",
+                                "size": [
+                                    "100%",
+                                    "100%c"
+                                ],
+                                "controls": [
+                                    {
+                                        "message": {
+                                            "type": "label",
+                                            "layer": 2,
+                                            "text_alignment": "center",
+                                            "font_type": "smooth",
+                                            "size": [
+                                                "default",
+                                                "default"
+                                            ],
+                                            "text": "#message",
+                                            "bindings": [
+                                                {
+                                                    "binding_name": "#message"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "spacer_0": {
+                                "type": "panel",
+                                "size": [
+                                    0,
+                                    15
+                                ]
+                            }
+                        },
+                        {
+                            "sign_in_button": {
+                                "type": "panel",
+                                "size": [
+                                    "100%",
+                                    "100%c"
+                                ],
+                                "controls": [
+                                    {
+                                        "sign_in_button@xbl_first_launch.xbl_signin_button": {
+                                            "size": [
+                                                "50%",
+                                                30
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "spacer_1": {
+                                "type": "panel",
+                                "size": [
+                                    0,
+                                    5
+                                ]
+                            }
+                        },
+                        {
+                            "cancel_button": {
+                                "type": "panel",
+                                "size": [
+                                    "100%",
+                                    "100%c"
+                                ],
+                                "controls": [
+                                    {
+                                        "cancel_button@coin_purchase.cancel_button": {
+                                            "$button_text": "xbox.notnow"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "xbl_first_launch_screen_content": {
+        "type": "panel",
+        "controls": [
+            {
+                "back@ui.bgback": {}
+            },
+            {
+                "root_panel": {
+                    "type": "panel",
+                    "controls": [
+                        {
+                            "gamepad_helpers@gamepad_helpers": {}
+                        },
+                        {
+                            "main_panel@main_panel": {
+                                "layer": 1
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

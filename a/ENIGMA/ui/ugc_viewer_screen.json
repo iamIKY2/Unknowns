@@ -1,0 +1,157 @@
+/*
+ * @Designed: By UIPack Team
+ * @Date: 2019-4-5
+ */
+{
+  "namespace": "ugc_viewer",
+  "main_panel": {
+    "type": "panel",
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "size": [
+      "100%",
+      "100%c"
+    ],
+    "controls": [
+      {
+        "scrolling_panel@common.scrolling_panel": {
+          "$scroll_size": [
+            5,
+            "100%-4px"
+          ],
+          "$scrolling_content": "ugc_viewer.scrolling_content",
+          "$scroll_bar_left_padding_size": [
+            0,
+            0
+          ],
+          "$scroll_bar_right_padding_size": [
+            3,
+            0
+          ],
+          "$show_background": false
+        }
+      }
+    ]
+  },
+  "section_title_label": {
+    "type": "label",
+    "color": "$title_text_color",
+    "text": "seedPicker.title"
+  },
+  "search_box@common.text_edit_box": {
+    "size": [
+      "100%",
+      "100%"
+    ],
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "$text_edit_box_content_binding_name": "#search_box_binding",
+    "$text_box_name": "#search_box_name",
+    "$place_holder_control": "ugc_viewer.place_holder_control",
+    "$place_holder_text": "seedPicker.search"
+  },
+  "world_label": {
+    "type": "label",
+    "color": "$text_color",
+    "text": "#text",
+    "size": [ "100%", "default" ],
+    "bindings": [
+      {
+        "binding_type": "collection",
+        "binding_collection_name": "ugc_items",
+        "binding_name": "#text"
+      }
+    ]
+  },
+  "grid_item": {
+    "type": "panel",
+    "size": [ "33.33%", "56.25%x + 15px" ],
+    "controls": [
+      {
+        "button@common_buttons.light_content_button": {
+          "$pressed_button_name": "button.ugc_item",
+          "size": [ "100% - 2px", "100% - 2px" ],
+          "$button_content": "ugc_viewer.button_content",
+          "bindings": [
+            {
+              "binding_type": "collection_details",
+              "binding_collection_name": "ugc_items"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "place_holder_control": {
+    "type": "panel",
+    "controls": [
+      {
+        "search_icon": {
+          "type": "image",
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "size": [
+            10,
+            10
+          ],
+          "texture": "textures/ui/magnifyingGlass",
+          "alpha": 0.5
+        }
+      },
+      {
+        "place_holder_text@common.text_edit_box_place_holder_label": {
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "offset": [
+            12,
+            0
+          ],
+          "$text_alpha": 0.5
+        }
+      }
+    ]
+  },
+  "ugc_viewer_screen@common.base_screen": {
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      }
+    ],
+    "$screen_content": "ugc_viewer.screen_content"
+  },
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      {
+        "back@ui.bgback": {}
+      },
+      {
+        "content_panel@ui.uikit_screen": {
+          "$desktop_screen_size": [
+            282,
+            "100% - 50px"
+          ],
+          "$title": "seedPicker.title",
+          "$screen_type": "ui.include_title_screen",
+          "$item": "ugc_viewer.search_box",
+          "$item_size": [
+            "90px",
+            "100% + 2px"
+          ],
+          "$item_offset": [
+            1,
+            -1
+          ],
+          "$screen_content": "ugc_viewer.main_panel"
+        }
+      }
+    ]
+  }
+/**
+ * @Date: 
+ * @Made: WeiTzeng制作
+ * @LastEditTime: 
+ */
+}

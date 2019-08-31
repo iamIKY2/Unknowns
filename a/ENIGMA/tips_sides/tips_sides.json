@@ -1,0 +1,315 @@
+{
+  "namespace": "tips_sides",
+  
+  "news_sides_and_text_panel": {
+    "type": "panel", 
+	"size": [ "50%", "50%" ],
+    "controls": [
+	  {
+        "news_section": {
+          "type": "panel",
+          "controls": [   
+		    {
+              "news_snapshot_image": {
+                "type": "panel",
+                "size": [ "100%", "100%c" ],
+                "controls": [
+                  {
+                    "default_indent@common.default_indent": {
+                      "size": [ "100% - 2px", "100%c + 2px" ],
+                      "anchor_from": "top_middle",
+                      "anchor_to": "top_middle",
+                      "controls": [
+                        {
+                          "thumbnail": {
+                            "type": "image",
+                            "force_texture_reload": true,
+                            "size": [ "100%", "56.325%x" ],
+                            "layer": 2,
+                            "controls": [
+                              {
+                                "border": {
+                                  "type": "image",
+								  "layer": 1,
+                                  "size": [ "100% + 2px", "100% + 2px" ],
+								  "color": [ 0, 0, 0 ],
+                                  "texture": "textures/ui/bg"
+                                }
+                              },
+						      {
+                                "sides_TEXTURE": {
+                                  "type": "image",
+						      	  "layer": 2,
+								  "texture": "$sides_image",
+                                  "size": [ "100%", "100%" ]
+                                }
+                              },
+                              {
+                                  "news_text": {
+                                      "type": "panel",
+                                      "layer": 3,
+                                      "anchor_from": "bottom_middle",
+                                      "anchor_to": "bottom_middle",
+                                      "size": [ "100%", 24 ],
+                                      "controls": [
+                                          {
+                                              "bg": {
+                                                  "type": "image",
+                                                  "color": [ 0, 0, 0 ],
+                                                  "alpha": 0.75,
+                                                  "texture": "textures/ui/bg"
+                                              }
+                                          },
+                                          
+                                          {
+                                              "sides_text&icon": {
+                                                  "type": "stack_panel",
+                                                  "orientation": "horizontal",
+                                                  "layer": 3,
+                                                  "size": [ "100% - 4px", 20 ],
+                                                  "controls": [
+                                                      {
+                                                          "sides_text@tips_sides.sides_text": {
+                                                              "$sides_title|default": "No Title",
+                                                              "$sides_label|default": "No Label"
+                                                          }
+                                                      },
+                                                      {
+                                                          "sides_icon@tips_sides.sides_icon": {
+                                                              
+                                                          }
+                                                      }
+                                                  ]
+                                              }
+                                          }
+                                      ]
+                                  }
+	                          },
+							  {
+                                "Frame": {
+                                  "type": "image",
+						      	  "layer": 4,
+                                  "size": [ "100% + 2px", "100% + 2px" ],
+                                  "texture": "textures/ui/Frame"
+                                }
+                              },
+							  {
+	                            "shadow_TEXTURE": {
+		                          "type": "image",
+		                          "layer": 1,
+		                          "nineslice_size": 20,
+		                          "base_size": [ 100, 100 ],
+		                          "texture": "textures/ui/window_shadow",
+		                          "size": [ "100% + 22px", "100% + 22px" ]
+		                        }
+	                          }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }  
+    ]
+  },
+  
+  "sides_text": {
+    "type": "stack_panel",
+    "size": [ "100% - 20px", "20px" ],
+    "controls": [
+	  { 
+		"sides_title": { 
+		  "type": "label",
+		  "size": [ "100%", "10px" ],
+		  "max_size": [ "100%", "10px" ],
+		  "text_alignment": "left",
+		  "color": [ 0.8, 0.8, 0 ],
+	      "font_type": "smooth",
+          "text": "$sides_title"
+	    } 
+	  },
+	  { 
+		"sides_label": { 
+		  "type": "label",
+		  "size": [ "100%", "10px" ],
+		  "max_size": [ "100%", "10px" ],
+		  "text_alignment": "left",
+	      "font_type": "smooth",
+          "text": "$sides_label"
+	    } 
+	  }
+	]
+  },
+  
+  "sides_icon": {
+      "type": "panel",
+      "size": [ "20px", "20px" ],
+      "$is_official|default": true,
+      "controls": [
+          {
+              "official": {
+                  "type": "image",
+                  "size": [ 10, 10 ],
+                  "ignored": "(not $is_official)",
+                  "texture": "textures/ui/news_official_icon"
+              }
+          },
+          {
+              "unofficial": {
+                  "type": "image",
+                  "size": [ 10, 10 ],
+                  "nineslice_size": 1,
+                  "base_size": [ 11, 11 ],
+                  "ignored": "$is_official",
+                  "texture": "textures/ui/news_unofficial_icon"
+              }
+          }
+      ]
+  },
+  
+  //第一張
+  
+  "anim_sides_A_wait_1": {
+    "anim_type": "alpha",
+    "duration": 0.25,
+	"from": 0.75,
+    "to": 1,
+    "next": "@tips_sides.anim_sides_A_wait_2"
+  },
+
+  "anim_sides_A_wait_2": {
+    "anim_type": "alpha",
+    "duration": 3.5,
+	"from": 1,
+    "to": 1,
+    "next": "@tips_sides.anim_sides_A_wait_3"
+  },
+  
+  "anim_sides_A_wait_3": {
+    "anim_type": "alpha",
+    "duration": 0.25,
+	"from": 1,
+    "to": 0.75,
+    "next": "@tips_sides.anim_sides_A_wait_4"
+  },
+  
+  "anim_sides_A_wait_4": {
+    "anim_type": "alpha",
+    "duration": 8,
+	"from": 0,
+    "to": 0,
+    "next": "@tips_sides.anim_sides_A_wait_1"
+  },
+  
+ "sides_A@news_sides_and_text_panel": {
+    "propagate_alpha": true,
+    "disable_anim_fast_forward": true,
+    "$is_official": true,
+	"alpha": "@tips_sides.anim_sides_A_wait_1",
+    "$sides_image": "tips_sides/img/sides_A",
+	"$sides_title": "NEW GAME: MINECRAFT EARTH",
+	"$sides_label": "An all-new augmented reality mobile game!"
+  },
+  
+  //第二張
+  
+  "anim_sides_B_wait_1": {
+    "anim_type": "alpha",
+    "duration": 4,
+	"from": 0,
+    "to": 0,
+    "next": "@tips_sides.anim_sides_B_wait_2"
+  },
+  
+  "anim_sides_B_wait_2": {
+    "anim_type": "alpha",
+    "duration": 0.25,
+	"from": 0.75,
+    "to": 1,
+    "next": "@tips_sides.anim_sides_B_wait_3"
+  },
+  
+  "anim_sides_B_wait_3": {
+    "anim_type": "alpha",
+    "duration": 3.5,
+	"from": 1,
+    "to": 1,
+    "next": "@tips_sides.anim_sides_B_wait_4"
+  },
+
+  "anim_sides_B_wait_4": {
+    "anim_type": "alpha",
+    "duration": 0.25,
+	"from": 1,
+    "to": 0.75,
+    "next": "@tips_sides.anim_sides_B_wait_5"
+  },
+  
+  "anim_sides_B_wait_5": {
+    "anim_type": "alpha",
+    "duration": 4,
+	"from": 0,
+    "to": 0,
+    "next": "@tips_sides.anim_sides_B_wait_1"
+  },
+    
+  "sides_B@news_sides_and_text_panel": {
+    "propagate_alpha": true,
+    "disable_anim_fast_forward": true,
+    "$is_official": true,
+	"alpha": "@tips_sides.anim_sides_B_wait_1",
+    "$sides_image": "tips_sides/img/sides_B",
+	"$sides_title": "VILLAGE & PILLAGE UPDATE",
+	"$sides_label": "Now On Bedrock!"
+  },
+
+  //第三張
+  
+  "anim_sides_C_wait_1": {
+    "anim_type": "alpha",
+    "duration": 8,
+	"from": 0,
+    "to": 0,
+    "next": "@tips_sides.anim_sides_C_wait_2"
+  },
+  
+  "anim_sides_C_wait_2": {
+    "anim_type": "alpha",
+    "duration": 0.25,
+	"from": 0.75,
+    "to": 1,
+    "next": "@tips_sides.anim_sides_C_wait_3"
+  },
+  
+  "anim_sides_C_wait_3": {
+    "anim_type": "alpha",
+    "duration": 3.5,
+	"from": 1,
+    "to": 1,
+    "next": "@tips_sides.anim_sides_C_wait_4"
+  },
+  
+  "anim_sides_C_wait_4": {
+    "anim_type": "alpha",
+    "duration": 0.25,
+	"from": 1,
+    "to": 0.75,
+    "next": "@tips_sides.anim_sides_C_wait_1"
+  },
+  
+  "sides_C@news_sides_and_text_panel": {
+    "propagate_alpha": true,
+    "disable_anim_fast_forward": true,
+    "$is_official": true,
+	"alpha": "@tips_sides.anim_sides_C_wait_1",
+    "$sides_image": "tips_sides/img/sides_C",
+    "$sides_title": "HAPPY ANNIVERSARY",
+	"$sides_label": "Minecarft Is Turning 10 Let's Celebrate!"
+
+  }
+}
