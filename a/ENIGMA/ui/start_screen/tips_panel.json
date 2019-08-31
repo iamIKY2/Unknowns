@@ -1,0 +1,191 @@
+//--------------------------------------------------------------------------
+//   由 Wei-Jin Tzeng 獨自製作，由 TechPlayer 監製
+//--------------------------------------------------------------------------
+
+{
+  "namespace": "tips_bar",
+  
+  //---------------------------------------------------------------------------
+  // Tips Panel
+  //---------------------------------------------------------------------------
+
+  "title_label": {
+    "type": "label",
+	"layer": 2,
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+	"font_size": "large",
+    "color": "$title_text_color",
+    "text": "News!"
+  },
+  
+  "pocket_title_label": {
+    "type": "label",
+	"layer": 2,
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "color": "$title_text_color",
+    "text": "News!"
+  },
+  
+  "tips_button@common_buttons.light_text_button": {
+    "$pressed_button_name": "button.menu_invite_notification",
+    "size": [ "100%", "28px" ],
+    "$button_text": "realmsInvitationScreen.shareTitle"//realmsWorld.inviteAndMemberships
+  },
+  
+  "learn_more_button@common_buttons.hyperlink_button": {
+    "$button_text": "npcscreen.learnmore",
+	"$pressed_button_name": "button.menu_open_uri",
+	"size": [ "100%", "28px" ],
+    "property_bag": {
+      "#hyperlink": "https://minecraft.net/article/everything-announced-minecon-earth"
+    }
+  },
+
+  "text_panel": {
+    "type": "panel", 
+    "size": [ "100%", "fill" ],
+    "controls": [
+	  { 
+	    "text_background": {
+          "type": "image",
+	      "layer": 2,
+          "texture": "textures/ui/Banners"
+        } 
+	  },
+	  { 
+	    "sides_A_text@tips_sides.sides_A_text": { }
+	  },
+	  { 
+	    "sides_B_text@tips_sides.sides_B_text": { }
+	  },
+	  { 
+	    "sides_C_text@tips_sides.sides_C_text": { }
+	  },
+	  { 
+	    "sides_D_text@tips_sides.sides_D_text": { }
+	  },
+	  { 
+	    "sides_E_text@tips_sides.sides_E_text": { }
+	  }
+	]
+  },
+  
+  "tips_panel": {
+    "type": "panel", 
+	"size": [ "100%", "100%" ],
+    "controls": [
+	  {
+        "common_panel@common.common_panel": {
+          "$show_close_button": false,
+		  "size": [ "100%", "100%" ],
+          "$dialog_background": "dialog_background_hollow_3"
+        }
+      },
+	  {
+        "icon_with_title@ui.icon_with_title": {
+		  "offset": [ 7 , 7 ], 
+		  "$icon_texture": "textures/ui/buttons/icons/news_icon",
+		  "$title_text": "start.game_news.title",
+		  "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "layer": 2
+        }
+      },
+	  {
+        "tips_section": {
+          "type": "stack_panel",
+		  "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "orientation": "vertical",
+		  "offset": [ 0, "-6.9px" ],
+          "size": [ "100% - 14px", "100% - 29px" ],
+          "controls": [   
+		    {
+              "tips_snapshot_image": {
+                "type": "panel",
+                "size": [ "100%", "100%c - 1px" ],
+                "controls": [
+                  {
+                    "default_indent@common.default_indent": {
+                      "size": [ "100% - 2px", "100%c + 2px" ],
+                      "anchor_from": "top_middle",
+                      "anchor_to": "top_middle",
+                      "controls": [
+                        {
+                          "thumbnail": {
+                            "type": "image",
+                            "force_texture_reload": true,
+                            "size": [ "100%", "56.25%x" ],
+                            "layer": 2,
+                            "controls": [
+                              {
+                                "border": {
+                                  "type": "image",
+                                  "size": [ "100% + 2px", "100% + 2px" ],
+                                  "texture": "textures/ui/BannersTransparent"
+                                }
+                              },
+						      {
+                                "sides_A@tips_sides.sides_A": {
+                                  "type": "image",
+						      	  "layer": 2,
+                                  "size": [ "100%", "100%" ]
+                                }
+                              },
+							  {
+                                "sides_B@tips_sides.sides_B": {
+                                  "type": "image",
+						      	  "layer": 2,
+                                  "size": [ "100%", "100%" ]
+                                }
+                              },
+							  {
+                                "sides_C@tips_sides.sides_C": {
+                                  "type": "image",
+						      	  "layer": 2,
+                                  "size": [ "100%", "100%" ]
+                                }
+                              },
+							  {
+                                "sides_D@tips_sides.sides_D": {
+                                  "type": "image",
+						      	  "layer": 2,
+                                  "size": [ "100%", "100%" ]
+                                }
+                              },
+							  {
+                                "sides_E@tips_sides.sides_E": {
+                                  "type": "image",
+						      	  "layer": 2,
+                                  "size": [ "100%", "100%" ]
+                                }
+                              },
+						      {
+                                "Frame": {
+                                  "type": "image",
+						      	  "layer": 3,
+                                  "size": [ "100% + 2px", "100% + 2px" ],
+                                  "texture": "textures/ui/Frame"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+			{ 
+			  "tips_content@tips_bar.text_panel": { 
+			  } 
+			}
+          ]
+        }
+      }
+    ]
+  }
+}

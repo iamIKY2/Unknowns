@@ -1,0 +1,149 @@
+/*
+ * @Designed: By UIPack Team
+ * @Date: 2018-12-08 23:29:56
+ */
+{
+  "namespace": "resource_packs",
+  
+  "resource_packs_section_toggle_base@common_toggles.light_ui_toggle": {
+      "anchor_from": "top_left",
+      "anchor_to": "top_left",
+      "size": [ "100%", "26px" ],
+      "$button_size_override": [ "100%", "100% + 1px" ],
+      
+      "$button_type_panel": "resource_packs.resource_packs_toggle_button_control",
+      
+      "$radio_toggle_group": true,
+      "$toggle_name": "navigation_tab",
+      "$toggle_group_default_selected": "$default_selector_toggle_index",
+      
+      "$toggle_tab_focus_binding_type": "global",
+      "$toggle_tab_focus_binding_name": "#navigation_tab_focus_precedence",
+      "$toggle_on_hover_binding_type": "global",
+      "$toggle_on_hover_binding_name": "#toggle_on_hover",
+      
+      "$toggle_tts_override_toggle_value": " ",
+      "$toggle_tts_name": "" // We don't want to say 'toggle' for section toggles
+  },
+  
+  "resource_packs_toggle_button_control": {
+    "type": "panel",
+    "layer": 2,
+    "$chevron_offset|default": [
+      -4,
+      0
+    ],
+    "controls": [
+      {
+        "icon_border@white_image": {
+          "size": [
+            14,
+            14
+          ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "offset": [
+            4,
+            0
+          ],
+          "layer": 1
+        }
+      },
+      {
+        "cycling_icon": {
+          "type": "image",
+          "size": [
+            13,
+            13
+          ],
+          "offset": [
+            4.5,
+            0
+          ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "$icon_collection_name": "none",
+          "layer": 3,
+          "bindings": [
+            {
+              "binding_name": "$cycling_icon_path",
+              "binding_name_override": "#texture",
+              "binding_condition": "always"
+            },
+            {
+              "binding_name": "$cycling_icon_zip",
+              "binding_name_override": "#zip_folder",
+              "binding_condition": "always"
+            },
+            {
+              "binding_name": "$cycling_icon_file_system",
+              "binding_name_override": "#texture_file_system",
+              "binding_condition": "always"
+            }
+          ]
+        }
+      },
+      {
+        "tab_button_text": {
+          "type": "label",
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "size": [
+            "100% - 36px",
+            "default"
+          ],
+          "max_size": [
+            "100% - 36px",
+            "100% - 4px"
+          ],
+          "offset": [
+            24,
+            0
+          ],
+          "text": "$button_text",
+          "layer": 3,
+          "color": "$text_color",
+          "alpha": "$content_alpha"
+        }
+      },
+      {
+        "chevron": {
+          "type": "image",
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle",
+          "offset": "$chevron_offset",
+          "texture": "textures/ui/chevron_right",
+          "size": [
+            4,
+            7
+          ],
+          "layer": 3,
+          "color": "$text_color"
+        }
+      }
+    ]
+  },
+  "options_icon": {
+    "type": "panel",
+    "size": [
+      15,
+      15
+    ],
+    "offset": "$button_press_offset",
+    "controls": [
+      {
+        "glyph_color": {
+          "type": "image",
+          "texture": "textures/ui/pack_settings_glyph",
+          "color": "$glyph_color"
+        }
+      },
+      {
+        "glyph": {
+          "type": "image",
+          "texture": "textures/ui/pack_settings_glyph_color"
+        }
+      }
+    ]
+  }
+}

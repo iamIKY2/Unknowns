@@ -1,0 +1,151 @@
+/********************************************************
++*   (c) Mojang. All rights reserved                       *
++*   (c) Microsoft. All rights reserved.                   *
++*********************************************************/
+
+{
+  "namespace": "invite",
+  
+  "invite_screen_content": {
+    "type": "panel",
+ //   "anchor_from": "top_left",
+  //  "anchor_to": "top_left",
+    "controls": [
+    {
+        "back@ui.bgback": {}
+      },
+      {
+        "container@ui.uikit_screen": {
+          "$screen_type": "ui.include_menu_screen",
+          "$desktop_screen_size": [
+            370,
+            "100% - 50px"
+          ],
+          "$icon_texture": "textures/ui/top_bar/howToPlay",
+          "$icon_size": [
+            15,
+            20
+          ],
+          "$title_text": "realmsInvitationScreen.playerFilterTitle",
+          "$left_screen": "invite.area",
+          "$right_side_title": "pauseScreen.invite",
+          "$right_screen": "invite.scrolling_area"
+        }
+      }
+    ]
+  },
+  
+  "area@common.scrolling_panel": {
+          "$scrolling_content": "invite.left_button_panel",
+          "$show_background": false,
+          "$scroll_size": [
+            "5px",
+            "100% - 4px"
+          ],
+          "$scroll_bar_left_padding_size": [
+            1,
+            0
+          ]
+        },
+  
+  "left_button_panel": {
+    "type": "stack_panel",
+	"anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "orientation": "vertical",
+    "$add_button_mappings": [
+      {
+        "from_button_id": "button.controller_secondary_select",
+        "to_button_id": "$pressed_button_name",
+        "mapping_type": "global"
+      },
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "$pressed_button_name",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_ok",
+        "to_button_id": "$pressed_button_name",
+        "mapping_type": "focused"
+      }
+    ],
+    "offset": [
+      "2px",
+      "2px"
+    ],
+	"size": [ "100% - 4px", "100%c + 4px" ],
+          "controls": [
+            
+	  {
+        "add_friend_button@store_layout.category_row_button": {
+    //      "ignored": "($is_inviting_to_realm or (not $supports_add_friend))",
+          "focus_enabled": false,
+          "$pressed_button_name": "button.add_friend",
+          "$button_content": "invite.invite_button_content",
+          "$button_text|default": "networkWorld.add_friend",
+          "$icon_description_bind_type": "none",
+          "$gamepad_helper": "common.gamepad_helper_y",
+          "$focus_override_down": "FOCUS_OVERRIDE_STOP",
+          "layer": 2,
+          "button_mappings": "$add_button_mappings"
+        }
+      },
+      {
+        "padding_1": {
+          "type": "panel",
+          "size": [ "100%", -1 ]
+        }
+      },
+      {
+        "add_member_button@store_layout.category_row_button": {
+         // "ignored": "(not $is_realm_owner)",
+          "focus_enabled": false,
+          "$pressed_button_name": "button.add_member",
+          "$button_content": "invite.invite_button_content",
+          "$button_text": "invite.realm.add_member",
+          "$icon_description_bind_type": "none",
+          "$gamepad_helper": "common.gamepad_helper_y",
+          "$focus_override_down": "FOCUS_OVERRIDE_STOP",
+          "layer": 2,
+          "button_mappings": "$add_button_mappings"
+        }
+      },
+      {
+        "padding_2": {
+          "type": "panel",
+          "size": [ "100%", -1 ]
+        }
+      },
+      {
+        "send_button@store_layout.category_row_button": {
+          "$pressed_button_name": "button.send_invites",
+          "focus_enabled": false,
+          "$button_content": "invite.invite_button_content",
+          "$button_text": "#send_button",
+          "$invite_label_binding_type": "global",
+          "$gamepad_helper": "common.gamepad_helper_x",
+          "$focus_override_down": "FOCUS_OVERRIDE_STOP",
+          "layer": 2,
+          "button_mappings": [
+            {
+              "from_button_id": "button.controller_select",
+              "to_button_id": "$pressed_button_name",
+              "mapping_type": "global"
+            },
+            {
+              "from_button_id": "button.menu_select",
+              "to_button_id": "$pressed_button_name",
+              "mapping_type": "pressed"
+            },
+            {
+              "from_button_id": "button.menu_ok",
+              "to_button_id": "$pressed_button_name",
+              "mapping_type": "focused"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

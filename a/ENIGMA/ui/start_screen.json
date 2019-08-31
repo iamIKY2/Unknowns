@@ -1,0 +1,695 @@
+/*
+ * @Designed: By UIPack Team
+ * @Date: 2018-12-08 23:34:14
+ */
+/**
+ * @Date: 
+ * @Made: WeiTzeng制作
+ * @LastEditTime: 2018-12-08 23:34:19
+ */
+{
+  "namespace": "start",
+  
+  //---------------------------------------------------------------------------
+  // for you
+  //---------------------------------------------------------------------------
+  
+/*日後再使用此強制登入幻燈片
+
+  "login_panel": { 
+      "type": "panel",
+      "size": [ "100%", "50%" ],
+      "bindings": [
+          {
+              "binding_name": "(#sign_in_visible and #signingin_visible)",
+              "binding_name_override": "#visible"
+          }
+      ],
+      "controls": [
+          {
+              "sides_xbox@tips_sides.sides_xbox": {
+              }
+          }
+      ]
+  },
+*/
+  
+  "news_panel": {
+      "type": "panel",
+      "size": [ "100%", "50%" ],
+      /*    "bindings": [ 日後再使用此生成控件
+          {
+              "binding_name": "#feedback_visible",
+              "binding_name_override": "#visible"
+          }
+      ],*/
+      "controls": [
+          {
+              "sides_A@tips_sides.sides_A": {
+              }
+          },
+          {
+              "sides_B@tips_sides.sides_B": {
+              }
+          },
+          {
+              "sides_C@tips_sides.sides_C": {
+              }
+          }
+      ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Minecraft Menu Bar
+  //---------------------------------------------------------------------------
+  
+  "menu_bar_object": {
+      "type": "stack_panel",
+      "orientation": "horizontal",
+      "size": [ "100%", "100%" ],
+      "controls": [
+          {
+              "img_panel": {
+                  "type": "panel",
+                  "size": [ 12, "100%" ],
+                  "controls": [
+                      {
+                          "icon": {
+                              "type": "image",
+                              "controls": [
+                                  {
+                                      "beta@common.button":{
+                                          "property_bag": {
+                                              "#hyperlink": "https://aka.ms/minecraftfbbeta"
+                                          },
+                                          "button_mappings": [
+                                              {
+                                                  "from_button_id": "button.menu_select",
+                                                  "to_button_id": "button.menu_open_uri",
+                                                  "mapping_type": "pressed"
+                                              },
+                                              {
+                                                  "from_button_id": "button.menu_ok",
+                                                  "to_button_id": "button.menu_open_uri",
+                                                  "mapping_type": "focused"
+                                              }
+                                          ],
+                                          "sound_name": "",
+                                          "locked_control": "",
+                                          "default_control": "",
+                                          "hover_control": "",
+                                          "pressed_control": ""
+                                      }
+                                  },
+                                  {
+                                      "not_beta@common.button":{
+                                          "property_bag": {
+                                              "#hyperlink": "https://aka.ms/minecraftfb"
+                                          },
+                                          "button_mappings": [
+                                              {
+                                                  "from_button_id": "button.menu_select",
+                                                  "to_button_id": "button.menu_open_uri",
+                                                  "mapping_type": "pressed"
+                                              },
+                                              {
+                                                  "from_button_id": "button.menu_ok",
+                                                  "to_button_id": "button.menu_open_uri",
+                                                  "mapping_type": "focused"
+                                              }
+                                          ],
+                                          "sound_name": "",
+                                          "locked_control": "",
+                                          "default_control": "",
+                                          "hover_control": "",
+                                          "pressed_control": ""
+                                      }
+                                  }
+                              ],
+                              "texture": "textures/blocks/grass_side_carried",
+                              "size": [ 12, 12 ],
+                              "layer": 3
+                          }
+                      }
+                  ]
+              }
+          },
+          {
+              "padding_1": {
+                  "type": "panel",
+                  "size": [ 3, "100%" ]
+              }
+          },
+          {
+              "label_panel": {
+                  "type": "panel",
+                  "size": [ 50, "100%" ],
+                  "controls": [
+                      {
+                          "menu_bar": {
+                              "type": "label",
+                              "text": "Minecraft",
+                              "size": [ 50, "default" ],
+                              "layer": 3
+                          }
+                      }
+                  ]
+              }
+          },
+          {
+              "padding_2": {
+                  "type": "panel",
+                  "size": [ "fill", 0 ]
+              }
+          },
+          {
+              "login_panel": {
+                  "type": "panel",
+                  "size": [ "100%c", "100%" ],
+                  "controls": [
+                      {
+                          "login_button@coin_purchase.cancel_button": {
+                              "$button_text": "gui.login",
+                              "$pressed_button_name": "button.signin",
+                              "$focus_id": "menu_xbox_signin_button",
+                              "bindings": [
+                                  {
+                                      "binding_name": "#sign_in_visible",
+                                      "binding_name_override": "#visible"
+                                  }
+                              ]
+                          }
+                      },
+                      {
+                          "signingin": {
+                              "size": [ "default", "10px" ],
+                              "max_size": [ 120, "10px" ],
+                              "type": "label",
+                              "layer": 2,
+                              "color": "$main_header_text_color",
+                              "text": "#signingin_text",
+                              "bindings": [
+                                  {
+                                      "binding_name": "#signingin_visible",
+                                      "binding_name_override": "#visible"
+                                  },
+                                  {
+                                      "binding_name": "#signingin_text"
+                                  }
+                              ]
+                          }
+                      },
+                      {
+                          "gamerpic": {
+                              "type": "panel",
+                              "size": [ 13, 13 ], //13, 13
+                              "bindings": [
+                                  {
+                                      "binding_name": "#feedback_visible",
+                                      "binding_name_override": "#visible"
+                                  }
+                              ],
+                              "controls": [
+                                  /*                  {
+                                      "gamerpic_frame": {
+                                          "type": "image",
+                                          "texture": "textures/ui/Frame",
+                                          "size": [ "100%", "100%" ]
+                                      }
+                                  },*/
+                                  {
+                                      "gamerpic_img": {
+                                          "type": "image",
+                                          "size": [ 10, 9 ],
+                                          "texture": "textures/ui/signing_icon",
+                                          "layer": 2/*,
+                                          "bindings": [
+                                              {
+                                                  "binding_name": "#gamerpic_texture_path",
+                                                  "binding_name_override": "#texture"
+                                              },
+                                              {
+                                                  "binding_name": "#gamerpic_texture_location_type",
+                                                  "binding_name_override": "#texture_file_system"
+                                              }
+                                          ]*/
+                                      }
+                                  }
+                              ]
+                          }
+                      }
+                  ]
+              }
+          },/*
+          {
+              "padding_3": {
+                  "type": "panel",
+                  "size": [ 2, 0 ],
+                  "bindings": [
+                      {
+                          "binding_name": "#feedback_visible",
+                          "binding_name_override": "#visible"
+                      }
+                  ]
+              }
+          },
+          {
+              "player_name_panel": {
+                  "type": "panel",
+                  "size": [ "100%c", "100%" ],
+                  "controls": [
+                      {
+                          "player_name": {
+                              "type": "label",
+                              "layer": 2,
+                              "text": "#playername",
+                              "size": [ "default", 10 ],
+                              "bindings": [
+                                  {
+                                      "binding_name": "#playername"
+                                  }
+                              ]
+                          }
+                      }
+                  ]
+              }
+          },*/
+          {
+              "padding_4": {
+                  "type": "panel",
+                  "size": [ 2, 0 ],
+                  "bindings": [
+                      {
+                          "binding_name": "#feedback_visible",
+                          "binding_name_override": "#visible"
+                      }
+                  ]
+              }
+          },
+          {
+              "realms_pending_invite_panel": {
+                  "type": "panel",
+                  "size": [ 13, "100%" ],
+                  "bindings": [
+                      {
+                          "binding_name": "#feedback_visible",
+                          "binding_name_override": "#visible"
+                      }
+                  ],
+                  "controls": [
+                      {
+                          "not_realms_notification": {
+                              "type": "image",
+                              "controls": [
+                                  {
+                                      "x@common.button":{
+                                          "button_mappings": [
+                                              {
+                                                  "from_button_id": "button.menu_select",
+                                                  "to_button_id": "button.menu_invite_notification",
+                                                  "mapping_type": "pressed"
+                                              },
+                                              {
+                                                  "from_button_id": "button.menu_ok",
+                                                  "to_button_id": "button.menu_invite_notification",
+                                                  "mapping_type": "focused"
+                                              }
+                                          ],
+                                          "sound_name": "",
+                                          "locked_control": "",
+                                          "default_control": "",
+                                          "hover_control": "",
+                                          "pressed_control": ""
+                                      }
+                                  }
+                              ],
+                              "texture": "textures/ui/invite_icon",
+                              "size": [ 10, 9 ],
+                              "layer": 3,
+                              "bindings": [
+                                  {
+                                      "binding_name": "(not #realms_notification_visible)",
+                                      "binding_name_override": "#visible"
+                                  }
+                              ]
+                          }
+                      },
+                      {
+                          "realms_notification": {
+                              "type": "image",
+                              "controls": [
+                                  {
+                                      "x@common.button":{
+                                          "button_mappings": [
+                                              {
+                                                  "from_button_id": "button.menu_select",
+                                                  "to_button_id": "button.menu_invite_notification",
+                                                  "mapping_type": "pressed"
+                                              },
+                                              {
+                                                  "from_button_id": "button.menu_ok",
+                                                  "to_button_id": "button.menu_invite_notification",
+                                                  "mapping_type": "focused"
+                                              }
+                                          ],
+                                          "sound_name": "",
+                                          "locked_control": "",
+                                          "default_control": "",
+                                          "hover_control": "",
+                                          "pressed_control": ""
+                                      }
+                                  }
+                              ],
+                              "texture": "textures/ui/invite_icon",
+                              "color": "$c_color_format",
+                              "size": [ 10, 9 ],
+                              "layer": 3,
+                              "bindings": [
+                                  {
+                                      "binding_name": "#realms_notification_visible",
+                                      "binding_name_override": "#visible"
+                                  }
+                              ]
+                          }
+                      }
+                  ]
+              }
+          },
+          {
+              "padding_5": {
+                  "type": "panel",
+                  "size": [ 4, 0 ]
+              }
+          },
+          {
+              "padding_img_panel": {
+                  "type": "panel",
+                  "size": [ "100%c", "100%" ],
+                  "controls": [
+                      
+                      {
+                          "padding_img@ui.all_bg": {
+                              "layer": 2,
+                              "size": [ 1, 12 ]
+                          }
+                      }
+                  ]
+              }
+          },
+          {
+              "padding_6": {
+                  "type": "panel",
+                  "size": [ 4, 0 ]
+              }
+          },
+          {
+              "version_panel": {
+                  "type": "panel",
+                  "size": [ "100%c", "100%" ],
+                  "controls": [
+                      {
+                          "version": {
+                              "type": "label",
+                              "layer": 2,
+                              "text": "#version",
+                              "size": [ "default", 10 ],
+                              "bindings": [
+                                  {
+                                      "binding_name": "#version"
+                                  }
+                              ]
+                          }
+                      }
+                  ]
+              }
+          }
+      ]
+  },
+ 
+  "menu_bar_panel": {
+    "type": "panel",
+	"layer": 100,
+    "size": [ "100%", "16px" ],
+	"animation_reset_name": "screen_animation_reset",
+	"anims": [
+	  "@start.menu_bar_exit_animation_push_offset",
+      "@start.menu_bar_exit_animation_pop_offset",
+      "@start.menu_bar_entrance_animation_push_offset",
+      "@start.menu_bar_entrance_animation_pop_offset"
+	],
+    "controls": [
+	  {
+        "bg": {
+          "type": "custom",
+		  "renderer": "gradient_renderer",
+          "color1": [ 0.1, 0.1, 0.1, 0.75 ],
+          "color2": [ 0.0, 0.0, 0.0, 0.75 ]
+        }
+      },
+	  { 
+	    "content": {
+		  "type": "stack_panel",
+		  "orientation": "horizontal",
+          "size": [ "100% - 4px", "100%" ],
+          "controls": [
+            {
+		      "menu_bar_object@start.menu_bar_object": { }
+	        }
+		  ]
+		}
+      }		
+    ]
+  },
+  
+  "menu_bar_img_panel": {
+    "type": "panel",
+	"$hide_menu_bar|default": false,
+    "size": [ "232px", "default" ],
+	"animation_reset_name": "screen_animation_reset",
+	"anims": [
+	  "@start.menu_bar_exit_animation_push_offset",
+      "@start.menu_bar_exit_animation_pop_offset",
+      "@start.menu_bar_entrance_animation_push_offset",
+      "@start.menu_bar_entrance_animation_pop_offset"
+	],
+    "controls": [
+      { 
+	    "menu_bar_image@common_art.menu_bar_image": {
+	      "ignored": "$close_menu_bar",
+		  "anchor_from": "center",
+          "anchor_to": "center"
+	    } 
+	  }
+    ]
+  },
+  
+  "menu_bar_exit_animation_push_offset": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": "$transition_time_push",
+    "from": [ 0, 0 ],//8
+    "to": [ 0, -21 ],//-44
+    "play_event": "screen.exit_push",
+    "end_event": "screen.exit_end"
+  },
+
+  "menu_bar_exit_animation_pop_offset": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": "$transition_time_pop",
+    "from": [ 0, 0 ],//8
+    "to": [ 0, -21 ],//-44
+    "play_event": "screen.exit_pop",
+    "end_event": "screen.exit_end"
+  },
+
+  "menu_bar_entrance_animation_push_offset": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": "$transition_time_push",
+    "from": [ 0, -21 ],//8
+    "to": [ 0, 0 ],//8
+    "play_event": "screen.entrance_push",
+    "end_event": "screen.entrance_end"
+  },
+
+  "menu_bar_entrance_animation_pop_offset": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": "$transition_time_pop",
+    "from": [ 0, -21 ],//8
+    "to": [ 0, 0 ],//8
+    "play_event": "screen.entrance_pop",
+    "end_event": "screen.entrance_end"
+  },
+
+  //---------------------------------------------------------------------------
+  // Control Center Panel
+  //---------------------------------------------------------------------------
+
+  "center_panel": {
+	"type": "panel",
+    "size": [ "100%", "100%" ],
+    "controls": [
+	  {
+        "menu_bar_panel_content@start.menu_bar_panel": {
+		  "anchor_from": "top_middle",
+          "anchor_to": "top_middle"
+		}
+      },
+	  {
+	    "news_panel@start.news_panel":{
+		  "offset": [ 0, -7.5 ]
+		}
+	  },
+	  {
+        "dock_bar@ui.dock_bar": {   
+	      "offset": [ 0, 17 ],
+		  "size": [ "100%", "55px" ]
+		}
+      }
+    ] 
+  },
+   
+  //---------------------------------------------------------------------------
+  // widgets
+  //---------------------------------------------------------------------------
+  
+  "widgets_panel": {
+	"type": "panel",
+	"anchor_from": "center",
+    "anchor_to": "center",
+    "size": [ "100%", "100%" ],//100 235px
+	"layer": 1,
+    "controls": [
+	  {
+        "bg": {
+          "type": "image",
+		  "alpha": 0.5,
+          "size": [ "100%", "100%" ],
+		  "color": [ 0.0, 0.0, 0.0 ],
+          "texture": "textures/ui/bg"
+        }
+      },
+	  {
+        "window_widgets@window_widgets_panel.stacked_horizontal": {
+          "size": [ "100%", "100%" ],
+		  "max_size":  [ "232px", "161px" ]
+		}
+      }
+    ] 
+  },
+  
+  //---------------------------------------------------------------------------
+  // gamepad_helpers
+  //---------------------------------------------------------------------------
+  
+  "gamepad_helpers": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "offset": [ "10%", "45%" ],
+    "size": [ "100%c", 26 ],
+	"anchor_from": "left_middle",
+    "anchor_to": "center",
+    "controls": [
+      { "gamepad_helper_a@common.gamepad_helper_a": { } },
+      {
+        "gamepad_helper_b_and_padding": {
+          "ignored": "(not $can_quit)",
+          "type": "panel",
+          "size": [ "100%c + 10px", "100%c" ],
+          "controls": [
+            {
+              "gamepad_helper_b@common.gamepad_helper_b": {
+                "offset": [ 10, 0 ],
+                "anchor_to": "left_middle",
+                "anchor_from": "left_middle"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "gamepad_helper_y_and_padding": {
+          "type": "panel",
+          "size": [ "100%c + 10px", "100%c" ],
+          "controls": [
+            {
+              "gamepad_helper_y@common.gamepad_helper_y": {
+                "offset": [ 10, 0 ],
+                "anchor_to": "left_middle",
+                "anchor_from": "left_middle"
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "binding_name": "#y_helper_visible",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Screens
+  //---------------------------------------------------------------------------
+  
+  "start_screen@common.base_screen": {
+	"button_mappings": [
+      {
+        "ignored": "(not $can_quit)",
+        "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      },
+      {
+        "ignored": "(not $nx_os)",
+        "from_button_id": "button.controller_secondary_select",
+        "to_button_id": "button.menu_offline",
+        "mapping_type": "global"
+      }
+    ],
+	"$screen_content": "start.start_screen_content"
+  },
+  
+  "start_screen_content": {
+    "type": "panel",
+    "$achievements_ignored|default": false,
+    "$feedback_ignored|default": false,
+    "$store_ignored|default": false,
+    "variables": [
+      {
+        "requires": "$education_edition",
+        "$achievements_ignored": true,
+        "$store_ignored|default": true
+      },
+      {
+        "requires": "$gear_vr",
+        "$feedback_ignored": true
+      },
+      {
+        "requires": "$apple_tv",
+        "$feedback_ignored": true
+      },
+      {
+        "requires": "$fire_tv",
+        "$feedback_ignored": true
+      }
+    ],
+    "controls": [
+	  {
+        "gamepad_helpers@start.gamepad_helpers": {
+          "layer": 2
+		}
+      },
+	  {
+        "control_center_panel@start.center_panel": { 
+		  "layer": 2
+		}
+      }
+    ]
+  }
+}

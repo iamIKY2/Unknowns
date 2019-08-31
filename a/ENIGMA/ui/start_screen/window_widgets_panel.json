@@ -1,0 +1,224 @@
+{
+  "namespace": "window_widgets_panel",
+
+  "window_widgets_exit_animation_push_offset": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": "$transition_time_push",
+    "from": [ 0, 6 ],
+    "to": [ "-100%", 0 ],
+    "play_event": "screen.exit_push",
+    "end_event": "screen.exit_end"
+  },
+
+  "window_widgets_exit_animation_pop_offset": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": "$transition_time_pop",
+    "from": [ 0, 6 ],
+    "to": [ "100%", 0 ],
+    "play_event": "screen.exit_pop",
+    "end_event": "screen.exit_end"
+  },
+
+  "window_widgets_entrance_animation_push_offset": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": "$transition_time_push",
+    "from": [ 0, 6 ],
+    "to": [ 0, 6 ],
+    "play_event": "screen.entrance_push",
+    "end_event": "screen.entrance_end"
+  },
+
+  "window_widgets_entrance_animation_pop_offset": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": "$transition_time_pop",
+    "from": [ "-100%", 6 ],
+    "to": [ 0, 6 ],
+    "play_event": "screen.entrance_pop",
+    "end_event": "screen.entrance_end"
+  },
+
+  //size
+
+  "window_widgets_exit_animation_push_size": {
+    "anim_type": "size",
+    "easing": "out_cubic",
+    "duration": "$container_transition_time_push",
+    "from": [ "232px", "92.5%-79px" ],
+    "to": [ 0, 0 ],
+    "play_event": "screen.exit_push",
+    "end_event": "screen.exit_end"
+  },
+
+  "window_widgets_exit_animation_pop_size": {
+    "anim_type": "size",
+    "easing": "out_cubic",
+    "duration": "$container_transition_time_push",
+    "from": [ "232px", "92.5%-79px" ],
+    "to": [ 0, 0 ],
+    "play_event": "screen.exit_pop",
+    "end_event": "screen.exit_end"
+  },
+
+  "window_widgets_entrance_animation_push_size": {
+    "anim_type": "size",
+    "easing": "out_cubic",
+    "duration": "$container_transition_time_push",
+    "from": [ "500%", "500%" ],
+    "to": [ "232px", "92.5%-79px" ],
+    "play_event": "screen.entrance_push",
+    "end_event": "screen.entrance_end"
+  },
+
+  "window_widgets_entrance_animation_pop_size": {
+    "anim_type": "size",
+    "easing": "out_cubic",
+    "duration": "$container_transition_time_push",
+    "from": [ 0, 0 ],
+    "to": [ "232px", "92.5%-79px" ],
+    "play_event": "screen.entrance_pop",
+    "end_event": "screen.entrance_end"
+  },
+
+  // Alpha
+
+  "window_widgets_exit_animation_push_alpha": {
+    "anim_type": "alpha",
+    "scale_from_starting_alpha": true,
+    "easing": "linear",
+    "duration": "$container_transition_time_push",
+    "from": 1.0,
+    "to": 0.0,
+    "play_event": "screen.exit_push",
+    "end_event": "screen.exit_end"
+  },
+
+  "window_widgets_exit_animation_pop_alpha": {
+    "anim_type": "alpha",
+    "scale_from_starting_alpha": true,
+    "easing": "linear",
+    "duration": "$container_transition_time_push",
+    "from": 1.0,
+    "to": 0.0,
+    "play_event": "screen.exit_pop",
+    "end_event": "screen.exit_end"
+  },
+
+  "window_widgets_entrance_animation_push_alpha": {
+    "anim_type": "alpha",
+    "scale_from_starting_alpha": true,
+    "easing": "linear",
+    "duration": "$container_transition_time_push",
+    "from": 0.0,
+    "to": 1.0,
+    "play_event": "screen.entrance_push",
+    "end_event": "screen.entrance_end"
+  },
+
+  "window_widgets_entrance_animation_pop_alpha": {
+    "anim_type": "alpha",
+    "scale_from_starting_alpha": true,
+    "easing": "linear",
+    "duration": "$container_transition_time_push",
+    "from": 0.0,
+    "to": 1.0,
+    "play_event": "screen.entrance_pop",
+    "end_event": "screen.entrance_end"
+  },
+
+  "stacked_horizontal": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+	
+	"animation_reset_name": "screen_animation_reset",
+	"anims": [
+      "@window_widgets_panel.window_widgets_exit_animation_push_offset",
+      "@window_widgets_panel.window_widgets_exit_animation_pop_offset",
+      "@window_widgets_panel.window_widgets_entrance_animation_push_offset",
+      "@window_widgets_panel.window_widgets_entrance_animation_pop_offset",
+	  
+      "@window_widgets_panel.window_widgets_exit_animation_push_size",
+      "@window_widgets_panel.window_widgets_exit_animation_pop_size",
+      "@window_widgets_panel.window_widgets_entrance_animation_push_size",
+	  "@window_widgets_panel.window_widgets_entrance_animation_pop_size",
+	  
+	  "@window_widgets_panel.window_widgets_exit_animation_push_alpha",
+      "@window_widgets_panel.window_widgets_exit_animation_pop_alpha",
+      "@window_widgets_panel.window_widgets_entrance_animation_push_alpha",
+      "@window_widgets_panel.window_widgets_entrance_animation_pop_alpha"
+    ],
+	
+    "controls": [
+      {
+        "stacked_vertical_left": {
+	      "type": "stack_panel",
+          "size": [ "50%-1px", "100%" ],
+          "orientation": "vertical",
+          "controls": [
+            {
+              "tips_panel@tips_bar.tips_panel": {
+                "size": [ "100%", "100%" ]
+              }
+            }/*,
+			{
+              "padding_0": {
+                "type": "panel",
+                "size": [ "100%" , "2px" ]
+              }
+            },
+		    {
+              "xbl_situation_panel@xbl_bar.xbl_situation_panel": {
+                "size": [ "100%", "35px" ]
+              }
+            }*/
+          ]
+        }
+      },
+	  {
+        "padding_1": {
+          "type": "panel",
+          "size": [ "2px" , "100%" ]
+        }
+      },
+      {
+        "stacked_vertical_right": {
+          "type": "stack_panel",
+          "size": [ "50%-1px", "100%" ],
+          "orientation": "vertical",
+          "controls": [
+/*		    {
+              "exit_panel@top_right_button.top_right_button_panel": {
+                "size": [ "100%", "27%-1px" ]
+              }
+            },
+			{
+              "padding_2": {
+                "type": "panel",
+                "size": [ "100%" , "2px" ]
+              }
+            },*/
+			{
+              "skins_panel@skins_bar.skins_panel": {
+                "size": [ "100%", "100% - 37px" ] //[ "100%", "73%-1px" ]
+              }
+            },
+			{
+              "padding_0": {
+                "type": "panel",
+                "size": [ "100%" , "2px" ]
+              }
+            },
+		    {
+              "xbl_situation_panel@xbl_bar.xbl_situation_panel": {
+                "size": [ "100%", "35px" ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

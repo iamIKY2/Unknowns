@@ -1,0 +1,124 @@
+/*
+ * @Designed: By UIPack Team
+ * @Date: 2018-12-08 23:26:18
+ */
+{
+  "namespace": "death",
+  "a_button_panel": {
+    "type": "panel",
+    "size": [
+      "100%c",
+      26
+    ],
+    "controls": [
+      {
+        "gamepad_helper_a@common.gamepad_helper_a": {
+          "$icon_text_color": "$gamepad_button_generic_text_color",
+          "$icon_description_bind": "controller.buttonTip.select",
+          "$icon_description_bind_type": "none"
+        }
+      }
+    ]
+  },
+  "respawn_button_panel": {
+    "type": "stack_panel",
+    "alpha": "@common_store.screen_fade_in_alpha_anim",
+    "propagate_alpha": true,
+    "disable_anim_fast_forward": true,
+    "orientation": "horizontal",
+    "size": [
+      "232px",
+      "30px"
+    ],
+    "controls": [
+      {
+        "respawn_button@common_buttons.light_text_button": {
+          "size": [
+            "50% - 1px",
+            "100%"
+          ],
+          "$button_text": "deathScreen.respawn",
+          "$pressed_button_name": "button.respawn_button"
+        }
+      },
+      {
+        "spacer": {
+          "type": "panel",
+          "size": [
+            2,
+            0
+          ]
+        }
+      },
+      {
+        "main_menu_button@common_buttons.light_text_button": {
+          "size": [
+            "50% - 1px",
+            "100%"
+          ],
+          "$button_text": "deathScreen.quit",
+          "$pressed_button_name": "button.main_menu_button",
+          "variables": [
+            {
+              "requires": "$is_secondary_client",
+              "$button_text": "deathScreen.quit.secondaryClient"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "death_screen_content": {
+    "type": "panel",
+    "controls": [
+      {
+        "you_died_label": {
+          "type": "label",
+          "color": "$death_text_color",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "text": "deathScreen.message",
+          "font_size": "extra_large"
+        }
+      },
+      {
+        "respawn_button_panel": {
+          "type": "stack_panel",
+          "orientation": "vertical",
+          "size": [
+            "232px",
+            "50% - 15px"
+          ],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "controls": [
+            {
+              "spacer0": {
+                "type": "panel",
+                "size": [
+                  0,
+                  "50% - 15px"
+                ]
+              }
+            },
+            {
+              "respawn_button_panel@death.respawn_button_panel": {}
+            },
+            {
+              "spacer1": {
+                "type": "panel",
+                "size": [
+                  0,
+                  "5px"
+                ]
+              }
+            },
+            {
+              "select_button@death.a_button_panel": {}
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,152 @@
+/********************************************************
++*   (c) Mojang. All rights reserved                       *
++*   (c) Microsoft. All rights reserved.                   *
++*********************************************************/
+
+{
+  "namespace": "realms_settings",
+  
+  "selector_panel": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": [ "100%", "100%c + 4px" ],
+    "$default_selector_toggle_index": 1,
+    "$world_toggle_index|default": 1,
+    "$members_toggle_index|default": 2,
+    "$subscription_toggle_index|default": 3,
+    "$backup_toggle_index|default": 4,
+    "$dev_options_toggle_index|default": 5,
+    "controls": [
+      {
+        "play_button@settings_common.action_button": {
+          "$button_text": "realmsSettingsScreen.playRealmButton",
+          "$pressed_button_name": "play_world_button",
+          "size": [ "100%", "30px" ],
+          "bindings": [
+            {
+              "binding_name": "#play_button_visible",
+              "binding_name_override": "#visible"
+            },
+            {
+              "binding_name": "#play_button_enabled",
+              "binding_name_override": "#enabled"
+            }
+          ]
+        }
+      },
+      {
+        "disabled_play_button@settings_common.action_button": {
+          "$button_text": "realmsSettingsScreen.playDisabledRealmButton",
+          "$pressed_button_name": "play_world_button",
+          "size": [ "100%", "30px" ],
+          "bindings": [
+            {
+              "binding_name": "#disabled_play_button_visible",
+              "binding_name_override": "#visible"
+            },
+            {
+              "binding_name": "#play_button_visible", // a hack: you cannot set "enabled":false directly on a ui control
+              "binding_name_override": "#enabled"
+            }
+          ]
+        }
+      },
+      {
+        "expired_play_button@settings_common.action_button": {
+          "$button_text": "realmsSettingsScreen.playExpiredRealmButton",
+          "$pressed_button_name": "play_world_button",
+          "size": [ "100%", "30px" ],
+          "bindings": [
+            {
+              "binding_name": "#is_realm_expired",
+              "binding_name_override": "#visible"
+            },
+            {
+              "binding_name": "#play_button_visible", // a hack: you cannot set "enabled":false directly on a ui control
+              "binding_name_override": "#enabled"
+            }
+          ]
+        }
+      },
+      {
+        "padding": {
+          "type": "panel",
+          "size": [ "100%", 10 ]
+        }
+      },
+      {
+        "world_button@settings_common.section_toggle_base": {
+          "$toggle_view_binding_name": "world_button_toggle",
+          "$toggle_group_forced_index": "$world_toggle_index",
+          "$glyph_texture": "textures/ui/world_glyph",
+          "$glyph_color_texture": "textures/ui/world_glyph_color",
+          "$glyph_size": [ 16, 17 ],
+          "layer": 1,
+          "$button_text": "realmsSettingsScreen.gameSectionTitle",
+          "$toggle_property_bag": {
+            "#panel_title": "realmsSettingsScreen.gameSectionTitle"
+          }
+        }
+      },
+      {
+        "members_button@settings_common.section_toggle_base": {
+          "$toggle_view_binding_name": "members_button_toggle",
+          "$toggle_group_forced_index": "$members_toggle_index",
+          "$glyph_texture": "textures/ui/multiplayer_glyph",
+          "$glyph_color_texture": "textures/ui/multiplayer_glyph_color",
+          "$glyph_size": [ 22, 12 ],
+          "layer": 2,
+          "$button_text": "realmsSettingsScreen.membersSectionTitle",
+          "$toggle_property_bag": {
+            "#panel_title": "realmsSettingsScreen.membersSectionTitle"
+          }
+        }
+      },
+      {
+        "subscription_button@settings_common.section_toggle_base": {
+          "$toggle_view_binding_name": "subscription_button_toggle",
+          "$toggle_group_forced_index": "$subscription_toggle_index",
+          "$glyph_texture": "textures/ui/subscription_glyph",
+          "$glyph_color_texture": "textures/ui/subscription_glyph_color",
+          "$glyph_size": [ 15, 13 ],
+          "layer": 3,
+          "$button_text": "realmsSettingsScreen.subscriptionSectionTitle",
+          "$toggle_property_bag": {
+            "#panel_title": "realmsSettingsScreen.subscriptionSectionTitle"
+          }
+        }
+      },
+      {
+        "backup_button@settings_common.section_toggle_base": {
+          "$toggle_view_binding_name": "backup_button_toggle",
+          "$toggle_group_forced_index": "$backup_toggle_index",
+          "$glyph_texture": "textures/ui/backup_outline",
+          "$glyph_color_texture": "textures/ui/backup_noline",
+          "$glyph_size": [ 16, 17 ],
+          "layer": 4,
+          "$button_text": "realmsSettingsScreen.backupSection",
+          "$toggle_property_bag": {
+            "#panel_title": "realmsSettingsScreen.backupSection"
+          }
+        }
+      },
+      {
+        "dev_options_button@settings_common.section_toggle_base": {
+          "ignored": "$non_config_realms_env",
+          "$toggle_view_binding_name": "dev_options_button_toggle",
+          "$toggle_group_forced_index": "$dev_options_toggle_index",
+          "$glyph_texture": "textures/ui/dev_glyph",
+          "$glyph_color_texture": "textures/ui/dev_glyph_color",
+          "$glyph_size": [ 14, 14 ],
+          "layer": 5,
+          "$button_text": "realmsSettingsScreen.devOptionsSectionTitle",
+          "$toggle_property_bag": {
+            "#panel_title": "realmsSettingsScreen.devOptionsSectionTitle"
+          }
+        }
+      }
+    ]
+  }
+}

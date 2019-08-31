@@ -1,0 +1,110 @@
+//--------------------------------------------------------------------------
+//   由 Wei-Jin Tzeng 獨自製作，由 TechPlayer 監製
+//--------------------------------------------------------------------------
+
+{
+  "namespace": "skins_bar",
+  
+  //---------------------------------------------------------------------------
+  // Skins Panel
+  //---------------------------------------------------------------------------
+
+  "skin_viewer_panel": {
+    "type": "input_panel",
+    "size": [ "100%", "100%" ],
+    "gesture_tracking_button": "button.turn_doll",
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "button.turn_doll",
+        "mapping_type": "pressed",
+        "button_up_right_of_first_refusal": true
+      }
+    ],
+    "controls": [
+      {
+        "paper_doll": {
+          "type": "custom",
+          "renderer": "paper_doll_renderer",
+          "layer": 5,
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "rotation": "gesture_x",
+		  "animation_reset_name": "screen_animation_reset",
+          "anims": [
+            "@common.screen_exit_size_animation_push",
+            "@common.screen_exit_size_animation_pop",
+            "@common.screen_entrance_size_animation_push",
+            "@common.screen_entrance_size_animation_pop"
+          ],
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "viewer_panel",
+              "source_property_name": "#gesture_delta_source",
+              "target_property_name": "#gesture_delta_source"
+            },
+            {
+              "binding_type": "view",
+              "source_control_name": "viewer_panel",
+              "source_property_name": "#gesture_mouse_delta_x",
+              "target_property_name": "#gesture_mouse_delta_x"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "skins_panel": {
+    "type": "panel",
+    "alpha": "@ui.screen_fade_in_alpha_anim",
+	"propagate_alpha": true,
+    "disable_anim_fast_forward": true,	
+    "size": [ "100%", "100%" ],
+    "controls": [
+	  {
+        "common_panel@common.common_panel": {
+          "$show_close_button": false,
+		  "size": [ "100%", "100%" ],
+          "$dialog_background": "dialog_background_hollow_3"
+        }
+      },
+	  {
+        "icon_with_title@ui.icon_with_title": {
+		  "offset": [ 7 , 7 ], 
+		  "$icon_texture": "textures/ui/buttons/icons/skin_preview_icon",
+		  "$title_text": "start.skins_preview.title",
+		  "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "layer": 2
+        }
+      },
+      {
+        "paper_doll_name_tag": {
+          "type": "custom",
+          "renderer": "name_tag_renderer",
+          "layer": 3,
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+		  "offset": [ 0, "30px" ],
+          "size": [ 0, "9px" ],//32px
+          "bindings": [
+            {
+              "binding_name": "#playername"
+            }
+          ]
+        }
+      },
+      { 
+	    "viewer_panel@skins_bar.skin_viewer_panel": {
+		  "size": [ "100%", "100%" ],
+		  "max_size": [ "65px", "65px" ],
+		  "offset": [ 0, "-25px" ],
+		  "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle"
+		} 
+	  }
+    ]
+  }
+}

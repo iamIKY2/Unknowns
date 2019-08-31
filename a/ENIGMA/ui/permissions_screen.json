@@ -1,0 +1,194 @@
+{
+  "namespace": "permissions",
+
+  //---------------------------------------------------------------------------
+  // SCREEN
+  //---------------------------------------------------------------------------
+
+  "permissions_screen@common.base_screen": {
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      },
+      {
+        "from_button_id": "button.menu_exit",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      }
+    ],
+
+    "$screen_content": "permissions.screen_content",
+    "$screen_bg_content": ""
+  },
+
+  //---------------------------------------------------------------------------
+  // CONTENT
+  //---------------------------------------------------------------------------
+
+"screen_content": {
+    "type": "panel",
+    "controls": [
+    {
+        "back@ui.bgback": {}
+      },
+      {
+        "bg@ui.all_bg": {
+          "$all_bg_color": [
+            0,
+            0,
+            0
+          ],
+          "$all_bg_alpha": 0.5
+        }
+      },
+      {
+        "container@ui.uikit_screen": {
+          "$screen_type": "ui.include_menu_screen",
+          "$desktop_screen_size": [
+            370,
+            "100% - 50px"
+          ],
+          "$title_text": "Player Manager",
+          "$left_screen": "permissions.area",
+          "$right_side_title": "permissions.title",
+          "$right_screen": "permissions.content_area"
+        }
+      }
+    ]
+  },
+      
+        "area@common.scrolling_panel": {
+          "$scrolling_content": "permissions.players_grid_panel",
+          "$show_background": false,
+          "$scroll_size": [
+            "5px",
+            "100% - 4px"
+          ],
+          "$scroll_bar_left_padding_size": [
+            1,
+            0
+          ]
+        },
+        
+   "players_grid": {
+    "type": "grid",
+    "size": [ "100%", "default" ],
+    "grid_item_template": "permissions.player_grid_item",
+    "grid_dimension_binding": "#players_grid_dimension",
+    "collection_name": "players_collection",
+    "anchor_to": "top_left",
+    "anchor_from": "top_left",
+    "bindings": [
+      {
+        "binding_name": "#players_grid_dimension"
+      }
+    ]
+  },
+  
+  "玩家项目@common_toggles.light_image_toggle_collection": {
+    "$toggle_name": "player_toggle",
+    "$toggle_binding_type": "collection",
+	"$hover_text_color": "white",
+	"$hover_glyph_color": "white",
+    "$toggle_grid_collection_name": "players_collection",
+    "$toggle_state_binding_name": "#player_toggle_state",
+    "$radio_toggle_group": true,
+    "$button_content": "permissions.player_button_content"
+  },
+  
+  "player_button_content": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+        "$glyph_offset|default": [ 5, 0 ],
+    "$glyph_anchor_from|default": "left_middle",
+    "$glyph_anchor_to|default": "left_middle",
+    "$button_label_offset|default": [ 34, 0 ],
+    "size": [ "100% - 4px", "100% - 4px" ],
+    "layer": 3,
+    "controls": [
+    {
+              "dropdown_icon_image": {
+                "type": "image",
+                "offset":"$glyph_offset",
+                "texture": "#player_permission_level_icon_texture",
+                "size": [ 15, 15 ],
+                "bindings": [
+                  {
+                    "binding_name": "#player_permission_level_icon_texture",
+                    "binding_name_override": "#texture",
+                    "binding_type": "collection",
+                    "binding_collection_name": "players_collection"
+                  }
+                ]
+              }
+            },
+            {
+        "gamertag_panel": {
+          "type": "panel",
+          "size": [ "fill", "100%" ],
+          "controls": [
+            {
+              "gamertag_label@permissions.gamertag_label": {
+                "offset": [ 4, 1 ],
+                "color": "$light_button_hover_text_color"
+              }
+            }
+          ]
+        }
+      }/*,
+      {
+        "tab_button_text": {
+          "type": "label",
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "size": [ "100% - 38px", "default" ],
+          "max_size": [ "100% - 38px", "100% - 4px" ],
+          "offset": "$button_label_offset",
+          "text": "#gamertag",
+          "layer": 3,
+          "color": "$text_color",
+          "alpha": "$content_alpha",
+
+          "$button_text_binding_type|default": "none",
+          "$button_text_grid_collection_name|default": "",
+          "$button_text_binding_condition|default": "none",
+
+          "bindings": [
+      {
+        "binding_name": "#gamertag",
+        "binding_type": "collection",
+        "binding_collection_name": "players_collection"
+      }
+    ]
+        }
+      }*/
+    ]
+  },
+
+  "player_grid_item": {
+    "type": "panel",
+    "size": [ "100%", 27 ],
+    "controls": [
+      {
+        "player_toggle@玩家项目": {
+          "size": [ "100%+2px", "100% + 1px" ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle"
+        }
+      }/*,
+      {
+        "inactive_modal_pane_fade@common.inactive_modal_pane_fade": {
+          "texture": "textures/ui/permissions_player_fade_overlay",
+          "bindings": [
+            {
+              "binding_name": "#content_area_focused",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      }*/
+    ]
+  }
+}

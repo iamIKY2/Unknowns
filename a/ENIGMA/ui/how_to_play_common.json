@@ -1,0 +1,209 @@
+/*
+ * @Designed: By UIPack Team
+ * @Date: 2018-12-08 23:26:54
+ */
+{
+  "namespace": "how_to_play_common",
+  "topic_category": {
+    "type": "panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": [
+      "100%",
+      "16px"
+    ],
+    "controls": [
+      {
+        "category_text": {
+          "type": "label",
+          "anchor_from": "bottom_left",
+          "anchor_to": "bottom_left",
+          "size": [
+            "default",
+            "default"
+          ],
+          "max_size": [
+            "100%",
+            "100% - 4px"
+          ],
+          "offset": [
+            "0px",
+            "-3px"
+          ],
+          "text": "('howtoplay.category.' + $category)",
+          "color": "$title_text_color"
+        }
+      }
+    ]
+  },
+  "selector_area": {
+    "type": "panel",
+    "size": [
+      "100%",
+      "100%"
+    ],
+    "layer": 3,
+    "focus_container": true,
+    "use_last_focus": true,
+    "$focus_nagivation_mode_override_down|default": "contained",
+    "$focus_nagivation_mode_override_up|default": "contained",
+    "$focus_nagivation_mode_override_left|default": "",
+    "$focus_nagivation_mode_override_right|default": "",
+    "focus_nagivation_mode_down": "$focus_nagivation_mode_override_down",
+    "focus_nagivation_mode_up": "$focus_nagivation_mode_override_up",
+    "focus_nagivation_mode_left": "$focus_nagivation_mode_override_left",
+    "focus_nagivation_mode_right": "$focus_nagivation_mode_override_right",
+    "controls": [
+      {
+        "scrolling_panel@common.scrolling_panel": {
+          "$scrolling_content": "how_to_play_common.scrollable_selector_area_content",
+          "$show_background": false,
+          "$scroll_size": [
+            "5px",
+            "100% - 4px"
+          ],
+          "$scroll_bar_left_padding_size": [
+            1,
+            0
+          ]
+        }
+      }
+    ]
+  },
+  "scrollable_selector_area_content": {
+    "type": "panel",
+    "offset": [
+      "2px",
+      "2px"
+    ],
+    "size": [
+      "100% - 4px",
+      "100%c + 4px"
+    ],
+    "controls": [
+      {
+        "$selector_stack_panel@$selector_stack_panel": {}
+      }
+    ]
+  },
+  "content_area_wrapper": {
+    "type": "panel",
+    "offset": [
+      "2px",
+      "2px"
+    ],
+    "size": [
+      "100% - 4px",
+      "100% - 4px"
+    ],
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "layer": 1,
+    "controls": [
+      {
+        "content_area@how_to_play_common.content_area": {}
+      }
+    ]
+  },
+  "content_area": {
+    "type": "panel",
+    "size": [
+      "100%",
+      "100%"
+    ],
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "controls": [
+      {
+        "control": {
+          "type": "stack_panel",
+          "size": [
+            "100%",
+            "100%"
+          ],
+          "anchor_from": "top_right",
+          "anchor_to": "top_right",
+          "controls": [
+            {
+              "scrolling_panel@common.scrolling_panel": {
+                "size": [
+                  "100%",
+                  "fill"
+                ],
+                "$scrolling_content": "$section_content_panels",
+                "$show_background": false,
+                "$scroll_size": [
+                  "5px",
+                  "100% - 4px"
+                ],
+                "$scroll_bar_left_padding_size": [
+                  1,
+                  0
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "how_to_play_content": {
+    "type": "panel",
+    "controls": [
+      {
+        "back@ui.bgback": {}
+      },
+      {
+        "container@ui.uikit_screen": {
+          "$screen_type": "ui.include_menu_screen",
+          "$desktop_screen_size": [
+            370,
+            "100% - 50px"
+          ],
+          "$icon_texture": "textures/ui/top_bar/howToPlay",
+          "$icon_size": [
+            15,
+            20
+          ],
+          "$title_text": "menu.howToPlay",
+          "$left_screen": "how_to_play_common.selector_area",
+          "$right_side_title": "#section_title",
+          "$binding_right_side_title": "#section_title",
+          "$right_screen": "how_to_play_common.content_area_wrapper"
+        }
+      }
+    ]
+  },
+  "section_toggle_button": {
+    "type": "panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": [ "100%", "30px" ],
+    "controls": [
+      {
+        "section_toggle_button@common_toggles.light_ui_toggle": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": [ "100%", "30px" ],
+          "$button_size_override": [ "100%", "100% + 1px" ],
+
+          "$button_type_panel": "how_to_play_common.toggle_button_control",
+
+          "$radio_toggle_group": true,
+          "$toggle_name": "navigation_tab",
+          "$toggle_group_default_selected": "$default_selector_toggle_index",
+
+          "$toggle_tab_focus_binding_type": "global",
+          "$toggle_tab_focus_binding_name": "#navigation_tab_focus_precedence",
+          "$toggle_on_hover_binding_type": "global",
+          "$toggle_on_hover_binding_name": "#toggle_on_hover",
+
+          "$toggle_view_binding_name": "($section_topic + '_button_toggle')",
+          "$toggle_property_bag": {
+            "#panel_title": "('howtoplay.' + $section_topic)"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,153 @@
+
+{
+  "namespace": "dock_bar",
+  
+  "dock_background": {
+    "type": "image",
+    "texture": "textures/ui/dialog_background_opaque"
+  },
+  
+  "play_button@icon_button.light_glyph_button": {
+    "$pressed_button_name": "button.menu_play",
+    "$button_name": "menu.play",
+    "size": [ 25, 25 ],
+	"$glyph_texture": "textures/ui/buttons/icons/play_icon"
+  },
+  
+  "feed_button@icon_button.light_glyph_button": {
+    "$pressed_button_name": "button.menu_feed",
+    "size": [ 25, 25 ],
+	"$glyph_texture": "textures/ui/buttons/icons/feed_icon"
+  },
+  
+  "qicon_buttonck_play_button@icon_button.general_icon_button": {
+    "$pressed_button_name": "button.menu_qicon_buttonck_play",
+    "size": [ 25, 25 ],
+	"$glyph_texture": "textures/ui/buttons/icons/play_icon"
+  },
+  
+  "achievements_button@icon_button.light_glyph_button": {
+    "$pressed_button_name": "button.menu_achievements",
+    "$button_name": "menu.achievements",
+    "size": [ 25, 25 ],
+	"$glyph_texture": "textures/ui/buttons/icons/achievements_icon"
+  },
+  
+  "settings_button@icon_button.light_glyph_button": {
+    "$pressed_button_name": "button.menu_settings",
+    "$button_name": "menu.settings",
+    "size": [ 25, 25 ],
+	"$glyph_texture": "textures/ui/buttons/icons/settings_icon"
+  },
+  
+  "store_button@icon_button.light_glyph_button": {
+    "$pressed_button_name": "button.menu_store",
+    "$button_name": "menu.store",
+    "size": [ 25, 25 ],
+	"$store_notice": false,
+	"enabled": "(not $store_disabled)",
+	"ignored": "($store_ignored)",
+	"$glyph_texture": "textures/ui/buttons/icons/store_icon"
+  },
+  
+
+  "redstone_button@icon_button.light_glyph_button": {
+    "$pressed_button_name": "button.menu_how_to_play",
+    "size": [ 25, 25 ],
+	"$glyph_texture": "textures/ui/buttons/icons/tips_icon"
+  },
+
+  "update_button@icon_button.general_icon_button": {
+    "$pressed_button_name": "button.menu_buy_game",
+    "size": [ 25, 25 ],
+	"$glyph_texture": "textures/ui/buttons/icons/not_icon"
+  },
+  
+  "exit_button@icon_button.light_glyph_button": {
+    "$pressed_button_name": "button.menu_exit",
+    "size": [ 25, 25 ],
+	"$glyph_texture": "textures/ui/buttons/icons/exit_icon"
+  },
+  
+  "skins_button@icon_button.light_glyph_button": {
+    "$pressed_button_name": "button.menu_skins",
+    "$button_name": "menu.skins",
+    "size": [ 25, 25 ],
+	"$glyph_texture": "textures/ui/buttons/icons/skins_icon"
+  },
+  
+  "release_feedback_button@icon_button.hyperlink_button": {
+	"size": [ 25, 25 ],
+    "property_bag":  {
+      "#hyperlink": "http://aka.ms/minecraftfb"
+    },
+	"$glyph_texture": "textures/ui/buttons/icons/feedback_icon"
+  },
+
+  "pre_release_feedback_button@icon_button.hyperlink_button": {
+	"size": [ 25, 25 ],
+    "property_bag": {
+      "#hyperlink": "https://aka.ms/minecraftfbbeta"
+    },
+	"$glyph_texture": "textures/ui/buttons/icons/feedback_icon"
+  },
+
+  
+  
+  "exit_button_panel": {
+    "type": "stack_panel",
+	"ignored": "$is_ios",
+    "orientation": "horizontal",
+	"controls": [
+      {
+        "padding": {
+          "type": "panel",
+          "size": [ 4, "100%" ]
+        }
+      },
+	  { 
+	    "exit_button@dock_bar.exit_button": { }
+	  }
+	]
+  },	
+  
+  "return_to_game_button@icon_button.general_icon_button": {
+    "$pressed_button_name": "button.menu_continue",
+    "size": [ 25, 25 ],
+	"$glyph_texture": "textures/ui/buttons/icons/play_icon"
+  },
+  
+  "qicon_buttont_button@icon_button.exit_icon_button": {
+    "$pressed_button_name": "button.menu_qicon_buttont",
+    "size": [ 25, 25 ],
+	"$glyph_texture": "textures/ui/buttons/icons/exit_icon/exit_icon_hover",
+    "$glyph_color_texture": "textures/ui/buttons/icons/exit_icon/exit_icon",
+	"$glyph_pressed_texture": "textures/ui/buttons/icons/exit_icon/exit_icon_pressed"
+  },
+  
+  "no_button@icon_button.general_icon_button": {
+    "size": [ 0, 0 ]
+  },
+  
+  "pause_dock_bar_panel@icon_button.dock_bar_panel": {
+    "$button_1": "dock_bar.settings_button",
+	"$hide_spacer_1": false,
+	"$button_2": "dock_bar.tips_button",
+	"$hide_spacer_2": false,
+	"$button_3": "dock_bar.feed_button",
+	"$hide_spacer_3": false,
+	"$button_4": "dock_bar.return_to_game_button",
+	"$hide_spacer_4": false,
+	"$button_5": "dock_bar.achievements_button",
+	"$hide_spacer_5": false,
+	"$button_6": "dock_bar.skins_button",
+	"$hide_spacer_6": false,
+	"$button_7": "dock_bar.take_screenshot_button",
+	"$hide_spacer_7": true,
+	"$button_8": "dock_bar.server_store_button_panel",
+	"$hide_spacer_8": true,
+	"$button_9": "dock_bar.no_button"
+	
+	
+  }	
+}

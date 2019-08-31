@@ -1,0 +1,433 @@
+
+{
+  "namespace": "xbl_bar",
+  
+  //---------------------------------------------------------------------------
+  // text Panel
+  //---------------------------------------------------------------------------
+  
+   "copyright": {
+    "type": "label",
+    "layer": 2,
+	"text_alignment": "center",
+    "text": "menu.copyright",
+	"color": "$title_text_color",  //$light_border_locked_color
+    "size": [ "default", 9 ]
+  },
+
+  "version": {
+    "type": "label",
+	"layer": 2,
+	"text_alignment": "center",
+    "text": "#version", 
+	"color": "$title_text_color",  //$light_border_locked_color
+	"size": [ "default", 9 ],
+    "bindings": [
+      {
+        "binding_name": "#version"
+      }
+    ]
+  },
+  
+  "windows_from_big_to_small-version&copyright": {
+	"anim_type": "size",
+	"easing": "out_back",
+    "duration": 0.9,
+    "from": [ 0, "100%" ],
+    "to": [ "100%-37px", "100%" ]
+  },
+
+  "version&copyright_panel": {
+    "type": "panel",  
+    "size": [ "100%-37px", "100%" ],
+    "controls": [
+	  { 
+        "common_panel@common.common_panel": {
+          "$show_close_button": false,
+		  "size": [ "100%", "100%" ],
+          "$dialog_background": "dialog_background_opaque"
+        }
+      },
+	  {
+        "version&copyright": {
+          "type": "stack_panel",
+          "size": [ "100%-16px", "18px" ],
+		  "anchor_from": "center",
+          "anchor_to": "center",
+          "orientation": "vertical",
+          "controls": [
+		    {
+              "version_text@xbl_bar.version": {
+                "size": [ "100%", "9px" ]
+              }
+            },
+		    {
+              "copyright_text@xbl_bar.copyright": {
+                 "size": [ "100%", "9px" ]
+              }
+            }
+		  ]
+        }	
+      }
+    ]
+  },
+
+  "development_version": {
+    "type": "label",
+    "color": "$main_header_text_color",
+    "layer": 2,
+    "text": "#development_version",
+    "size": [ "default", 9 ],
+    "max_size": [ "100%", "100%" ],
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "bindings": [
+      {
+        "binding_name": "#development_version"
+      }
+    ]
+  },
+ 
+  "text_panel": {
+    "type": "panel",
+    "size": [ "100%-2px", 10 ],
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "controls": [
+      {
+        "development_version@xbl_bar.development_version": {
+          "ignored": "$is_publish"
+        }
+      }
+    ]
+  },
+  
+  //---------------------------------------------------------------------------
+  // Xbox live Panel
+  //---------------------------------------------------------------------------
+  
+  "column_frame": {
+    "type": "panel"
+  },
+  
+  "xbox_live_icon": {
+    "type": "image",
+    "texture": "textures/ui/xbox_live",
+    "layer": 3,
+	"anchor_from": "center",
+    "anchor_to": "center"	
+  },
+  
+  "xbox_live_button@icon_button.xbox_live_hyperlink_button": {
+	"size": [ "100%", "100%" ],
+	"$glyph_size": [ "19px", "19px" ],
+    "property_bag":  {
+      "#hyperlink": "https://aka.ms/blockxboxmessages"
+    },
+	"$glyph_texture": "textures/ui/xbox_live"
+  },
+
+  "signingin": {
+    "size": [ "default", "default" ],
+    "max_size": [ "100%", 20 ],
+    "type": "label",
+	"layer": 5,
+	"anchor_from": "center",
+    "anchor_to": "center",	
+	"text_alignment": "center",
+    "color": "$main_header_text_color",
+    "text": "#signingin_text",
+    "bindings": [
+      {
+        "binding_name": "#signingin_visible",
+        "binding_name_override": "#visible"
+      },
+      {
+        "binding_name": "#signingin_text"
+      }
+    ]
+  },
+  
+  "signingin_loading_animation": {
+    "anim_type": "flip_book",
+    "initial_uv": [ 0, 0 ],
+    "frame_count": 8,
+    "frame_step": 29,
+    "fps": 5,
+    "reversible": false,
+    "easing": "linear",
+    "next": "@bar_forward"
+  },
+
+  "signingin_loading": {
+    "type": "image",
+    "layer": 31,
+    "texture": "textures/ui/signingin_loading",
+    "uv_size": [ 29, 29 ],
+	"color": "$light_border_locked_color", //$title_text_color
+    "uv": "@xbl_bar.signingin_loading_animation",
+    "disable_anim_fast_forward": true,
+    "bindings": [
+      {
+        "binding_name": "#signingin_visible",
+        "binding_name_override": "#visible"
+      },
+      {
+        "binding_name": "#signingin_text"
+      }
+    ]
+  },
+  
+  "to_sign_in": {
+    "type": "label",
+    "color": "$main_header_text_color",
+    "layer": 5,
+    "text": "options.xboxLiveSignedIn",
+    "size": [ "default", "default" ],
+    "max_size": [ "100%", 20 ],
+    "anchor_from": "center",
+    "anchor_to": "center",	
+	"bindings": [
+      {
+        "binding_name": "#feedback_visible",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+  
+  "to_sign_in_image": {
+    "type": "image",
+    "layer": 10,
+    "texture": "textures/ui/realms_green_check",	
+	"bindings": [
+      {
+        "binding_name": "#feedback_visible",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+  
+  "xbl_signin_button@common_buttons.light_text_button": {
+	"$pressed_button_name": "button.signin",
+    "$button_text_max_size": [ 80, 10 ], // longest localized string length will fit in this
+    "$button_text": "xbox.signin",
+    "$focus_id": "menu_xbox_signin_button"
+  },
+  
+  "nx_signin_button@common_buttons.light_text_button": {
+    "$pressed_button_name": "button.signin",
+    "$button_text_max_size": [ "100%", 20 ],
+    "$focus_id": "menu_xbox_signin_button",
+    "$button_text": "#nx_signin_text",
+    "$button_text_binding_type": "global",
+    "bindings": [
+      {
+        "binding_name": "#nx_signin_text"
+      }
+    ]
+  },
+  
+  "xbl_situation_panel": {
+    "type": "panel",  
+	"alpha": "@ui.screen_fade_in_alpha_anim",
+	"propagate_alpha": true,
+    "disable_anim_fast_forward": true,	
+    "size": [ "100%", "100%" ],
+    "controls": [
+	  { 
+	    "xbl_btn_panel@xbl_bar.xbl_btn_panel": { 
+	      "bindings": [
+            {
+              "binding_name": "(not #feedback_visible)",
+              "binding_name_override": "#visible"
+            }
+          ]
+ 		} 
+	  },
+	  {
+        "stacked_1": {
+          "type": "stack_panel",
+          "size": [ "100%", "100%" ],
+          "orientation": "horizontal",
+		  "bindings": [
+            {
+              "binding_name": "#feedback_visible",
+              "binding_name_override": "#visible"
+            }
+          ],
+          "controls": [
+	        { "xbl_panel@xbl_bar.xbl_panel": { } },
+			{
+              "padding_5": {
+                "type": "panel",
+                "size": [ "2px" , "100%" ]
+              }
+            },
+			{ 
+			  "version&copyright_panel@xbl_bar.version&copyright_panel": { 
+			  } 
+			}
+		  ]
+	    }
+	  }
+    ]
+  },
+  
+  "windows_from_big_to_small": {
+	"anim_type": "size",
+	"easing": "out_expo",
+    "duration": 0.9,
+    "from": [ "100%", "100%" ],
+    "to": [ "35px", "100%" ]
+  },
+
+  "xbl_panel": {
+    "type": "panel",  
+    "size": [ "35px", "100%" ],
+	"anchor_from": "left_middle",
+    "anchor_to": "left_middle",	
+	"bindings": [
+      {
+        "binding_name": "#feedback_visible",
+        "binding_name_override": "#visible"
+      }
+    ],
+    "controls": [
+	  {
+        "common_panel@common.common_panel": {
+          "$show_close_button": false,
+		  "size": [ "100%", "100%" ],
+          "$dialog_background": "dialog_background_hollow_4"
+        }
+      },
+	  {
+        "stacked_column": {
+          "type": "panel",
+          "size": [ "100% - 16px", "100% - 16px" ],
+		  "anchor_from": "center",
+          "anchor_to": "center",	
+          "controls": [
+		    {
+              "Xbox_icon@xbl_bar.xbox_live_icon": {
+	            "size": [ "100%", "100%" ],
+                "anchor_from": "center",
+                "anchor_to": "center"
+              }
+            },
+			{
+              "signingin_and_signin@xbl_bar.column_frame": {
+			    "size": [ "10px", "10px" ],
+				"anchor_from": "center",
+                "anchor_to": "center",
+                "offset": [ "7.5px", "7.5px" ],				
+                "controls": [
+				  { "to_sign_in_image@xbl_bar.to_sign_in_image": { } }
+                ]
+              }
+            }
+          ]
+        }
+      }
+/*	  {
+        "stacked_column": {
+          "type": "panel",
+          "size": [ "100% - 16px", "100% - 16px" ],
+		  "anchor_from": "center",
+          "anchor_to": "center",	
+          "controls": [
+		    {
+              "Xbox_icon@xbl_bar.xbox_live_button": {
+	            "size": [ "100% + 16px", "100% + 16px" ],
+                "anchor_from": "center",
+                "anchor_to": "center"
+              }
+            },
+			{
+              "signingin_and_signin@xbl_bar.column_frame": {
+			    "size": [ "10px", "10px" ],
+				"anchor_from": "center",
+                "anchor_to": "center",
+                "offset": [ "7.5px", "7.5px" ],				
+                "controls": [
+				  { "to_sign_in_image@xbl_bar.to_sign_in_image": { } }
+                ]
+              }
+            }
+          ]
+        }
+      }*/
+    ]
+  },
+  
+  "xbl_btn_panel": {
+    "type": "panel",  
+    "size": [ "100%", "100%" ],
+	"bindings": [
+      {
+        "binding_name": "(not #feedback_visible)",
+        "binding_name_override": "#visible"
+      }
+    ],
+    "controls": [
+	  {
+        "common_panel@common.common_panel": {
+          "$show_close_button": false,
+		  "size": [ "100%", "100%" ],
+          "$dialog_background": "dialog_background_hollow_4"
+        }
+      },
+	  {
+        "stacked_column": {
+          "type": "stack_panel",
+          "size": [ "100% - 16px", "100% - 16px" ],
+		  "anchor_from": "center",
+          "anchor_to": "center",	
+          "orientation": "horizontal",
+          "controls": [
+		    {
+              "Xbox_icon@xbl_bar.xbox_live_icon": {
+	            "size": [ "20%", "100%" ],
+                "anchor_from": "center",
+                "anchor_to": "center"
+              }
+            },
+            {
+              "xbl_btn@xbl_bar.column_frame": {
+                "size": [ "80%", "100%" ],
+                "max_size": [ "100%", "100%" ],
+                "controls": [
+                  { 
+				    "xbl_signin_button@xbl_bar.xbl_signin_button": {
+				      "size": [ "100% + 2px", "100% + 2px" ],
+					  "bindings": [
+                        {
+                          "binding_name": "#sign_in_visible",
+                          "binding_name_override": "#visible"
+                        }
+                      ]
+				    } 
+				  },
+				  {
+                    "nx_signin_button@xbl_bar.nx_signin_button": {
+                      "size": [ "100% + 2px", "100% + 2px" ],					 
+					  "bindings": [
+                        {
+                          "binding_name": "#sign_in_visible",
+                          "binding_name_override": "#visible"
+                        }      
+                      ]
+					}
+                  },
+				  { 
+				    "signingin@xbl_bar.signingin": { 
+					} 
+				  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

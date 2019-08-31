@@ -1,0 +1,48 @@
+//--------------------------------------------------------------------------
+//   由 Wei-Jin Tzeng 獨自製作，由 TechPlayer 監製
+//--------------------------------------------------------------------------
+
+{
+  "namespace": "top_right_button",
+  
+  //---------------------------------------------------------------------------
+  // Exit Panel
+  //---------------------------------------------------------------------------
+  
+  "exit_button@text_button_with_icon.default_button": {
+    "size": [ "100%", "100%" ],
+	"$button_text": "gui.exit",
+    "$pressed_button_name": "button.menu_exit",
+	"$glyph_texture": "textures/ui/buttons/text_button_with_icon/exit_button/exit_icon_hover",
+    "$glyph_color_texture": "textures/ui/buttons/text_button_with_icon/exit_button/exit_icon_default",
+	"$glyph_pressed_texture": "textures/ui/buttons/text_button_with_icon/exit_button/exit_icon_pressed",
+    "$glyph_size": [ 25, 25 ]
+  },
+  
+  "play_button@text_button_with_icon.default_button": {
+    "size": [ "100%", "100%" ],
+	"$button_text": "menu.play",
+    "$pressed_button_name": "button.menu_play",
+	"$glyph_texture": "textures/ui/buttons/text_button_with_icon/play_button/play_icon_hover",
+    "$glyph_color_texture": "textures/ui/buttons/text_button_with_icon/play_button/play_icon_default",
+	"$glyph_pressed_texture": "textures/ui/buttons/text_button_with_icon/play_button/play_icon_pressed",
+    "$glyph_size": [ 25, 25 ]
+  },
+  
+  "top_right_button_panel": {
+    "type": "panel", 
+	"$top_right_button|default": "top_right_button.exit_button",
+    "alpha": "@ui.screen_fade_in_alpha_anim",
+	"propagate_alpha": true,
+    "disable_anim_fast_forward": true,		
+    "size": [ "100%", "100%" ],
+    "controls": [
+	  {
+       "exit_button@$top_right_button": {
+         "anchor_from": "center",
+         "anchor_to": "center"	
+        }
+      }
+    ]
+  }
+}

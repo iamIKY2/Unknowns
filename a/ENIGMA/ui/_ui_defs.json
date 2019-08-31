@@ -1,0 +1,70 @@
+/*
+ * @Designed: By UIPack Team
+ * @Date: 2019-3-31
+ */
+{
+  "ui_defs": [
+  
+    "tips_sides/tips_sides.json",
+    "ui/button.json",
+	"ui/textbox.json",
+	"ui/color.json",
+    "ui/text_button_with_icon.json",
+    "ui/achievement_screen.json",
+	"ui/add_external_server_screen.json",
+	"ui/coin_purchase_screen.json",
+	"ui/death_screen.json",
+	"ui/desktop_start_screen.json",
+	"ui/how_to_play_common.json",
+	"ui/how_to_play_screen.json",
+	"ui/in_bed_screen.json",
+	"ui/inventory_screen.json",
+	"ui/mashup_screen.json",
+	"ui/pack_settings_screen.json",
+	"ui/patch_notes_screen.json",
+	"ui/pause_screen.json",
+	"ui/permissions_screen.json",
+	"ui/play_screen.json",
+	"ui/progress_screen.json",
+    "ui/realms_settings_screen.json",
+	"ui/resource_packs_screen.json",
+	"ui/safe_zone_screen.json",
+	"ui/skin_picker_screen.json",
+    "ui/start_screen.json",
+	"ui/store_common.json",
+	"ui/store_filter_menu_screen.json",
+	"ui/store_home_screen.json",
+	"ui/store_item_list_screen.json",
+	"ui/store_search_screen.json",
+	"ui/store_sort_menu_screen.json",
+	"ui/toast_screen.json",
+	"ui/ugc_viewer_screen.json",
+	"ui/ui_common.json",
+	"ui/ui_kit.json",
+	"ui/ui_template_dialogs.json",
+	"ui/world_templates_screen.json",
+	"ui/xbl_first_launch.json",
+	"ui/xbl_optional_signin.json",
+	"ui/inventory_kit.json",
+	
+	"ui/buttons_ui_kit/buttons_ui_kit.json",
+	"ui/buttons_ui_kit/icon_button.json",
+	"ui/buttons_ui_kit/pause_button.json",
+	"ui/buttons_ui_kit/show_toggle.json",
+	"ui/buttons_ui_kit/text_button_with_icon.json",
+	
+	"ui/settings_sections/settings_common.json",
+	"ui/settings_sections/settings_content.json",
+	"ui/settings_sections/settings_tab_screen.json",
+	"ui/kit_command_block.json",
+
+	"ui/pause_screen/pause_widgets.json",
+	"ui/dialog.json",
+	"ui/start_screen/dock_panel.json",
+	"ui/start_screen/exit_panel.json",
+	"ui/start_screen/skins_panel.json",
+	"ui/start_screen/tips_panel.json",
+	"ui/start_screen/window_widgets_panel.json",
+	"ui/start_screen/xbl_panel.json"
+  ]
+}

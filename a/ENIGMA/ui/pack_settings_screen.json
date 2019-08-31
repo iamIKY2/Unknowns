@@ -1,0 +1,71 @@
+/*
+ * @Designed: By UIPack Team
+ * @Date: 2018-12-08 23:27:43
+ */
+{
+  "namespace": "pack_settings",
+  "screen@common.base_screen": {
+    "force_render_below": false,
+    "$fill_alpha": 1,
+    "$screen_content": "pack_settings.main_screen_content",
+    "$screen_bg_content": "",
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      }
+    ]
+  },
+  "main_screen_content@ui.uikit_screen": {
+    "$screen_type": "ui.include_title_screen",
+    "$desktop_screen_size": [
+      282,
+      "100% - 50px"
+    ],
+    "$screen_content": "pack_settings.pack_scroll_panel",
+    "$title": "#pack_settings_title",
+    "$title_binding_type": "global",
+    "layer": 2
+  },
+  "pack_scroll_panel@common.scrolling_panel": {
+    "$show_background": false,
+    "$scrolling_content": "pack_settings.scrolling_content",
+    "$scroll_size": [
+      5,
+      "100% - 4px"
+    ],
+    "$scrolling_pane_size": [
+      "100%",
+      "100%"
+    ],
+    "$scrolling_pane_offset": [
+      0,
+      0
+    ],
+    "$scroll_bar_left_padding_size": [
+      1,
+      0
+    ],
+    "$scroll_bar_right_padding_size": [
+      2,
+      0
+    ]
+  },
+  "scrolling_content": {
+    "type": "stack_panel",
+    "size": [
+      "100%",
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "controls": [
+      {
+        "content_tiering_panel@pack_settings.content_tiering_panel": {}
+      },
+      {
+        "generated_form@server_form.generated_contents": {}
+      }
+    ]
+  }
+}

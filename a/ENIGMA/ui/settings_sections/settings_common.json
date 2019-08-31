@@ -1,0 +1,462 @@
+
+{
+  "namespace": "settings_common",
+
+  "light_content_button@common_buttons.light_button_assets": {
+      
+      "$button_offset|default": [ 0, 0 ],
+      "$button_pressed_offset|default": [ 0, 1 ],
+      "$pressed_alpha|default": 1,
+      "$button_type_panel|default": "common_buttons.button_content_panel",
+      "$button_content|default": "common.empty_panel",
+      "$button_state_panel|default": "common_buttons.new_ui_button_panel",
+      
+      "$default_button_alpha|default": 1,
+      "$default_hover_alpha|default": 1,
+      "$default_pressed_alpha|default": 1,
+      "$border_default_alpha|default": 1,
+      
+      // These states are for passing the button state to the button content - do not set these in a parent!
+      "$default_state|default": false,
+      "$hover_state|default": false,
+      "$pressed_state|default": false,
+      "$locked_state|default": false,
+      "$default_state_border_visible|default": true,
+      "$hover_state_border_visible|default": true,
+      "$pressed_state_border_visible|default": true,
+      "$locked_state_border_visible|default": true,
+      
+      "controls": [
+          {
+              "default@$button_state_panel": {
+                  "$new_ui_button_texture": "$default_button_texture",
+                  "$text_color": "$light_button_default_text_color",
+                  "$content_alpha": "$default_content_alpha",
+                  "$secondary_text_color": "$light_button_secondary_default_text_color",
+                  "$glyph_color": "$light_glyph_toggle_default_color",
+                  "$border_color": "$light_border_default_color",
+                  "$button_alpha": "$default_button_alpha",
+                  "$border_visible": "$default_state_border_visible",
+                  "$border_layer": 2,
+                  "$default_state": true,
+                  "$border_alpha": "$border_default_alpha",
+                  "layer": 1
+              }
+          },
+          {
+              "hover@$button_state_panel": {
+                  "$new_ui_button_texture": "$hover_button_texture",
+                  "$text_color": "$light_button_hover_text_color",
+                  "$secondary_text_color": "$light_button_secondary_hover_text_color",
+                  "$glyph_color": "$light_glyph_toggle_hover_color",
+                  "$content_alpha": "$hover_content_alpha",
+                  "$border_color": "$light_border_hover_color",
+                  "$border_visible": "$hover_state_border_visible",
+                  "$border_layer": 3,
+                  "$hover_state": true,
+                  "$button_alpha": "$default_hover_alpha",
+                  "layer": 2
+              }
+          },
+          {
+              "pressed@$button_state_panel": {
+                  "$new_ui_button_texture": "$pressed_button_texture",
+                  "$text_color": "$light_button_pressed_text_color",
+                  "$secondary_text_color": "$light_button_secondary_pressed_text_color",
+                  "$glyph_color": "$light_glyph_pressed_color",
+                  "$content_alpha": "$pressed_alpha",
+                  "$button_offset": "$button_pressed_offset",
+                  "$border_color": "$light_border_pressed_color",
+                  "$border_visible": "$pressed_state_border_visible",
+                  "$border_layer": 3,
+                  "$button_alpha": "$default_pressed_alpha",
+                  "$pressed_state": true,
+                  "layer": 3
+              }
+          },
+          {
+              "locked@$button_state_panel": {
+                  "$new_ui_button_texture": "$locked_button_texture",
+                  "$text_color": "$light_button_locked_text_color",
+                  "$secondary_text_color": "$light_button_secondary_locked_text_color",
+                  "$glyph_color": "$light_glyph_locked_color",
+                  "$content_alpha": "$locked_alpha",
+                  "$border_color": "$light_border_locked_color",
+                  "$button_image": "common_buttons.locked_button_image",
+                  "$border_visible": "$locked_state_border_visible",
+                  "$border_layer": 1,
+                  "$locked_state": true,
+                  "layer": 1
+              }
+          }
+      ]
+  },
+  
+  "selector_group_label": {
+      "type": "label",
+      "size": [ "100%", "default" ],
+      "color": "$title_text_color",
+      "offset": [ 15, 0 ]
+  },
+  
+  "section_toggle_base@common_toggles.light_ui_toggle": {
+      "anchor_from": "top_left",
+      "anchor_to": "top_left",
+      "size": [ "100%", "26px" ],
+      "$button_size_override": [ "100%", "100%+1px" ],
+      "$button_type_panel": "settings_common.toggle_button_control",
+      
+      "$radio_toggle_group": true,
+      "$toggle_name": "navigation_tab",
+      "$toggle_group_default_selected": "$default_selector_toggle_index",
+      
+      "$toggle_tab_focus_binding_type": "global",
+      "$toggle_tab_focus_binding_name": "#navigation_tab_focus_precedence",
+      "$toggle_on_hover_binding_type": "global",
+      "$toggle_on_hover_binding_name": "#toggle_on_hover",
+      "$toggle_tts_toggle_on_text": "accessibility.state.selected",
+      "$toggle_tts_toggle_off_text": "accessibility.state.unselected",
+      "$toggle_tts_name": "accessibility.tab.tts.title"
+  },
+  
+  "toggle_button_control": {
+      "type": "panel",
+      "$glyph_offset|default": [ 4, 0 ],
+      "$glyph_anchor_from|default": "left_middle",
+      "$glyph_anchor_to|default": "left_middle",
+      "$button_label_offset|default": [ 24, 0 ],
+      "$chevron_offset|default": [ -4, 0 ],
+      "layer": 2,
+      "controls": [
+          {
+              "glyph": {
+                  "type": "image",
+                  "anchor_from": "$glyph_anchor_from",
+                  "anchor_to": "$glyph_anchor_to",
+                  "offset": "$glyph_offset",
+                  "texture": "textures/ui/_glyph",
+                  "size": [ 14, 14 ],
+                  "layer": 3,
+                  "color": "$glyph_color",
+                  "alpha": "$content_alpha",
+                  
+                  "$glyph_bindings|default": [],
+                  "bindings": "$glyph_bindings"
+              }
+          },
+          {
+              "glyph_color": {
+                  "type": "image",
+                  "anchor_from": "$glyph_anchor_from",
+                  "anchor_to": "$glyph_anchor_to",
+                  "offset": "$glyph_offset",
+                  "texture": "$glyph_color_texture",
+                  "size": [ 14, 14 ],
+                  "layer": 4,
+                  "alpha": "$content_alpha",
+                  
+                  "$glyph_color_bindings|default": [],
+                  "bindings": "$glyph_color_bindings"
+              }
+          },
+          {
+              "progress_loading_bars@progress.progress_loading_bars": {
+                  "anchor_from": "left_middle",
+                  "anchor_to": "left_middle",
+                  "color": "$glyph_color",
+                  "offset": [ 5, 0 ],
+                  "layer": 5,
+                  "size": "$glyph_size",
+                  "visible": false,
+                  "$glyph_progress_bindings|default": [],
+                  "bindings": "$glyph_progress_bindings"
+              }
+          },
+          {
+              "tab_button_text": {
+                  "type": "label",
+                  "anchor_from": "left_middle",
+                  "anchor_to": "left_middle",
+                  "size": [ "100% - 36px", "default" ],
+                  "max_size": [ "100% - 36px", "100% - 4px" ],
+                  "offset": "$button_label_offset",
+                  "text": "$button_text",
+                  "layer": 3,
+                  "color": "$text_color",
+                  "alpha": "$content_alpha",
+                  
+                  "$button_text_binding_type|default": "none",
+                  "$button_text_grid_collection_name|default": "",
+                  "$button_text_binding_condition|default": "none",
+                  
+                  "bindings": [
+                      {
+                          "binding_type": "$button_text_binding_type",
+                          "binding_condition": "$button_text_binding_condition",
+                          "binding_collection_name": "$button_text_grid_collection_name",
+                          "binding_name": "$button_text",
+                          "binding_name_override": "$button_text"
+                      }
+                  ]
+              }
+          },
+          {
+              "chevron": {
+                  "type": "image",
+                  "anchor_from": "right_middle",
+                  "anchor_to": "right_middle",
+                  "offset": "$chevron_offset",
+                  "texture": "textures/ui/chevron_right",
+                  "size": [ 4, 7 ],
+                  "layer": 3,
+                  "color": "$text_color"
+              }
+          }
+      ]
+  },
+  
+  "account_toggle_button_control": {
+      "type": "panel",
+      "controls": [
+          {
+              "img_panel": {
+                  "type": "panel",
+                  "anchor_from": "left_middle",
+                  "anchor_to": "left_middle",
+                  "offset": [ 4, 0 ],
+                  "size": [ "24px", "100%" ],
+                  "controls": [
+                      {
+                          "icon_border@resource_packs.white_image": {
+                              "size": [ 24, 24 ],
+                              "layer": 1
+                          }
+                      },
+                      {
+                          "cycling_icon": {
+                              "type": "image",
+                              "size": [ 22, 22 ],
+                              "$icon_collection_name": "none",
+                              "layer": 2,
+                              "bindings": [
+                                  {
+                                      "binding_name": "#gamerpic_texture_path",
+                                      "binding_name_override": "#texture"
+                                  },
+                                  {
+                                      "binding_name": "#gamerpic_texture_location_type",
+                                      "binding_name_override": "#texture_file_system"
+                                  }
+                              ]
+                          }
+                      }
+                  ]
+              }
+          },
+          {
+              "name_and_tips_panel": {
+                  "type": "stack_panel",
+                  "anchor_from": "left_middle",
+                  "anchor_to": "left_middle",
+                  "offset": [ 34, 0 ],
+                  "size": [ "100%-50px", "17.5px" ],
+                  "controls": [
+                      {
+                          "name_panel": {
+                              "type": "panel",
+                              "size": [ "100%", "10px" ],
+                              "controls": [
+                                  {
+                                      "gamertag_label": {
+                                          "type": "label",
+                                          "color": "$text_color",
+                                          "text_alignment": "left",
+                                          "size": [ "100%", 10 ],
+                                          "max_size": [ "100%", 10 ],
+                                          "text": "#gamertag_label",
+                                          "bindings": [
+                                              {
+                                                  "binding_name": "#gamertag_label"
+                                              },
+                                              {
+                                                  "binding_name": "#logged_in",
+                                                  "binding_name_override": "#visible"
+                                              }
+                                          ]
+                                      }
+                                  },
+                                  {
+                                      "sign_label": {
+                                          "type": "label",
+                                          "color": "$text_color",
+                                          "text_alignment": "left",
+                                          "size": [ "100%", 10 ],
+                                          "max_size": [ "100%", 10 ],
+                                          "text": "gui.login",
+                                          "bindings": [
+                                              {
+                                                  "binding_name": "(not #logged_in)",
+                                                  "binding_name_override": "#visible"
+                                              }
+                                          ]
+                                      }
+                                  }
+                              ]
+                          }
+                      },
+                      {
+                          "tips_panel": {
+                              "type": "panel",
+                              "size": [ "100%", "7.5px" ],
+                              "controls": [
+                                  {
+                                      "tips_label": {
+                                          "type": "label",
+                                          "color": "$text_color",
+                                          "font_scale_factor": 0.75,
+                                          "text_alignment": "left",
+                                          "size": [ "100%", 7.5 ],
+                                          "max_size": [ "100%", 7.5 ],
+                                          "text": "settings.account_tips.subtitle"
+                                      }
+                                  }
+                              ]
+                          }
+                      }
+                  ]
+              }
+          },
+          {
+              "chevron": {
+                  "type": "image",
+                  "anchor_from": "right_middle",
+                  "anchor_to": "right_middle",
+                  "offset": [ -4, 0 ],
+                  "texture": "textures/ui/chevron_right",
+                  "size": [ 4, 7 ],
+                  "layer": 3,
+                  "color": "$text_color"
+              }
+          }
+      ]
+  },
+  
+  "dynamic_dialog_screen@common.base_screen": {   
+    "type": "screen",
+    "cache_screen": true,
+
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      },
+      {
+        "from_button_id": "button.menu_tab_left",
+        "to_button_id": "button.menu_tab_left",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      {
+        "from_button_id": "button.menu_tab_right",
+        "to_button_id": "button.menu_tab_right",
+        "mapping_type": "global",
+        "scope": "view"
+      }
+    ],
+	"$header_safezone_control": "",
+    "$header_bar_control": "",
+    "$screen_content": "settings_common.settings_content",
+	"$is_full_screen_layout": false
+  },
+  
+  "settings_content": {
+    "type": "panel",
+    "controls": [
+    {"back@ui.bgback":{
+	  }},
+	  {
+        "container": {
+          "type": "stack_panel",
+		  "size": [ "100%", "100%" ],
+          "controls": [
+			{
+              "content_panel@ui.uikit_screen": {
+  
+				"$desktop_screen_size": [ 370, "100% - 50px" ],
+                "size": [ "100%", "fill" ],
+                "$screen_type": "ui.include_menu_screen",
+				"$icon_texture": "textures/ui/top_bar/settings",
+      
+                "$title_text": "#dialog_title",
+				"$binding_screen_title": "#dialog_title",
+	  
+	            "$left_screen": "settings_common.selector_area",
+	  
+	            "$right_side_title": "#section_title",
+				"$binding_right_side_title": "#section_title",
+	            "$right_screen": "settings_common.content_area"
+              }
+            },
+            {
+              "gamepad_panel": {
+                "type": "panel",
+                "size": [ "100%", "100%c" ],
+
+                "controls": [
+                  {
+                    "gamepad_helpers@settings_common.gamepad_helpers": {}
+                  }
+                ],
+                "bindings": [
+                  {
+                    "binding_name": "#gamepad_helper_visible",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "popup_dialog_factory": {
+          "type": "factory",
+          "control_ids": {
+            "purchase_failed": "@realms_create.popup_dialog__purchase_failed",
+            "purchase_in_progress": "@realms_create.popup_dialog__purchase_in_progress",
+            "share_by_link": "@realms_whitelist.popup_dialog__share_by_link"
+          }
+        }
+      }
+    ]
+  },
+
+  "gamepad_helpers": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "offset": [ 0, "-5px" ],
+    "size": [ "100%c", 16 ],
+    "layer": "$gamepad_helper_layer",
+    "$gamepad_helper_layer|default": 0,
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "controls": [
+      { "gamepad_helper_a@common.gamepad_helper_a": {} },
+      {
+        "control": {
+          "type": "panel",
+          "size": [ 10, 0 ]
+        }
+      },
+      { "gamepad_helper_b@common.gamepad_helper_b": {} }
+    ]
+  },
+  "scrollable_selector_area_content": {
+    "type": "panel",
+    "size": [ "100% - 4px", "100%c + 4px" ],
+    "controls": [
+      { "$selector_stack_panel@$selector_stack_panel": {} }
+    ]
+  }
+}

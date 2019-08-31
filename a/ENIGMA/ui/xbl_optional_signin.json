@@ -1,0 +1,202 @@
+{
+  "namespace": "xbl_optional_signin",
+  "xbl_optional_signin_screen@common.base_screen": {
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      }
+    ],
+    "$screen_content": "xbl_optional_signin.xbl_optional_signin_screen_content"
+  },
+  "xbl_optional_signin_screen_content": {
+    "type": "panel",
+    "controls": [
+      {
+        "background_image": {
+          "type": "image",
+          "alpha": 0.8,
+          "ignored": "(not $is_pregame)",
+          "texture": "textures/ui/control"
+        }
+      },
+      {
+        "bg@ui.all_bg": {
+          "$all_bg_color": [
+            0,
+            0,
+            0
+          ],
+          "ignored": "$is_pregame",
+          "$all_bg_alpha": 0.5
+        }
+      },
+      {
+        "back@ui.bgback": {}
+      },
+      {
+        "root_panel": {
+          "type": "panel",
+          "controls": [
+            {
+              "gamepad_helpers@xbl_optional_signin.gamepad_helpers": {}
+            },
+            {
+              "main_panel@xbl_optional_signin.main_panel": {
+                "layer": 1
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "xbl_signin_label": {
+    "type": "panel",
+    "layer": 2,
+    "controls": [
+      {
+        "button_label": {
+          "type": "label",
+          "color": "$text_color",
+          "text": "gui.login"
+        }
+      }
+    ]
+  },
+  "main_panel": {
+    "type": "panel",
+    "offset": [
+      0,
+      0
+    ],
+    "size": [
+      "100%",
+      "100%"
+    ],
+    "controls": [
+      {
+        "main_control": {
+          "type": "stack_panel",
+          "size": [
+            "100%",
+            "100%c"
+          ],
+          "controls": [
+            {
+              "screen_title": {
+                "type": "panel",
+                "size": [
+                  "100%",
+                  "100%c"
+                ],
+                "controls": [
+                  {
+                    "title": {
+                      "type": "label",
+                      "layer": 2,
+                      "font_scale_factor": 2,
+                      "text": "xblLogin.LoginMessageTitle",
+                      "size": [
+                        "default",
+                        "default"
+                      ],
+                      "bindings": [
+                        {
+                          "binding_name": "#title"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "screen_message": {
+                "type": "panel",
+                "size": [
+                  "100%",
+                  "100%c"
+                ],
+                "controls": [
+                  {
+                    "message": {
+                      "type": "label",
+                      "layer": 2,
+                      "text_alignment": "center",
+                      "size": [
+                        "50%",
+                        "default"
+                      ],
+                      "font_type": "smooth",
+                      "text": "#message",
+                      "bindings": [
+                        {
+                          "binding_name": "#message"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "spacer_0": {
+                "type": "panel",
+                "size": [
+                  0,
+                  15
+                ]
+              }
+            },
+            {
+              "sign_in_button": {
+                "type": "panel",
+                "size": [
+                  "100%",
+                  "100%c"
+                ],
+                "controls": [
+                  {
+                    "sign_in_button@xbl_optional_signin.xbl_signin_button": {
+                      "size": [
+                        "50%",
+                        30
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "spacer_1": {
+                "type": "panel",
+                "size": [
+                  0,
+                  5
+                ]
+              }
+            },
+            {
+              "cancel_button": {
+                "type": "panel",
+                "size": [
+                  "100%",
+                  "100%c"
+                ],
+                "controls": [
+                  {
+                    "cancel_button@coin_purchase.cancel_button": {
+                      "$button_text": "xbox.notnow"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

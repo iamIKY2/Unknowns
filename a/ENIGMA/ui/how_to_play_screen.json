@@ -1,0 +1,11 @@
+{
+  "namespace": "how_to_play",
+  
+  "how_to_play_screen@how_to_play_common.screen_base": {
+    "$header_safezone_control": "",
+    "$header_bar_control": "",
+    "$selector_stack_panel": "how_to_play.selector_stack_panel",
+    "$section_content_panels": "how_to_play.section_content_panels",
+    "$is_full_screen_layout": false
+  }
+}

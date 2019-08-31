@@ -1,0 +1,2046 @@
+/*
+* @Designed: By UIPack Team
+* @Date: 2018-12-08 23:35:38
+*/
+/**
+* @Date:
+* @Made: WeiTzeng制作
+* @LastEditTime: 2019-4-6
+*/
+{
+    "namespace": "ui",
+    
+    
+    "include_tabs_cancel_screen": {
+        "type": "panel",
+        "controls": [
+            {
+                "frame": {
+                    "type": "image",
+                    "texture": "textures/ui/Frame",
+                    "size": [ "100% + 2px", "100% + 2px" ]
+                }
+            },
+            {
+                "content_screen": {
+                    "type": "stack_panel",
+                    "size": [ "100%", "100%" ],
+                    
+                    "$screen_content_size": [ "100%", "100%" ],
+                    
+                    "controls": [
+                        {
+                            "content_panel": {
+                                "type": "stack_panel",
+                                "size": [ "100%", "100%" ],
+                                "controls": [
+                                    {
+                                        "tabs_panel": {
+                                            "type": "panel",
+                                            "size": [ "100%", "30px" ],
+                                            "controls": [
+                                                {
+                                                    "bg": {
+                                                        "type": "custom",
+                                                        "renderer": "gradient_renderer",
+                                                        "color1": "$title_bar_color1",
+                                                        "color2": "$title_bar_color2",
+                                                        "size": [ "100%", "100%" ]
+                                                    }
+                                                },
+                                                /*{
+                                                "cancel_button_panel": {
+        "type": "stack_panel",
+        "orientation": "horizontal",
+        "anchor_from": "top_left",
+        "anchor_to": "top_left"
+        "$hide_button_tips|default": false,
+        "size": [ "100%c", "16px" ],
+        "controls": [
+            {
+                                                    "back_button_panel@ui.exit_and_cancel_button": {
+                                                        
+                                                    }
+                                                },
+                                                {
+                                                "space":{
+                                                "type":"panel",
+                                                "size":["2px",0]
+                                                }
+                                                },
+                                                {
+                                                    "back_button_panel@ui.cancel_button": {
+                                                    }
+                                                }
+        ]
+    }
+                                                },*/
+                                                {
+                                                    "back_button_panel@ui.exit_and_cancel_button": {
+                                                        "anchor_from": "top_left",
+                                                        "anchor_to": "top_left"
+                                                    }
+                                                },
+                                                {
+                                                    "back_button_panel@ui.cancel_button": {
+                                                        "anchor_from": "top_left",
+                                                        "anchor_to": "top_left",
+                                                        "offset":[35,0]
+                                                    }
+                                                },
+                                                {
+                                                    "tab_navigation_panel@$tab_navigation": {
+                                                        "anchor_from": "center",
+                                                        "anchor_to": "center",
+                                                        "layer": 2
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "divider_panel": {
+                                            "type": "panel",
+                                            "size": [ "100%", "1px" ],
+                                            "controls": [
+                                                {
+                                                    "divider": {
+                                                        "type": "image",
+                                                        "size": [ "100%", "100%" ],
+                                                        "texture": "textures/ui/bg",
+                                                        "color": "$divider_color"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "content_panel": {
+                                            "type": "panel",
+                                            "size": [ "100%", "fill" ],
+                                            "controls": [
+                                                {
+                                                    "bg": {
+                                                        "type": "image",
+                                                        "texture": "textures/ui/bg",
+                                                        "color": "$content_color",
+                                                        "alpha": 0.95,
+                                                        "size": [ "100%", "100%" ]
+                                                    }
+                                                },
+                                                {
+                                                    "screen_content@$screen_content": {
+                                                        "anchor_from": "bottom_middle",
+                                                        "anchor_to": "bottom_middle",
+                                                        "offset": "$screen_content_offset",
+                                                        "size": "$screen_content_size"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+	
+	 "cancel_button@common.button": {
+        "size": [ 16, "16px" ],
+        
+        "$pressed_button_name|default": "button.menu_leave_screen",
+        
+        "$default_button_texture|default": "",
+        "$hover_button_texture|default": "",
+        "$pressed_button_texture|default": "",
+        "$locked_button_texture|default": "",
+        
+        "$default_state|default": false,
+        "$hover_state|default": false,
+        "$pressed_state|default": false,
+        
+        "controls": [
+            {
+                "default@ui.cancel_button_panel": {
+                    "layer": 1,
+                    "$border_color": "$light_border_default_color",
+                    "$border_layer": 2,
+                    "$default_state": true
+                }
+            },
+            {
+                "hover@ui.cancel_button_panel": {
+                    "layer": 2,
+                    "$border_color": "$light_border_hover_color",
+                    "$border_layer": 3,
+                    "$hover_state": true
+                }
+            },
+            {
+                "pressed@ui.cancel_button_panel": {
+                    "layer": 3,
+                    "$border_color": "$light_border_pressed_color",
+                    "$border_layer": 3,
+                    "$pressed_state": true
+                }
+            }
+        ]
+    },
+	
+	"cancel_button_panel": {
+        "type": "stack_panel",
+        "orientation": "horizontal",
+        "$hide_button_tips|default": false,
+        "size": [ "100%c", "16px" ],
+        "controls": [
+            {
+                "button":{
+                    "type": "panel",
+                    "size": [ 16 , 16 ],
+                    "controls": [
+                        {
+                            "button": {
+                                "type": "image",
+                                "size": [ 8, 8 ],
+                                "texture": "textures/ui/ui_cancel_button"
+                            }
+                        },
+                        {
+                            "border": {
+                                "type": "image",
+                                "size": [ 8, 8 ],
+                                "texture": "textures/ui/ui_exit_focus_border",
+                                "color": "$border_color",
+                                "layer": "$border_layer"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "chevron_panel": {
+                    "type": "panel",
+                    "ignored": "$hide_button_tips",
+                    "size": [ 8 , 16 ],
+                    "controls": [
+                        {
+                            "left_chevron": {
+                                "type": "image",
+                                "size": [ 4, 7 ],
+                                "offset": "@ui.exit_tips_animation_offset_1",
+                                "alpha": "@ui.exit_tips_animation_alpha_1",
+                                "animation_reset_name": "screen_animation_reset",
+                                "propagate_alpha": true,
+                                "disable_anim_fast_forward": true,
+                                "texture": "textures/ui/chevron_left",
+                                "color": "$title_color"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "label_panel": {
+                    "type": "panel",
+                    "ignored": "$hide_button_tips",
+                    "size": [ "100%c", 16 ],
+                    "controls": [
+                        {
+                            "label": {
+                                "type": "label",
+                                "offset": "@ui.exit_tips_animation_offset_1",
+                                "alpha": "@ui.exit_tips_animation_alpha_1",
+                                "animation_reset_name": "screen_animation_reset",
+                                "propagate_alpha": true,
+                                "disable_anim_fast_forward": true,
+                                "color": "$title_color",
+                                "text": "ui_cancel_button.tips"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+	
+	"exit_tips_animation_offset_1": {
+        "anim_type": "offset",
+        "easing": "out_cubic",
+        "duration": 0.5,
+        "from": [ 0, 0 ],
+        "to": [ -4, 0 ],
+        "next": "@ui.exit_tips_animation_offset_2"
+    },
+    
+    "exit_tips_animation_offset_2": {
+        "anim_type": "offset",
+        "easing": "out_cubic",
+        "duration": 0.5,
+        "from": [ -4, 0 ],
+        "to": [ 0, 0 ],
+        "next": "@ui.exit_tips_animation_offset_3"
+    },
+    
+    "exit_tips_animation_offset_3": {
+        "anim_type": "offset",
+        "easing": "out_cubic",
+        "duration": 0.5,
+        "from": [ 0, 0 ],
+        "to": [ 0, 0 ],
+        "next": "@ui.exit_tips_animation_offset_1"
+    },
+    
+    "exit_tips_animation_alpha_1": {
+        "anim_type": "alpha",
+        "duration": 4.25,
+        "from": 0,
+        "to": 0,
+        "next": "@ui.exit_tips_animation_alpha_2"
+    },
+    
+    "exit_tips_animation_alpha_2": {
+        "anim_type": "alpha",
+        "duration": 0.25,
+        "from": 0,
+        "to": 1,
+        "next": "@ui.exit_tips_animation_alpha_3"
+    },
+    
+    "exit_tips_animation_alpha_3": {
+        "anim_type": "alpha",
+        "duration": 2.75,
+        "from": 1,
+        "to": 1,
+        "next": "@ui.exit_tips_animation_alpha_4"
+    },
+    
+    "exit_tips_animation_alpha_4": {
+        "anim_type": "alpha",
+        "duration": 0.25,
+        "from": 1,
+        "to": 0,
+        "next": "@ui.exit_tips_animation_alpha_1"
+    },
+	
+	"exit_and_cancel_button@common.button": {
+        "size": [ "16px", "16px" ],
+        
+        "$pressed_button_name|default": "button.menu_exit",
+        
+        "$default_button_texture|default": "",
+        "$hover_button_texture|default": "",
+        "$pressed_button_texture|default": "",
+        "$locked_button_texture|default": "",
+        
+        "$default_state|default": false,
+        "$hover_state|default": false,
+        "$pressed_state|default": false,
+        
+        "controls": [
+            {
+                "default@ui.exit_and_cancel_button_panel": {
+                    "layer": 1,
+                    "$border_color": "$light_border_default_color",
+                    "$border_layer": 2,
+                    "$default_state": true
+                }
+            },
+            {
+                "hover@ui.exit_and_cancel_button_panel": {
+                    "layer": 2,
+                    "$border_color": "$light_border_hover_color",
+                    "$border_layer": 3,
+                    "$hover_state": true
+                }
+            },
+            {
+                "pressed@ui.exit_and_cancel_button_panel": {
+                    "layer": 3,
+                    "$border_color": "$light_border_pressed_color",
+                    "$border_layer": 3,
+                    "$pressed_state": true
+                }
+            }
+        ]
+    },
+    
+    "exit_and_cancel_button_panel": {
+        "type": "stack_panel",
+        "orientation": "horizontal",
+        "$hide_button_tips|default": false,
+        "size": [ "100%c", "16px" ],
+        "controls": [
+            {
+                "button":{
+                    "type": "panel",
+                    "size": [ 16 , 16 ],
+                    "controls": [
+                        {
+                            "button": {
+                                "type": "image",
+                                "size": [ 8, 8 ],
+                                "texture": "textures/ui/ui_exit_button"
+                            }
+                        },
+                        {
+                            "border": {
+                                "type": "image",
+                                "size": [ 8, 8 ],
+                                "texture": "textures/ui/ui_exit_focus_border",
+                                "color": "$border_color",
+                                "layer": "$border_layer"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    
+    /*
+    "bg_10000": {
+        "anim_type": "uv",
+        "from": [0,0],
+        "to": [1920,0],
+        "next":"@ui.bg_10001",
+        "duration": 0
+    },
+    
+    "bg_10001": {
+        "anim_type": "uv",
+        "from": [1920,0],
+        "next":"@ui.bg_10000",
+        "to": [3840,0],
+        "duration": 0
+    },
+    
+    "bg_10002": {
+        "anim_type": "uv",
+        "from": [3840,0],
+        "next":"@ui.bg_10000",
+        "to": [5760,0],
+        "duration": 2
+    },  */
+    
+    "all_bg": {
+        "type": "image",
+        "texture": "textures/ui/bg",
+        "color": "$all_bg_color",
+        "alpha": "$all_bg_alpha",
+        "$all_bg_color|default": [ 1.0, 1.0, 1.0 ],
+        "$all_bg_alpha|default": 1.0
+    },
+    
+    //---------------------------------------------------------------------------------------------------------
+    //
+    //  介面
+    //
+    //---------------------------------------------------------------------------------------------------------
+    
+    "uikit_screen": {
+        "type": "panel",
+        
+        //Colors
+        "$title_bar_color1|default": "$title_bar_color1",
+        "$title_bar_color2|default": "$title_bar_color2",
+        "$title_color|default": "$title_color",
+        "$menu_title_color|default": "$menu_title_color",
+        "$divider_color|default": "$divider_color",
+        "$divider_color_l|default": "$divider_color_l",
+        "$sidebar_color|default": "$sidebar_color",
+        "$content_color|default": "$content_color",
+        
+        //Screen Type
+        /*
+        "$include_sidebar_title_screen|default": false,
+        "$include_title_screen|default": false,
+        "$include_tabs_screen|default": false,
+        "$include_menu_screen|default": false,
+        "$include_title_store_screen|default": false,
+        "$quickback|default":false,
+        "variables": [
+            {
+                "requires": "$include_sidebar_title_screen",
+                "$screen_type": "ui.include_sidebar_title_screen",
+                "$desktop_screen_size": [ 370, "100% - 50px" ]
+            },
+            {
+                "requires": "$include_title_screen",
+                "$screen_type": "ui.include_title_screen",
+                "$desktop_screen_size": [ 282, "100% - 50px" ]
+            },
+            {
+                "requires": "$include_tabs_screen",
+                "$screen_type": "ui.include_tabs_screen",
+                "$desktop_screen_size": [ 282, "100% - 50px" ]
+            },
+            {
+                "requires": "$include_menu_screen",
+                "$screen_type": "ui.include_menu_screen",
+                "$desktop_screen_size": [ 370, "100% - 50px" ]
+            },
+            {
+                "requires": "$include_menu_store_screen",
+                "$screen_type": "ui.include_menu_store_screen",
+                "$desktop_screen_size": [ "100%", "100%" ]
+            },
+            {
+                "requires": "$include_title_store_screen",
+                "$screen_type": "ui.include_title_screen",
+                "$desktop_screen_size": [ "100%", "100%" ]
+            }
+        ],
+        */
+        "$screen_type": "ui.include_menu_screen",
+        "$bk": "",
+        "$desktop_screen_size": [ 370, "100% - 50px" ],
+        "controls": [/*
+            {
+                "screen_background": {
+                    "type": "image",
+                    "texture":"background/2",
+                    "uv_size":[1920,1080],
+                    "uv": "@ui.bg_10000",
+                    "layer": -2
+                }
+            },*/
+            {
+                "screen@$screen_type": {
+                    "layer": 1,
+                    "size": "$screen_size",
+                    "variables": [
+                        {
+                            "requires": "$desktop_screen",
+                            "$screen_size": "$desktop_screen_size"
+                        },
+                        {
+                            "requires": "($pocket_screen or $is_holographic)",
+                            "$screen_size": [ "100%", "100%" ]
+                        }
+                    ]
+                }
+            },
+            {
+                "bk@$bk":{
+                    "size":["150%","150%"]
+                }
+            },
+            {
+                "screen_shadow": {
+                    "type": "panel",
+                    "layer": 1,
+                    "size": "$screen_size",
+                    "variables": [
+                        {
+                            "requires": "$desktop_screen",
+                            "$screen_size": "$desktop_screen_size"
+                        },
+                        {
+                            "requires": "($pocket_screen or $is_holographic)",
+                            "$screen_size": [ "100%", "100%" ]
+                        }
+                    ],
+                    "controls": [
+                        {
+                            "shadow_TEXTURE": {
+                                "type": "image",
+                                "layer": 2,
+                                "nineslice_size": 20,
+                                "base_size": [ 100, 100 ],
+                                "texture": "textures/ui/window_shadow",
+                                "size": [ "100% + 22px", "100% + 22px" ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    
+    //---------------------------------------------------------------------------------------------------------
+    //
+    //  含側欄的標題介面
+    //
+    //---------------------------------------------------------------------------------------------------------
+    
+    "include_sidebar_title_screen": {
+        "type": "panel",
+        "controls": [
+            {
+                "frame": {
+                    "type": "image",
+                    "texture": "textures/ui/Frame",
+                    "size": [ "100% + 2px", "100% + 2px" ]
+                }
+            },
+            {
+                "content_screen": {
+                    "type": "stack_panel",
+                    "size": [ "100%", "100%" ],
+                    
+                    "$item_size|default": [ "100px", "100%" ],
+                    "$screen_sidebar_size|default": [ "100%", "100%" ],
+                    "$screen_content_size|default": [ "100%", "100%" ],
+                    
+                    "controls": [
+                        {
+                            "content_panel": {
+                                "type": "stack_panel",
+                                "size": [ "100%", "100%" ],
+                                "controls": [
+                                    {
+                                        "title_panel": {
+                                            "type": "panel",
+                                            "size": [ "100%", "16px" ],
+                                            "controls": [
+                                                {
+                                                    "bg": {
+                                                        "type": "custom",
+                                                        "renderer": "gradient_renderer",
+                                                        "color1": "$title_bar_color1",
+                                                        "color2": "$title_bar_color2",
+                                                        "size": [ "100%", "100%" ]
+                                                    }
+                                                },
+                                                {
+                                                    "back_button_panel@common_store.back_content_panel": {
+                                                        "anchor_from": "top_left",
+                                                        "anchor_to": "top_left"
+                                                    }
+                                                },
+                                                {
+                                                    "title": {
+                                                        "type": "label",
+                                                        "anchor_from": "center",
+                                                        "anchor_to": "center",
+                                                        "layer": 2,
+                                                        "color": "$title_color",
+                                                        "text": "$title",
+                                                        "bindings": [
+                                                            {
+                                                                "binding_type": "$title_binding_type",
+                                                                "binding_condition": "$title_binding_condition",
+                                                                "binding_name_override": "$title",
+                                                                "binding_name": "$title"
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "item_panel@$item": {
+                                                        "size": "$item_size",
+                                                        "offset": "$item_offset",
+                                                        "anchor_from": "top_right",
+                                                        "anchor_to": "top_right"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "divider_panel": {
+                                            "type": "panel",
+                                            "size": [ "100%", "1px" ],
+                                            "controls": [
+                                                {
+                                                    "divider": {
+                                                        "type": "image",
+                                                        "size": [ "100%", "100%" ],
+                                                        "texture": "textures/ui/bg",
+                                                        "color": "$divider_color_l"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "content_panel": {
+                                            "type": "stack_panel",
+                                            "orientation": "horizontal",
+                                            "size": [ "100%", "fill" ],
+                                            "controls": [
+                                                {
+                                                    "sidebar_panel": {
+                                                        "type": "panel",
+                                                        "size": [ "35%", "100%" ],
+                                                        "controls": [
+                                                            {
+                                                                "bg": {
+                                                                    "type": "image",
+                                                                    "texture": "textures/ui/bg",
+                                                                    "color": "$sidebar_color",
+                                                                    "alpha": 0.7,
+                                                                    "size": [ "100%", "100%" ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "sidebar_content@$sidebar_content": {
+                                                                    "anchor_from": "bottom_middle",
+                                                                    "anchor_to": "bottom_middle",
+                                                                    "offset": "$screen_sidebar_offset",
+                                                                    "size": "$screen_sidebar_size"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "divider_panel": {
+                                                        "type": "panel",
+                                                        "size": [ "1px", "100%" ],
+                                                        "controls": [
+                                                            {
+                                                                "divider": {
+                                                                    "type": "image",
+                                                                    "size": [ "100%", "100%" ],
+                                                                    "texture": "textures/ui/bg",
+                                                                    "color": "$divider_color"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "content_panel": {
+                                                        "type": "panel",
+                                                        "size": [ "fill", "100%" ],
+                                                        "controls": [
+                                                            {
+                                                                "bg": {
+                                                                    "type": "image",
+                                                                    "texture": "textures/ui/bg",
+                                                                    "color": "$content_color",
+                                                                    "alpha": 0.9,
+                                                                    "size": [ "100%", "100%" ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "screen_content@$screen_content": {
+                                                                    "anchor_from": "bottom_middle",
+                                                                    "anchor_to": "bottom_middle",
+                                                                    "offset": "$screen_content_offset",
+                                                                    "size": "$screen_content_size"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    
+    //---------------------------------------------------------------------------------------------------------
+    //
+    //  含標題的介面
+    //
+    //---------------------------------------------------------------------------------------------------------
+    
+    "include_title_screen": {
+        "type": "panel",
+        "controls": [
+            {
+                "frame": {
+                    "type": "image",
+                    "texture": "textures/ui/Frame",
+                    "size": [ "100% + 2px", "100% + 2px" ]
+                }
+            },
+            {
+                "content_screen": {
+                    "type": "stack_panel",
+                    "size": [ "100%", "100%" ],
+                    
+                    "$item_size|default": [ "100px", "100%" ],
+                    "$screen_content_size|default": [ "100%", "100%" ],
+                    
+                    "controls": [
+                        {
+                            "content_panel": {
+                                "type": "stack_panel",
+                                "size": [ "100%", "100%" ],
+                                "controls": [
+                                    {
+                                        "title_panel": {
+                                            "type": "panel",
+                                            "size": [ "100%", "16px" ],
+                                            "controls": [
+                                                {
+                                                    "bg": {
+                                                        "type": "custom",
+                                                        "renderer": "gradient_renderer",
+                                                        "color1": "$title_bar_color1",
+                                                        "color2": "$title_bar_color2",
+                                                        "size": [ "100%", "100%" ]
+                                                    }
+                                                },
+                                                {
+                                                    "back_button_panel@common_store.back_content_panel": {
+                                                        "anchor_from": "top_left",
+                                                        "anchor_to": "top_left"
+                                                    }
+                                                },
+                                                {
+                                                    "title": {
+                                                        "type": "label",
+                                                        "anchor_from": "center",
+                                                        "anchor_to": "center",
+                                                        "layer": 2,
+                                                        "color": "$title_color",
+                                                        "text": "$title",
+                                                        "bindings": [
+                                                            {
+                                                                "binding_type": "$title_binding_type",
+                                                                "binding_condition": "$title_binding_condition",
+                                                                "binding_name_override": "$title",
+                                                                "binding_name": "$title"
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "item_panel@$item": {
+                                                        "size": "$item_size",
+                                                        "offset": "$item_offset",
+                                                        "anchor_from": "top_right",
+                                                        "anchor_to": "top_right"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "divider_panel": {
+                                            "type": "panel",
+                                            "size": [ "100%", "1px" ],
+                                            "controls": [
+                                                {
+                                                    "divider": {
+                                                        "type": "image",
+                                                        "size": [ "100%", "100%" ],
+                                                        "texture": "textures/ui/bg",
+                                                        "color": "$divider_color"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "content_panel": {
+                                            "type": "panel",
+                                            "size": [ "100%", "fill" ],
+                                            "controls": [
+                                                {
+                                                    "bg": {
+                                                        "type": "image",
+                                                        "texture": "textures/ui/bg",
+                                                        "color": "$content_color",
+                                                        "alpha": 0.9,
+                                                        "size": [ "100%", "100%" ]
+                                                    }
+                                                },
+                                                {
+                                                    "screen_content@$screen_content": {
+                                                        "anchor_from": "bottom_middle",
+                                                        "anchor_to": "bottom_middle",
+                                                        "offset": "$screen_content_offset",
+                                                        "size": "$screen_content_size"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    
+    //---------------------------------------------------------------------------------------------------------
+    //
+    //  含標籤的介面
+    //
+    //---------------------------------------------------------------------------------------------------------
+    
+    "include_tabs_screen": {
+        "type": "panel",
+        "controls": [
+            {
+                "frame": {
+                    "type": "image",
+                    "texture": "textures/ui/Frame",
+                    "size": [ "100% + 2px", "100% + 2px" ]
+                }
+            },
+            {
+                "content_screen": {
+                    "type": "stack_panel",
+                    "size": [ "100%", "100%" ],
+                    
+                    "$screen_content_size": [ "100%", "100%" ],
+                    
+                    "controls": [
+                        {
+                            "content_panel": {
+                                "type": "stack_panel",
+                                "size": [ "100%", "100%" ],
+                                "controls": [
+                                    {
+                                        "tabs_panel": {
+                                            "type": "panel",
+                                            "size": [ "100%", "30px" ],
+                                            "controls": [
+                                                {
+                                                    "bg": {
+                                                        "type": "custom",
+                                                        "renderer": "gradient_renderer",
+                                                        "color1": "$title_bar_color1",
+                                                        "color2": "$title_bar_color2",
+                                                        "size": [ "100%", "100%" ]
+                                                    }
+                                                },
+                                                {
+                                                    "back_button_panel@common_store.back_content_panel": {
+                                                        "anchor_from": "top_left",
+                                                        "anchor_to": "top_left"
+                                                    }
+                                                },
+                                                {
+                                                    "tab_navigation_panel@$tab_navigation": {
+                                                        "anchor_from": "center",
+                                                        "anchor_to": "center",
+                                                        "layer": 2
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "divider_panel": {
+                                            "type": "panel",
+                                            "size": [ "100%", "1px" ],
+                                            "controls": [
+                                                {
+                                                    "divider": {
+                                                        "type": "image",
+                                                        "size": [ "100%", "100%" ],
+                                                        "texture": "textures/ui/bg",
+                                                        "color": "$divider_color"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "content_panel": {
+                                            "type": "panel",
+                                            "size": [ "100%", "fill" ],
+                                            "controls": [
+                                                {
+                                                    "bg": {
+                                                        "type": "image",
+                                                        "texture": "textures/ui/bg",
+                                                        "color": "$content_color",
+                                                        "alpha": 0.9,
+                                                        "size": [ "100%", "100%" ]
+                                                    }
+                                                },
+                                                {
+                                                    "screen_content@$screen_content": {
+                                                        "anchor_from": "bottom_middle",
+                                                        "anchor_to": "bottom_middle",
+                                                        "offset": "$screen_content_offset",
+                                                        "size": "$screen_content_size"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    
+    //---------------------------------------------------------------------------------------------------------
+    //
+    //  含選單的介面
+    //
+    //---------------------------------------------------------------------------------------------------------
+    
+    "include_menu_screen": {
+        "type": "panel",
+        "controls": [
+            {
+                "bg": {
+                    "type": "image",
+                    "texture": "textures/ui/Frame",
+                    "size": [ "100% + 2px", "100% + 2px" ]
+                }
+            },
+            {
+                "content_screen": {
+                    "type": "stack_panel",
+                    "orientation": "horizontal",
+                    "size": [ "100%", "100%" ],
+                    
+                    "$left_screen_size": [ "100%", "100% - 34px" ],
+                    "$right_screen_size": [ "100%", "100%" ],
+                    
+                    "controls": [
+                        {
+                            "menu_panel": {
+                                "type": "panel",
+                                "size": [ "35%", "100%" ],
+                                "controls": [
+                                    {
+                                        "bg": {
+                                            "type": "image",
+                                            "texture": "textures/ui/bg",
+                                            "alpha": 0.7,
+                                            "size": [ "100%", "100%" ],
+                                            "color": "$sidebar_color"
+                                        }
+                                    },
+                                    {
+                                        "back_button_panel@common_store.back_content_panel": {
+                                            "anchor_from": "top_left",
+                                            "anchor_to": "top_left"
+                                        }
+                                    },
+                                    {
+                                        "screen_title": {
+                                            "type": "label",
+                                            "layer": 2,
+                                            "font_scale_factor": 1.5,
+                                            "anchor_from": "top_left",
+                                            "anchor_to": "top_left",
+                                            "offset": [ 2, 19 ],
+                                            "color": "$menu_title_color",
+                                            "text": "$title_text",
+                                            "size": [ "default", "default" ],
+                                            "max_size": [ "100% - 4px", 15 ],
+                                            "bindings": [
+                                                {
+                                                    "binding_name": "$binding_screen_title"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "left_screen@$left_screen": {
+                                            "anchor_from": "bottom_middle",
+                                            "anchor_to": "bottom_middle",
+                                            "offset": "$left_screen_offset",
+                                            "size": "$left_screen_size"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "divider_panel": {
+                                "type": "panel",
+                                "size": [ "1px", "100%" ],
+                                "controls": [
+                                    {
+                                        "divider": {
+                                            "type": "image",
+                                            "size": [ "100%", "100%" ],
+                                            "texture": "textures/ui/bg",
+                                            "color": "$divider_color_l"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "content_panel": {
+                                "type": "stack_panel",
+                                "size": [ "fill", "100%" ],
+                                "controls": [
+                                    {
+                                        "content_panel": {
+                                            "type": "panel",
+                                            "size": [ "100%", "16px" ],
+                                            "controls": [
+                                                {
+                                                    "bg": {
+                                                        "type": "custom",
+                                                        "renderer": "gradient_renderer",
+                                                        "color1": "$title_bar_color1",
+                                                        "color2": "$title_bar_color2",
+                                                        "size": [ "100%", "100%" ]
+                                                    }
+                                                },
+                                                {
+                                                    "right_side_title": {
+                                                        "type": "label",
+                                                        "anchor_from": "center",
+                                                        "anchor_to": "center",
+                                                        "layer": 2,
+                                                        "color": "$title_color",
+                                                        "text": "$right_side_title",
+                                                        "bindings": [
+                                                            {
+                                                                "binding_name": "$binding_right_side_title"
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "divider_panel": {
+                                            "type": "panel",
+                                            "size": [ "100%", "1px" ],
+                                            "controls": [
+                                                {
+                                                    "divider": {
+                                                        "type": "image",
+                                                        "size": [ "100%", "100%" ],
+                                                        "texture": "textures/ui/bg",
+                                                        "color": "$divider_color"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "content_panel": {
+                                            "type": "panel",
+                                            "size": [ "100%", "fill" ],
+                                            "controls": [
+                                                {
+                                                    "bg": {
+                                                        "type": "image",
+                                                        "texture": "textures/ui/bg",
+                                                        "color": "$content_color",
+                                                        "alpha": 0.9,
+                                                        "size": [ "100%", "100%" ]
+                                                    }
+                                                },
+                                                {
+                                                    "right_screen@$right_screen": {
+                                                        "anchor_from": "bottom_middle",
+                                                        "anchor_to": "bottom_middle",
+                                                        "offset": "$right_screen_offset",
+                                                        "size": "$right_screen_size"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    
+    //---------------------------------------------------------------------------------------------------------
+    //
+    //  含選單的商店介面
+    //
+    //---------------------------------------------------------------------------------------------------------
+    
+    "include_menu_store_screen": {
+        "type": "panel",
+        "$item_size|default": [ "100px", "100%" ],
+        "controls": [
+            
+            {
+                "bg": {
+                    "type": "image",
+                    "texture": "textures/ui/Frame",
+                    "size": [ "100% + 2px", "100% + 2px" ]
+                }
+            },
+            {
+                "content_screen": {
+                    "type": "stack_panel",
+                    "orientation": "horizontal",
+                    "size": [ "100%", "100%" ],
+                    
+                    "$left_screen_size": [ "100%", "100% - 18px" ],
+                    "$right_screen_size": [ "100%", "100%" ],
+                    
+                    "controls": [
+                        {
+                            "menu_panel": {
+                                "type": "panel",
+                                "size": [ "110px", "100%" ],
+                                "controls": [
+                                    {
+                                        "bg": {
+                                            "type": "image",
+                                            "texture": "textures/ui/bg",
+                                            "alpha": 0.7,
+                                            "size": [ "100%", "100%" ],
+                                            "color": "$sidebar_color"
+                                        }
+                                    },
+                                    {
+                                        "back_button_panel@common_store.back_content_panel": {
+                                            "anchor_from": "top_left",
+                                            "anchor_to": "top_left"
+                                        }
+                                    },
+                                    
+                                    {
+                                        "left_screen@$left_screen": {
+                                            "anchor_from": "bottom_middle",
+                                            "anchor_to": "bottom_middle",
+                                            "offset": "$left_screen_offset",
+                                            "size": "$left_screen_size"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "divider_panel": {
+                                "type": "panel",
+                                "size": [ "1px", "100%" ],
+                                "controls": [
+                                    {
+                                        "divider": {
+                                            "type": "image",
+                                            "size": [ "100%", "100%" ],
+                                            "texture": "textures/ui/bg",
+                                            "color": "$divider_color_l"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "content_panel": {
+                                "type": "stack_panel",
+                                "size": [ "fill", "100%" ],
+                                "controls": [
+                                    {
+                                        "content_panel": {
+                                            "type": "panel",
+                                            "size": [ "100%", "16px" ],
+                                            "controls": [
+                                                {
+                                                    "bg": {
+                                                        "type": "custom",
+                                                        "renderer": "gradient_renderer",
+                                                        "color1": "$title_bar_color1",
+                                                        "color2": "$title_bar_color2",
+                                                        "size": [ "100%", "100%" ]
+                                                    }
+                                                },
+                                                {
+                                                    "right_side_title": {
+                                                        "type": "label",
+                                                        "anchor_from": "center",
+                                                        "anchor_to": "center",
+                                                        "layer": 2,
+                                                        "color": "$title_color",
+                                                        "text": "$right_side_title",
+                                                        "bindings": [
+                                                            {
+                                                                "binding_name": "$binding_right_side_title"
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "item_panel@$item": {
+                                                        "size": "$item_size",
+                                                        "offset": "$item_offset",
+                                                        "anchor_from": "top_right",
+                                                        "anchor_to": "top_right"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "divider_panel": {
+                                            "type": "panel",
+                                            "size": [ "100%", "1px" ],
+                                            "controls": [
+                                                {
+                                                    "divider": {
+                                                        "type": "image",
+                                                        "size": [ "100%", "100%" ],
+                                                        "texture": "textures/ui/bg",
+                                                        "color": "$divider_color"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "content_panel": {
+                                            "type": "panel",
+                                            "size": [ "100%", "fill" ],
+                                            "controls": [
+                                                {
+                                                    "bg": {
+                                                        "type": "image",
+                                                        "texture": "textures/ui/bg",
+                                                        "color": "$content_color",
+                                                        "alpha": 0.9,
+                                                        "size": [ "100%", "100%" ]
+                                                    }
+                                                },
+                                                {
+                                                    "right_screen@$right_screen": {
+                                                        "anchor_from": "bottom_middle",
+                                                        "anchor_to": "bottom_middle",
+                                                        "offset": "$right_screen_offset",
+                                                        "size": "$right_screen_size"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    
+    //---------------------------------------------------------------------------------------------------------
+    //
+    //  通用螢幕介面
+    //
+    //---------------------------------------------------------------------------------------------------------
+    
+    "container_screen_exit_animation_push": {
+        "anim_type": "offset",
+        "easing": "out_cubic",
+        "duration": "$container_transition_time_push",
+        "from": [ 0, 0 ],
+        "to": [ 0, "100%" ],
+        "play_event": "screen.exit_push",
+        "end_event": "screen.exit_end"
+    },
+    
+    "container_screen_exit_animation_pop": {
+        "anim_type": "offset",
+        "easing": "out_cubic",
+        "duration": "$container_transition_time_push",
+        "from": [ 0, 0 ],
+        "to": [ 0, "100%" ],
+        "play_event": "screen.exit_pop",
+        "end_event": "screen.exit_end"
+    },
+    
+    "container_screen_entrance_animation_push": {
+        "anim_type": "offset",
+        "easing": "out_cubic",
+        "duration": "$container_transition_time_push",
+        "from": [ 0, "100%" ],
+        "to": [ 0, 0 ],
+        "play_event": "screen.entrance_push",
+        "end_event": "screen.entrance_end"
+    },
+    
+    "container_screen_entrance_animation_pop": {
+        "anim_type": "offset",
+        "easing": "out_cubic",
+        "duration": "$container_transition_time_push",
+        "from": [ 0, "100%" ],
+        "to": [ 0, 0 ],
+        "play_event": "screen.entrance_pop",
+        "end_event": "screen.entrance_end"
+    },
+    
+    "screen_background": {
+        "type": "image",
+        "size": [ "100%", "100%" ],
+        "alpha": 0.8,
+        "color": "$0_color_format",
+        "texture": "textures/ui/bg"
+    },
+    
+    "screen_fade_in_alpha_anim": {
+        "anim_type": "alpha",
+        "easing": "out_expo",
+        "duration": 0.9,
+        "from": 0.3,
+        "to": 1
+    },
+    
+    "icon_with_title": {
+        "type": "stack_panel",
+        "orientation": "horizontal",
+        
+        "$icon_texture|default": "textures/ui/buttons/icons/bug_icon",
+        "$title_text|default": "Title",
+        
+        "size": [ "100%c", "100%c" ],
+        "controls": [
+            {
+                "icon_panel": {
+                    "type": "panel",
+                    "size": [ "11px", "11px" ],
+                    "controls": [
+                        {
+                            "icon": {
+                                "type": "image",
+                                "texture": "textures/ui/buttons/icons/focus_border_fill",
+                                "color": "$0_color_format",
+                                "layer": 1
+                            }
+                        },
+                        {
+                            "icon": {
+                                "type": "image",
+                                "size": [ "9.8px", "9.8px" ],
+                                "texture": "$icon_texture",
+                                "layer": 2
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "padding1": {
+                    "type": "panel",
+                    "size": [ 2, "100%" ]
+                }
+            },
+            {
+                "label_panel": {
+                    "type": "panel",
+                    "size": [ "100%c", "11px" ],
+                    "controls": [
+                        {
+                            "title": {
+                                "type": "label",
+                                "layer": 2,
+                                "color": "$title_text_color",
+                                "text": "$title_text"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    
+    //---------------------------------------------------------------------------------------------------------
+    //
+    //  更新資訊介面
+    //
+    //---------------------------------------------------------------------------------------------------------
+    
+    "flat_screen": {
+        "type": "panel",
+        "size": [ "100%", "100%" ],
+        
+        "$screen_title_offset|default": "$screen_title_offset",
+        "$title_text|default": "large_title.title",
+        "$binding_screen_title|default": "",
+        
+        "$screen_subtitle_offset|default": "$screen_subtitle_offset",
+        "$subtitle_text|default": "large_title.title",
+        "$binding_screen_subtitle|default": "",
+        
+        "$content_panel|default": "$content_panel",
+        
+        "controls": [
+            {
+                "screen": {
+                    "type": "stack_panel",
+                    "orientation": "vertical",
+                    "size": [ "100%", "100%" ],
+                    "controls": [
+                        {
+                            "top_panel": {
+                                "type": "panel",
+                                "size": [ "100%", "40px"],
+                                "controls": [
+                                    {
+                                        "top_bg": {
+                                            "type": "image",
+                                            "alpha": 0.8,
+                                            "size": [ "100%", "100%" ],
+                                            "color": [ 0.0, 0.0, 0.0 ],
+                                            "texture": "textures/ui/bg"
+                                        }
+                                    },
+                                    {
+                                        "screen_title": {
+                                            "type": "label",
+                                            "layer": 2,
+                                            "offset": "$screen_title_offset",
+                                            "anchor_from": "center",
+                                            "anchor_to": "center",
+                                            "text": "$title_text",
+                                            "size": [ "default", "default" ],
+                                            "max_size": "$screen_max_size",
+                                            "shadow": false,
+                                            "font_size": "large",
+                                            "bindings": [
+                                                {
+                                                    "binding_name": "$binding_screen_title"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "screen_subtitle": {
+                                            "type": "label",
+                                            "layer": 2,
+                                            "offset": "$screen_subtitle_offset",
+                                            "anchor_from": "center",
+                                            "anchor_to": "center",
+                                            "text": "$subtitle_text",
+                                            "size": [ "default", "default" ],
+                                            "max_size": "$screen_max_size",
+                                            "shadow": false,
+                                            "bindings": [
+                                                {
+                                                    "binding_name": "$binding_screen_subtitle"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "content_panel": {
+                                "type": "panel",
+                                "size": [ "100%", "100% - 80px"],
+                                "controls": [
+                                    {
+                                        "bg": {
+                                            "type": "image",
+                                            "alpha": 0.7,
+                                            "size": [ "100%", "100%" ],
+                                            "color": "$content_color",
+                                            "texture": "textures/ui/bg"
+                                        }
+                                    },
+                                    {
+                                        "content@$content_panel": {
+                                            "type": "panel",
+                                            "size": [ "300px", "100%" ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "bottom_panel": {
+                                "type": "panel",
+                                "size": [ "100%", "40px"],
+                                "controls": [
+                                    {
+                                        "bottom_bg": {
+                                            "type": "image",
+                                            "alpha": 0.8,
+                                            "size": [ "100%", "100%" ],
+                                            "color": [ 0.0, 0.0, 0.0 ],
+                                            "texture": "textures/ui/bg"
+                                        }
+                                    },
+                                    {
+                                        "continue_button@common_buttons.light_text_button": {
+                                            "size": [ "150px", "30px"],
+                                            "$button_text": "xbox.signin.letsPlay", //progressScreen.message.letsGo
+                                            "$pressed_button_name": "button.menu_exit"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    
+    //---------------------------------------------------------------------------------------------------------
+    //
+    //  商店介面
+    //
+    //---------------------------------------------------------------------------------------------------------
+    
+    "store_back_icon": {
+        "type": "image",
+        "texture": "textures/ui/store/back_icon",
+        "layer": 3,
+        "size": [ 14, 11 ]
+    },
+    
+    "store_back_button@common_buttons.light_glyph_button": {
+        "$pressed_button_name": "button.menu_exit",
+        "size": [ 19, 19 ],
+        "$button_content": "ui.store_back_icon",
+        "$pressed_alpha": 0.65
+    },
+    
+    "back_button@buttons_ui.no_background_content_button": {
+        "$button_text": "$back_button_text",
+        
+        "$default_text_color": "$light_button_hover_text_color",
+        
+        "$button_content": "common.back_button_content",
+        "$button_type_panel": "common_buttons.form_fitting_button_content_panel",
+        "$button_text_binding_type|default": "none",
+        "$button_binding_condition|default": "none",
+        "$button_text_grid_collection_name|default": "",
+        "bindings": [
+            {
+                "binding_name": "(not #gamepad_helper_visible)",
+                "binding_name_override": "#visible"
+            }
+        ],
+        "button_mappings": [
+            {
+                "from_button_id": "button.menu_select",
+                "to_button_id": "button.menu_exit",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_ok",
+                "to_button_id": "button.menu_exit",
+                "mapping_type": "focused"
+            }
+        ]
+    },
+    
+    "back_content_panel": {
+        "type": "panel",
+        "$back_button_text|default": "gui.back",
+        "size": [ "100%c", "100%c" ],
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "controls": [
+            {
+                "back_button@ui.back_button": {
+                    "$button_text": "$back_button_text",
+                    "layer": 200 //This should always be on top, let's ensure that
+                }
+            }
+        ]
+    },
+    
+    "search_button_content": {
+        "type": "stack_panel",
+        "orientation": "horizontal",
+        "size": [ "100%c", 16 ],
+        "offset": [ 0, 2 ],
+        "controls": [
+            {
+                "padding1": {
+                    "type": "panel",
+                    "size": [ 1, "100%" ]
+                }
+            },
+            {
+                "search_icon_panel": {
+                    "type": "panel",
+                    "size": [ "100%c", "100%" ],
+                    "controls": [
+                        {
+                            "search_icon": {
+                                "type": "image",
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "size": [ 10, 10 ],
+                                "texture": "textures/ui/search_icon",
+                                "offset": [ 0, -2 ],
+                                "color": "$text_color"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "padding2": {
+                    "type": "panel",
+                    "size": [ 2, "100%" ]
+                }
+            },
+            {
+                "label_panel": {
+                    "type": "panel",
+                    "size": [ "100%c", "100%c" ],
+                    "controls": [
+                        {
+                            "label@common_buttons.new_ui_binding_button_label": {
+                                "offset": [ 0, -2 ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    
+    "search_button@buttons_ui.no_background_content_button": {
+        "$button_text": "store.search.title",
+        
+        "$default_text_color": "$light_button_hover_text_color",
+        
+        "$button_content": "ui.search_button_content",
+        "$button_type_panel": "common_buttons.form_fitting_button_content_panel",
+        "$button_text_binding_type|default": "none",
+        "$button_binding_condition|default": "none",
+        "$button_text_grid_collection_name|default": "",
+        "bindings": [
+            {
+                "binding_name": "(not #gamepad_helper_visible)",
+                "binding_name_override": "#visible"
+            }
+        ],
+        "button_mappings": [
+            {
+                "from_button_id": "button.menu_select",
+                "to_button_id": "button.search",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_ok",
+                "to_button_id": "button.search",
+                "mapping_type": "focused"
+            }
+        ]
+    },
+    
+    "store_title_panel": {
+        "type": "panel",
+        "size": [ "100%", "100%" ],
+        "$font_scale_factor": 1.5,
+        "$font_size": [ "default", 13.5 ],
+        "controls": [
+            {
+                "title": {
+                    "type": "label",
+                    "anchor_from": "left_middle",
+                    "anchor_to": "left_middle",
+                    "font_scale_factor": "$font_scale_factor",
+                    "text": "$store_title",
+                    "size": "$font_size"
+                }
+            },
+            {
+                "search_button@ui.search_button": {
+                    "anchor_from": "right_middle",
+                    "anchor_to": "right_middle"
+                }
+            }
+        ]
+    },
+    
+    "store_product_page": {
+        "type": "panel",
+        "size": [ "100%", "100%" ],
+        "$title_text|default": "",
+        "$hide_status_with_coins|default": false,
+        "$content_panel|default": "$content_panel",
+        "controls": [
+            {
+                "button_bg": {
+                    "type": "custom",
+                    "renderer": "gradient_renderer",
+                    "color1": [ 0.8, 0.8, 0.8, 1 ],
+                    "color2": [ 0.6, 0.6, 0.6, 1 ],
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "size": [ "100%", "16px" ]
+                }
+            },
+            {
+                "content@$content_panel": {
+                    "type": "panel",
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "size": [ "100%", "16px" ],
+                    "layer": 20001,
+                    "controls": [
+                        {
+                            "store_back_button@ui.back_content_panel": {
+                            }
+                        },
+                        {
+                            "section_title_label": {
+                                "type": "label",
+                                "anchor_from": "center",
+                                "anchor_to": "center",
+                                "text": "$title_text"
+                            }
+                        },
+                        {
+                            "title@common_store.status_with_coins": {
+                                "anchor_from": "top_right",
+                                "anchor_to": "top_right"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "content@$content_panel": {
+                    "type": "panel",
+                    "layer": 1,
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "size": [ "100%", "100%" ]
+                }
+            }
+        ]
+    },
+    
+    "bgback": {
+        "type": "input_panel",
+        "layer": 0,
+        "size": [ "100%", "100%" ],
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "button_mappings": [
+            {
+                "from_button_id": "button.menu_select",
+                "to_button_id": "button.menu_exit",
+                "mapping_type": "pressed"
+            }
+        ]
+    },
+    
+    //---------------------------------------------------------------------------------------------------------
+    //
+    //  Dock
+    //
+    //---------------------------------------------------------------------------------------------------------
+    
+    "dock_exit_animation_push_offset": {
+        "anim_type": "offset",
+        "easing": "out_cubic",
+        "duration": 0.5,
+        "from": [ 0, 17 ],
+        "to": [ 0, 55 ],
+        "play_event": "screen.exit_push",
+        "end_event": "screen.exit_end"
+    },
+    
+    "dock_exit_animation_pop_offset": {
+        "anim_type": "offset",
+        "easing": "out_cubic",
+        "duration": 0.5,
+        "from": [ 0, 17 ],
+        "to": [ 0, 55 ],
+        "play_event": "screen.exit_pop",
+        "end_event": "screen.exit_end"
+    },
+    
+    "dock_entrance_animation_push_offset": {
+        "anim_type": "offset",
+        "easing": "out_cubic",
+        "duration": 0.5,
+        "from": [ 0, 55 ],
+        "to": [ 0, 17 ],
+        "play_event": "screen.entrance_push",
+        "end_event": "screen.entrance_end"
+    },
+    
+    "dock_entrance_animation_pop_offset": {
+        "anim_type": "offset",
+        "easing": "out_cubic",
+        "duration": 0.5,
+        "from": [ 0, 55 ],
+        "to": [ 0, 17 ],
+        "play_event": "screen.entrance_pop",
+        "end_event": "screen.entrance_end"
+    },
+    
+    "dock_background": {
+        "type": "image",
+        "alpha": 0.9,
+        "texture": "textures/ui/dock_background"
+    },
+    
+    "dock_bar": {
+        "type": "panel",
+        
+        "anchor_from": "bottom_middle",
+        "anchor_to": "bottom_middle",
+        "layer": 100,
+        
+        "$button_1|default": "dock_bar.settings_button",
+        "$hide_spacer_1|default": false,
+        "$button_2|default": "dock_bar.skins_button",
+        "$hide_spacer_2|default": false,
+        "$button_3|default": "dock_bar.play_button",
+        "$hide_spacer_3|default": false,
+        "$button_4|default": "dock_bar.achievements_button",
+        "$hide_spacer_4|default": false,
+        "$button_5|default": "dock_bar.store_button",
+        "$hide_spacer_5|default": true,
+        "$button_6|default": "dock_bar.no_button",
+        "$hide_spacer_6|default": true,
+        "$button_7|default": "dock_bar.no_button",
+        "$hide_spacer_7|default": true,
+        "$button_8|default": "dock_bar.no_button",
+        "$hide_spacer_8|default": true,
+        "$button_9|default": "dock_bar.no_button",
+        
+        "size": [ "100%c", "100%" ],
+        
+        "animation_reset_name": "screen_animation_reset",
+        "anims": [
+            "@ui.dock_exit_animation_push_offset",
+            "@ui.dock_exit_animation_pop_offset",
+            "@ui.dock_entrance_animation_push_offset",
+            "@ui.dock_entrance_animation_pop_offset"
+        ],
+        "controls": [
+            {
+                "dock_background@dock_background": {
+                    "size": [ "100%c", "100%" ],
+                    "controls": [
+                        {
+                            "stacked_row": {
+                                "type": "stack_panel",
+                                "size": [ "100%c", 25 ],
+                                "offset": [ 0, 6 ],
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "orientation": "horizontal",
+                                "controls": [
+                                    {
+                                        "action_button_spacer_0": {
+                                            "type": "panel",
+                                            "size": [ 6, 0 ]
+                                        }
+                                    },
+                                    {
+                                        "button_1@$button_1": {
+                                        }
+                                    },
+                                    {
+                                        "action_button_spacer_1": {
+                                            "type": "panel",
+                                            "ignored": "$hide_spacer_1",
+                                            "size": [ 4, 0 ]
+                                        }
+                                    },
+                                    {
+                                        "button_2@$button_2": {
+                                        }
+                                    },
+                                    {
+                                        "action_button_spacer_2": {
+                                            "type": "panel",
+                                            "ignored": "$hide_spacer_2",
+                                            "size": [ 4, 0 ]
+                                        }
+                                    },
+                                    {
+                                        "button_3@$button_3": {
+                                        }
+                                    },
+                                    {
+                                        "action_button_spacer_3": {
+                                            "type": "panel",
+                                            "ignored": "$hide_spacer_3",
+                                            "size": [ 4, 0 ]
+                                        }
+                                    },
+                                    {
+                                        "button_4@$button_4": {
+                                        }
+                                    },
+                                    {
+                                        "action_button_spacer_4": {
+                                            "type": "panel",
+                                            "ignored": "$hide_spacer_4",
+                                            "size": [ 4, 0 ]
+                                        }
+                                    },
+                                    {
+                                        "button_5@$button_5": {
+                                        }
+                                    }/*,
+                                    {
+                                        "action_button_spacer_5": {
+                                            "type": "panel",
+                                            "ignored": "$hide_spacer_5",
+                                            "size": [ 4, 0 ]
+                                        }
+                                    },
+                                    {
+                                        "button_6@$button_6": {
+                                        }
+                                    },
+                                    {
+                                        "action_button_spacer_6": {
+                                            "type": "panel",
+                                            "ignored": "$hide_spacer_6",
+                                            "size": [ 4, 0 ]
+                                        }
+                                    },
+                                    {
+                                        "button_7@$button_7": {
+                                        }
+                                    },
+                                    {
+                                        "action_button_spacer_7": {
+                                            "type": "panel",
+                                            "ignored": "$hide_spacer_7",
+                                            "size": [ 4, 0 ]
+                                        }
+                                    },
+                                    {
+                                        "button_8@$button_8": {
+                                        }
+                                    },
+                                    {
+                                        "action_button_spacer_8": {
+                                            "type": "panel",
+                                            "ignored": "$hide_spacer_8",
+                                            "size": [ 4, 0 ]
+                                        }
+                                    },
+                                    {
+                                        "button_9@$button_9": {
+                                        }
+                                    }*/,
+                                    {
+                                        "action_button_spacer_9": {
+                                            "type": "panel",
+                                            "size": [ 6, 0 ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
+

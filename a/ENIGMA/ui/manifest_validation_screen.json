@@ -1,0 +1,528 @@
+/*
+ * @Designed: By UIPack Team
+ * @Date: 2018-12-08 23:27:27
+ */
+{
+  "namespace": "manifest_validation",
+
+  "error_pack_header_layout": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%c" ],
+    "controls": [
+	  {
+        "padding_0": {
+          "type": "panel",
+          "size": [ "100%", 10 ]
+        }
+      },
+	  {
+        "icon_panel": {
+          "type": "panel",
+          "size": [ "100%", "100%c" ],
+          "controls": [
+            {
+              "icon_background@manifest_validation.black_background_fill": {
+                "layer": 1,
+                "size": [ 46, 46 ],
+                "controls": [
+                  {
+                    "icon@manifest_validation.icon_image": {
+                      "layer": 1,
+                      "size": [ 44, 44 ]
+                    }
+                  }
+                ]
+              }
+			}
+		  ]
+		}
+	  },
+	  {
+        "padding_1": {
+          "type": "panel",
+          "size": [ "100%", 5 ]
+        }
+      },
+	  {
+        "pack_name_panel": {
+          "type": "panel",
+          "size": [ "100%", "100%c" ],
+          "controls": [
+            {
+			  "pack_name": {
+                "type": "label",
+                "color": "$main_header_text_color",
+                "size": [ "default", "default" ],
+				"max_size": [ "100% - 2px", "30px" ],
+                "layer": 1,
+                "text": "#pack_header_title",
+                "bindings": [
+                  {
+                    "binding_name": "#pack_header_title",
+                    "binding_condition": "visible"
+                  }
+                ]
+              }
+			}
+		  ]
+		}
+	  },
+	  {
+        "pack_type_panel": {
+          "type": "panel",
+          "size": [ "100%", "100%c" ],
+          "controls": [
+            {
+			  "pack_type": {
+                "type": "label",
+                "color": "$main_header_text_color",
+                "size": [ "default", "default" ],
+                "layer": 1,
+				"font_type": "smooth",
+                "text": "#pack_type_label",
+                "bindings": [
+                  {
+                    "binding_name": "#pack_type_label",
+                    "binding_condition": "visible"
+                  }
+                ]
+              }
+			}
+		  ]
+		}
+	  },
+	  {
+        "padding_3": {
+          "type": "panel",
+          "size": [ "100%", 10 ]
+        }
+      }
+	]
+  },
+  
+  "error_pack_secondary_layout": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%c" ],
+    "controls": [
+	  {
+	    "pack_description@manifest_validation.background_indent": {
+          "size": [ "100%", "100%c + 8px" ],
+          "controls": [
+		    {
+              "control_panel": {
+                "layer": 1,
+                "type": "panel",
+                "size": [ "100% - 8px", "100%c + 7px" ],
+                "controls": [
+		          {
+                    "pack_description@manifest_validation.text_label": {
+                      "layer": 1,
+                      "size": [ "100%", "default" ],
+                      "$text_label": "#pack_header_description"
+                    }
+                  }
+				]
+			  }
+			}
+		  ]
+		}
+	  },
+	  {
+        "padding_0": {
+          "type": "panel",
+          "size": [ "100%", 10 ]
+        }
+      },
+	  {
+        "pack_info@manifest_validation.text_label": {
+          "layer": 1,
+          "size": [ "100%", "default" ],
+          "$text_label": "manifestvalidation.info_title"
+        }
+      },
+	  {
+        "padding_1": {
+          "type": "panel",
+          "size": [ "100%", 2 ]
+        }
+      },
+	  {
+	    "pack_id_panel@manifest_validation.background_indent": {
+          "size": [ "100%", "100%c + 8px" ],
+          "controls": [
+		    {
+              "control_panel": {
+                "layer": 1,
+                "type": "panel",
+                "size": [ "100% - 8px", "100%c + 7px" ],
+                "controls": [
+		          {
+                    "pack_id@manifest_validation.text_label": {
+                      "layer": 1,
+                      "size": [ "100%", "default" ],
+                      "$text_label": "#pack_id"
+                    }
+                  }
+				]
+			  }
+			}
+		  ]
+		}
+	  },
+	  {
+	    "pack_version_panel@manifest_validation.background_indent_no_top": {
+          "size": [ "100%", "100%c + 8px" ],
+          "controls": [
+		    {
+              "control_panel": {
+                "layer": 1,
+                "type": "panel",
+                "size": [ "100% - 8px", "100%c + 7px" ],
+                "controls": [
+		          {
+                    "pack_version@manifest_validation.text_label": {
+                      "layer": 1,
+                      "size": [ "100%", "default" ],
+                      "$text_label": "#pack_version"
+                    }
+                  }
+				]
+			  }
+			}
+		  ]
+		}
+	  },
+	  {
+	    "pack_path_panel@manifest_validation.background_indent_no_top": {
+          "size": [ "100%", "100%c + 8px" ],
+          "controls": [
+		    {
+              "control_panel": {
+                "layer": 1,
+                "type": "panel",
+                "size": [ "100% - 8px", "100%c + 7px" ],
+                "controls": [
+		          {
+                    "pack_path@manifest_validation.text_label": {
+                      "layer": 1,
+                      "size": [ "100%", "default" ],
+                      "$text_label": "#pack_path"
+                    }
+                  }
+				]
+			  }
+			}
+		  ]
+		}
+	  }
+	]
+  },
+  
+  "error_pack_content_layout": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%c" ],
+    "controls": [
+      {
+        "padding_0": {
+          "type": "panel",
+          "size": [ "100%", 10 ]
+        }
+      },
+	  {
+        "pack_debug@manifest_validation.text_label": {
+          "layer": 1,
+          "size": [ "100%", "default" ],
+          "$text_label": "manifestvalidation.debug_title"
+        }
+      },
+	  {
+        "padding_1": {
+          "type": "panel",
+          "size": [ "100%", 2 ]
+        }
+      },
+	  {
+	    "pack_debug_panel@manifest_validation.background_indent": {
+          "size": [ "100%", "100%c + 8px" ],
+          "controls": [
+		    {
+              "control_panel": {
+                "layer": 1,
+                "type": "panel",
+                "size": [ "100% - 8px", "100%c + 7px" ],
+                "controls": [
+		          {
+                    "pack_debug@manifest_validation.text_label": {
+                      "layer": 1,
+                      "size": [ "100%", "default" ],
+                      "$text_label": "#error_content_label"
+                    }
+                  }
+				]
+			  }
+			}
+		  ]
+		}
+	  }
+    ]
+  },
+  
+  //---------------------------------------------------------------------------
+  // BUTTONS
+  //---------------------------------------------------------------------------
+
+  "button_content": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": [ "100% - 10px", "100% - 4px" ],
+    "controls": [
+      {
+        "icon": {
+          "type": "image",
+		  "size": [ "15px", "100%" ],
+          "texture": "$icon_texture"
+        }
+      },
+	  {
+        "padding_1": {
+          "type": "panel",
+          "size": [ 5, "100%" ]
+        }
+      },
+	  {
+        "text_panel": {
+          "type": "panel",
+          "size": [ "fill", "100%" ],
+          "controls": [
+	        {
+              "text_label": {
+                "type": "label",
+				"color": "$text_color",
+                "size": [ "100%", "10px" ],
+                "text": "$text_label"
+              }
+            }
+		  ]
+		}
+	  }
+    ]
+  },
+  
+  "button_content_with_progress_loading_bars": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "controls": [
+	  {
+        "button_content@manifest_validation.button_content": {
+          "bindings": [
+            {
+              "binding_name": "$binding_name_1",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "progress_loading_bars@manifest_validation.progress_loading_bars": {
+          "size": [ 50, 25 ],
+		  "offset": [ 0, 0 ],
+		  "bindings": [
+            {
+              "binding_name": "$binding_name_2",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  
+  "delete_button@common_buttons.light_content_button": {
+    "size": [ "100%", 30 ],
+	"$hover_button_texture": "textures/ui/button_red",
+    "$pressed_button_texture": "textures/ui/button_red_pressed",
+    "$pressed_button_name": "button.delete_manifest",
+    "$button_content": "manifest_validation.button_content_with_progress_loading_bars",
+	"$binding_name_1": "(not #is_deleting)",
+	"$binding_name_2": "#is_deleting",
+	"$icon_texture": "textures/ui/trash_default",
+	"$text_label": "manifestvalidation.delete",
+    "bindings": [
+      {
+        "binding_name": "(not #is_working)",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  "clipboard_button@common_buttons.light_content_button": {
+    "size": [ "100%", 30 ],
+    "$pressed_button_name": "button.copy_to_clipboard",
+    "$button_content": "manifest_validation.button_content",
+	"$icon_texture": "textures/ui/copy",
+	"$text_label": "realmsInvitationScreen.shareDialogCopyButton",
+    "bindings": [
+      {
+        "binding_name": "(not #is_working)",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  "refresh_button@common_buttons.light_content_button": {
+    "size": [ "100%", 30 ],
+    "$pressed_button_name": "button.refresh_manifest",
+    "$button_content": "manifest_validation.button_content_with_progress_loading_bars",
+	"$binding_name_1": "#is_done_validating",
+	"$binding_name_2": "(not #is_done_validating)",
+	"$icon_texture": "textures/ui/refresh",
+	"$text_label": "controls.reset",
+    "bindings": [
+      {
+        "binding_name": "(not #is_working)",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+  
+  "error_pack_button_layout": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%c" ],
+    "controls": [
+      {
+        "padding_0": {
+          "type": "panel",
+          "size": [ "100%", 10 ]
+        }
+      },
+	  {
+        "clipboard_button@manifest_validation.clipboard_button": {
+		
+        }
+      },
+	  {
+        "padding_1": {
+          "type": "panel",
+          "size": [ "100%", -1 ]
+        }
+      },
+	  {
+        "refresh_button@manifest_validation.refresh_button": {
+		
+        }
+      },
+	  {
+        "padding_2": {
+          "type": "panel",
+          "size": [ "100%", -1 ]
+        }
+      },
+	  {
+        "delete_button@manifest_validation.delete_button": {
+          
+        }
+      }
+	]
+  },
+  
+  //---------------------------------------------------------------------------
+  // PACK ERROR ITEM
+  //---------------------------------------------------------------------------
+
+  "pack_error_item": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%c" ],
+    "controls": [
+      {
+        "header@manifest_validation.error_pack_header_layout": {
+
+        }
+      },
+      {
+        "secondary@manifest_validation.error_pack_secondary_layout": {
+
+        }
+      },
+      {
+        "error@manifest_validation.error_pack_content_layout": {
+
+        }
+      },
+      {
+        "button@manifest_validation.error_pack_button_layout": {
+
+        }
+      }
+    ]
+  },
+  
+  //---------------------------------------------------------------------------
+  // PACK ERROR GROUP
+  //---------------------------------------------------------------------------
+
+  "pack_error_group": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "size": [ "100%", "100%c" ],
+    "controls": [
+      {
+        "padding_0": {
+          "type": "panel",
+          "size": [ "100%", 2 ]
+        }
+      },
+	  {
+        "errors@manifest_validation.pack_error_item": {
+
+        }
+      },
+      {
+        "padding_1": {
+          "type": "panel",
+          "size": [ "100%", 2 ]
+        }
+      }
+    ]
+  },
+  
+  //---------------------------------------------------------------------------
+  // SCROLL REGION
+  //---------------------------------------------------------------------------
+  
+  "common_scrolling_panel@common.scrolling_panel": {
+    "layer": 1,
+    "$scrolling_pane_size": [ "100% - 1px", "100%" ],
+    "$scrolling_content": "$scrolling_content",
+	"$scroll_bar_left_padding_size": [ 1, 0 ],
+    "$scroll_size": [ 5, "100% - 4px" ],
+    "$show_background": false,
+    "anchor_from": "top_right",
+    "anchor_to": "top_right"
+  },
+  
+  "scrolling_offsets@manifest_validation.common_scrolling_panel": {
+    "size": [ "100%", "100%" ],
+    "offset": [ 0, 0 ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left"
+  },
+  
+  //---------------------------------------------------------------------------
+  // SCREEN
+  //---------------------------------------------------------------------------
+
+  "manifest_validation_screen_content": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "background@ui.uikit_screen": {
+		  "$screen_type": "ui.include_title_screen",
+		"$desktop_screen_size": [ 282, "100% - 50px" ],
+          "$title": "manifestvalidation.title",
+          "$screen_content": "manifest_validation.manifest_validation_scroll_content"
+        }
+      }
+    ]
+  }
+}
