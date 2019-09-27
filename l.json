@@ -1,0 +1,14 @@
+{
+"watchos" : {
+"version" :"6 ",
+"summary" : "WatchOS 6.1 Developer Beta 1",},
+
+"tvos" :{
+"version" :"13",
+"summary" :"TvOS 13 Developer Beta 11"},
+
+"ios" :{
+"version" :"13",
+"summary" :"iOS 13 Developer Beta 4 ",
+}	
+}
